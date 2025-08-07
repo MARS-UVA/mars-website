@@ -1,0 +1,133 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Main from "../../components/Main.astro";
+import Meta from "../../components/Meta.astro";
+import { getCollection, getEntry } from "astro:content";
+import { render } from "astro:content";
+
+export function getStaticPaths(): Promise<{ params: { path: string } }[]> {
+    const blogPosts = getCollection("blog");
+
+    return blogPosts.then((posts) =>
+        posts.map((post) => ({
+            params: { path: post.data.slug },
+            props: {
+                frontmatter: post.data,
+                entry: post,
+            },
+        })),
+    );
+}
+
+const { frontmatter, entry } = Astro.props;
+const { title, author, date, background, blurb } = frontmatter;
+
+const { Content, headings } = await render(entry);
+---
+
+<Layout solidNav={true} title={title} background={background}>
+    <Main>
+        <article>
+            <div class="header">
+                <h1>{title}</h1>
+                <br />
+                <Meta
+                    author={author}
+                    date={date}
+                    fontSize="1.25rem"
+                    imgSize="60px"
+                />
+                {blurb && <div class="blurb">{blurb}</div>}
+            </div>
+            <div class="content">
+                <Content />
+            </div>
+        </article>
+    </Main>
+</Layout>
+
+<style>
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+    }
+
+    .blurb {
+        font-size: 1.25rem;
+        margin-top: 20px;
+        text-align: center;
+    }
+</style>
+<style is:global>
+    article {
+        padding: 40px;
+    }
+
+    .content {
+        flex: 2;
+        color: black;
+    }
+
+    .content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        /* text-align: center; */
+    }
+
+    .content p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+
+    .content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .content ul li {
+        margin: 10px 0;
+        font-size: 1.1rem;
+        position: relative;
+        padding-left: 2em;
+    }
+
+    .content ul li::before {
+        content: "\25E6";
+        position: absolute;
+        left: 0;
+        top: -25px;
+        font-size: 3em;
+        color: navy;
+    }
+
+    .content .sublist {
+        margin-left: 50px;
+    }
+
+    .content .sublist li::before {
+        content: "\25E6";
+        position: absolute;
+        left: 0;
+        top: -25px;
+        font-size: 3em;
+        color: navy;
+    }
+
+    .content img {
+        max-width: 100%;
+        height: auto;
+        margin: 20px 0;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>

@@ -1,0 +1,69 @@
+---
+import Meta from "./Meta.astro";
+
+const { frontmatter } = Astro.props;
+const { title, author, date, description, thumbnail, slug } = frontmatter;
+---
+
+<a href={`/blog/${slug}`} class="blog-tile">
+    <section>
+        <img src={thumbnail} alt={title} class="main-pic" />
+        <div class="info">
+            <h2 class="title">{title}</h2>
+            <Meta author={author} date={date} />
+            <p class="description">
+                {description}
+            </p>
+        </div>
+    </section>
+</a>
+
+<style>
+    .blog-tile {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    section {
+        text-align: left;
+        display: flex;
+        align-items: stretch;
+        margin: 20px;
+        gap: 20px;
+        border-width: 2px;
+        border-style: solid;
+        transition: transform 0.3s ease;
+        background-color: #fff;
+        border-radius: 60px;
+    }
+
+    section:hover {
+        transform: scale(1.05);
+        background-color: #eee;
+    }
+
+    section .main-pic {
+        /* flex: 1; */
+        width: 50%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border-radius: 60px 0px 0px 60px;
+    }
+
+    section .info {
+        /* flex: 1; */
+        width: 50%;
+        padding-right: 20px;
+        height: 100%;
+    }
+
+    section .info h2 {
+        font-size: 2rem;
+    }
+
+    section p {
+        font-size: initial;
+        line-height: initial;
+    }
+</style>

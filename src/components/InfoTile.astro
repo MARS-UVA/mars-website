@@ -1,0 +1,38 @@
+---
+const { title, icon } = Astro.props;
+---
+
+<div class="info-tile">
+    <h3>{title}</h3>
+    <div class="icon">{icon}</div>
+    <p><slot /></p>
+</div>
+
+<style>
+    .info-tile {
+        width: 100%;
+        background-color: #b5beea22;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        border-color: #222b48;
+        border-width: 4px;
+        padding: 10px 30px;
+        border-radius: 60px;
+    }
+</style>
+<style is:global>
+    .info-tile h3 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .info-tile p {
+        text-align: start;
+        line-height: normal;
+    }
+
+    .info-tile .icon {
+        font-size: 7rem;
+        margin-top: -20px;
+        text-align: center;
+    }
+</style>

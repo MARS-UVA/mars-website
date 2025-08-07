@@ -1,0 +1,47 @@
+---
+import marsLogo from "../assets/images/MARSLogo.png"; // Adjust the path as necessary
+import GlobalStyles from "../components/GlobalStyles.astro";
+
+const { title, background } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="MARS at UVA: The Mechatronics and Robotics Society. UVA's NASA Lunabotics team, building lunar robots, promoting STEM, and fostering engineering leaders."
+		/>
+		<meta
+			name="keywords"
+			content="MARS, UVA, Mechatronics, Robotics, NASA Lunabotics, Engineering, STEM, University of Virginia, Moon robot, Student organization, Outreach"
+		/>
+		<meta
+			name="author"
+			content="Mechatronics and Robotics Society (MARS) at UVA"
+		/>
+		<meta
+			property="og:title"
+			content="MARS at UVA - Mechatronics and Robotics Society"
+		/>
+		<meta
+			property="og:description"
+			content="UVA's NASA Lunabotics team. Building lunar robots, promoting STEM, and fostering engineering leaders."
+		/>
+		<meta
+			property="og:image"
+			content={marsLogo.src}
+		/>
+		<meta property="og:url" content="https://marsatuva.org/" />
+		<meta property="og:type" content="website" />
+		<title>{title ? `${title} | ` : ""} MARS at UVA</title>
+		<link rel="icon" href={marsLogo.src} type="image/png" />
+	</head>
+	<body style={{ background: background || "#eee" }}>
+		<GlobalStyles />
+		<slot />
+	</body>
+</html>

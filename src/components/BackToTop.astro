@@ -1,0 +1,48 @@
+<button id="backToTop" onclick="scrollToTop()"> &#x1F446; </button>
+
+<script>
+    function toggleBackToTopButton() {
+        const backToTopButton = document.getElementById("backToTop");
+
+        if (!backToTopButton) return;
+
+        if (
+            document.body.scrollTop > 200 ||
+            document.documentElement.scrollTop > 200
+        ) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document
+        .getElementById("backToTop")
+        ?.addEventListener("click", scrollToTop);
+    document.addEventListener("scroll", toggleBackToTopButton);
+</script>
+
+<style>
+    #backToTop {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #4a89ff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 30px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #backToTop:hover {
+        background: #0056b3;
+    }
+</style>

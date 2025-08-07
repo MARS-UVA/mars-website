@@ -1,0 +1,22 @@
+---
+const { subteam } = Astro.props;
+---
+
+<a
+    href={`#${subteam.id}`}
+    class="subteam-button"
+    style={`background-color: ${subteam.color};`}
+>
+    {subteam.name}
+</a>
+
+<style>
+    .subteam-button {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 30px;
+        color: white;
+        text-decoration: none;
+        font-size: 1.75rem;
+    }
+</style>

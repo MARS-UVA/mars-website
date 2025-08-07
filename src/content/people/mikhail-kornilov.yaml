@@ -1,0 +1,9 @@
+name: Mikhail Kornilov
+professionalPicture: /images/people/formal/Mikhail Kornilov.jpg
+profilePicture: /images/people/Mikhail Kornilov.jpg
+roles:
+- name: Computer Lead
+  subteam: computer
+subteams:
+- exec
+- computer

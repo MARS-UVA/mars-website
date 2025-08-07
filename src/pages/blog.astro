@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Main from "../components/Main.astro";
+import InfoSection from "../components/InfoSection.astro";
+import BlogTile from "../components/BlogTile.astro";
+import { getCollection } from "astro:content";
+
+const blogPosts = await getCollection("blog");
+const publishedPosts = blogPosts.filter((post) => !post.data.draft);
+
+const sortedPosts = publishedPosts.sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+);
+---
+
+<Layout solidNav={true} title="Blog">
+    <Main>
+        <InfoSection center={true}>
+            <h2>Blog</h2>
+            <br />
+            {sortedPosts.map((post) => <BlogTile frontmatter={post.data} />)}
+        </InfoSection>
+    </Main>
+</Layout>

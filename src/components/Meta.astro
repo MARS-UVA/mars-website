@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+
+const { author, date, fontSize, imgSize } = Astro.props;
+
+const peopleCollection = await getCollection("people");
+const authorInfo = peopleCollection.find(
+    (member: { data: { name: string; profilePicture?: string } }) =>
+        member.data.name === author,
+);
+
+const authorPicture =
+    authorInfo?.data.profilePicture || "/images/default-profile.png";
+
+const authorName = authorInfo?.data.name || "Unknown Author";
+
+const dateFormatted = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+}).format(new Date(date));
+---
+
+<div class="meta">
+    <img
+        src={authorPicture}
+        alt={authorName}
+        style={{ height: imgSize ?? "35px", width: imgSize ?? "35px" }}
+    />
+    <div class="stack" style={{ fontSize: fontSize ?? "initial" }}>
+        <p class="author">{authorName}</p>
+        <p class="date">{dateFormatted}</p>
+    </div>
+</div>
+
+<style>
+    .meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: -10px;
+    }
+
+    .meta .stack {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .meta .stack p {
+        margin: 0;
+        font-weight: 300;
+        line-height: initial;
+        font-size: inherit;
+    }
+
+    .meta img {
+        object-fit: cover;
+        border-radius: 50%;
+    }
+</style>

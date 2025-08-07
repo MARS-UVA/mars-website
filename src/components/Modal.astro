@@ -1,0 +1,108 @@
+---
+const { addCloseButton, id, buttonContent, buttonAttributes } = Astro.props;
+---
+
+<span class="open-modal" data-id={id} {...buttonAttributes}>
+    {buttonContent || "Open Modal"}
+</span>
+<div class="overlay hidden" id={id}>
+    <div class="modal">
+        <slot />
+        {
+            addCloseButton ? (
+                <button class="close-button" data-id={id}>
+                    Close
+                </button>
+            ) : null
+        }
+    </div>
+</div>
+
+<script>
+    function closeModal(id: string) {
+        const targetOverlay = document.getElementById(id);
+        if (targetOverlay) {
+            targetOverlay.classList.add("hidden");
+        }
+    }
+
+    function openModal(id: string) {
+        const targetOverlay = document.getElementById(id);
+        if (targetOverlay) {
+            targetOverlay.classList.remove("hidden");
+        }
+    }
+
+    const overlays = document.querySelectorAll(".overlay");
+    overlays.forEach((overlay) => {
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                closeModal(overlay.id);
+            }
+        });
+    });
+
+    const closeButtons = document.querySelectorAll(".close-button");
+    closeButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            e.stopPropagation();
+            closeModal(button.getAttribute("data-id") || "");
+        });
+    });
+
+    const openButtons = document.querySelectorAll(".open-modal");
+    openButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            e.stopPropagation();
+            openModal(button.getAttribute("data-id") || "");
+        });
+    });
+</script>
+
+<style>
+    .overlay.hidden {
+        display: none;
+    }
+
+    .overlay {
+        z-index: 1001;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 800px;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-size: 1.2rem;
+    }
+
+    .close-button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        top: 10px;
+        right: 10px;
+        font-family: inherit;
+    }
+
+    .open-modal {
+        cursor: pointer;
+    }
+</style>

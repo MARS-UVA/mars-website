@@ -1,0 +1,103 @@
+---
+const { imageSrc, imagePosition, center, id } = Astro.props;
+---
+
+<section id={id}>
+    {
+        imagePosition === "left" ? (
+            <div class="image">
+                <img src={imageSrc} alt="About Us" />
+            </div>
+        ) : null
+    }
+    <div class={`content ${center ? "center" : ""}`}>
+        <slot />
+    </div>
+    {
+        imagePosition === "right" ? (
+            <div class="image">
+                <img src={imageSrc} />
+            </div>
+        ) : null
+    }
+</section>
+
+<style>
+    section {
+        display: flex;
+        align-items: center;
+        padding: 50px;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .image {
+        flex: 2;
+    }
+
+    img {
+        object-fit: cover;
+        height: 600px;
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .content {
+        flex: 2;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .content.center {
+        text-align: center;
+        padding: 0;
+    }
+</style>
+
+<style is:global>
+    .content h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .content p {
+        font-size: 1.2em;
+        line-height: 1.6;
+    }
+
+    .content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .content ul li {
+        margin: 10px 0;
+        font-size: 1.2em;
+        position: relative;
+        padding-left: 2em;
+    }
+
+    .content ul li::before {
+        content: "\25E6";
+        position: absolute;
+        left: 0;
+        top: -25px;
+        font-size: 3em;
+        color: navy;
+    }
+
+    .content ul ul {
+        margin-left: 50px;
+    }
+
+    .content ul ul li::before {
+        content: "\25E6";
+        position: absolute;
+        left: 0;
+        top: -25px;
+        font-size: 3em;
+        color: navy;
+    }
+</style>

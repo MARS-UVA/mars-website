@@ -1,0 +1,259 @@
+---
+title: "The Mechatronics and Ro-Brrrr-tics Society: MARS Winter & Fall Recap! ❄️"
+description: We extend an extra WARM greeting to our lovely MARS enthusiasts, followers, and first-time blog-viewers! We are very excited to be reinstituting this blog page for the upcoming semester, and hope you all choose to stay along for the MARS journey - from our progress on the lunar rover, exciting outreach events, to fun along the way.
+blurb: We extend an extra WARM greeting to our lovely MARS enthusiasts, followers, and first-time blog-viewers! We are very excited to be reinstituting this blog page for the upcoming semester, and hope you all choose to stay along for the MARS journey - from our progress on the lunar rover, exciting outreach events, to fun along the way.
+author: Taylor Levitas
+slug: 2025/winter-recap
+date: 02-01-2025
+thumbnail: /images/blog/winter-2025-thumbnail.jpg
+background: linear-gradient(180deg, rgba(255, 255, 240, 1) 0%, rgba(236, 255, 253, 1) 33%, rgba(251, 244, 255, 1) 66%, rgba(255, 236, 236, 1) 100%)
+---
+import { Image } from 'astro:assets';
+import SplitSection from '../../components/SplitSection.astro';
+import CenterRow from '../../components/CenterRow.astro';
+import busyCalendarImage from '../../assets/images/blog/winter-2025/BusyCalendar.jpg';
+import realityCheckImage from '../../assets/images/blog/winter-2025/RealityCheck.jpg';
+import bucketDrumCADImage from '../../assets/images/blog/winter-2025/BucketDrumCAD.jpg';
+import bucketDrumPrototypeImage from '../../assets/images/blog/winter-2025/BucketDrumPrototype.jpg';
+import bucketDrumSandTestingImage from '../../assets/images/blog/winter-2025/BucketDrumSandTesting.png';
+import bucketLadderCADImage from '../../assets/images/blog/winter-2025/BucketLadderCAD.png';
+import bucketLadderCADGif from '../../assets/images/blog/winter-2025/BucketLadderCAD.gif';
+import bucketLadderSpinningGif from '../../assets/images/blog/winter-2025/BucketLadderSpinning.gif';
+import frontLoaderCADImage from '../../assets/images/blog/winter-2025/FrontLoaderCAD.png';
+import frontLoaderFEAImage from '../../assets/images/blog/winter-2025/FrontLoaderFEA.png';
+import frontLoaderCAD2Image from '../../assets/images/blog/winter-2025/FrontLoaderCAD2.png';
+import project1TestingImage from '../../assets/images/blog/winter-2025/Project1Testing.jpg';
+import project1SmileyImage from '../../assets/images/blog/winter-2025/Project1Smiley.jpg';
+import project1Testing2Image from '../../assets/images/blog/winter-2025/Project1Testing2.png';
+import project2LiftImage from '../../assets/images/blog/winter-2025/Project2Lift.jpg';
+import project2ArmImage from '../../assets/images/blog/winter-2025/Project2Arm.jpg';
+import project2ArmCADImage from '../../assets/images/blog/winter-2025/Project2ArmCAD.png';
+import marsPumpkinGroupImage from '../../assets/images/blog/winter-2025/MARSPumpkinGroup.jpg';
+import nayeonPumpkinImage from '../../assets/images/blog/winter-2025/NayeonPumpkin.jpg';
+import phineasFerbPumpkinImage from '../../assets/images/blog/winter-2025/PhineasFerbPumpkin.jpg';
+import trustFundImage from '../../assets/images/blog/winter-2025/TrustFund.jpg';
+import outreach11Image from '../../assets/images/blog/winter-2025/Outreach1.1.png';
+import outreach12Image from '../../assets/images/blog/winter-2025/Outreach1.2.png';
+import outreachSweetTreatImage from '../../assets/images/blog/winter-2025/OutreachSweetTreat.jpg';
+import marsgivingImage from '../../assets/images/blog/winter-2025/MARSGiving.jpg';
+import sabrinaViewImage from '../../assets/images/blog/winter-2025/SabrinaView.jpg';
+import sabrinaWorkersImage from '../../assets/images/blog/winter-2025/SabrinaWorkers.jpg';
+import uvauncImage from '../../assets/images/blog/winter-2025/UVAvUNC1.jpg';
+import uvaunc2Image from '../../assets/images/blog/winter-2025/UVAvUNC2.jpg';
+import uvaunc3Image from '../../assets/images/blog/winter-2025/UVAvUNC3.jpg';
+import gingerbreadImage from '../../assets/images/blog/winter-2025/GingerbreadGaffe.jpg';
+
+<SplitSection>
+    <Image src={busyCalendarImage} alt="Busy Calendar" slot="left" />
+    <div slot="right">
+        ## Busy Semester
+
+        A whole semester has passed, and we have left you all in the dark! It’s been a busy one.
+
+        …Seriously busy.
+
+        By the time this blog is posted, we will have successfully completed our first ever Trade Studies. This is an internal review during which the mechanical subteam will present different quantitative and qualitative data on 3 design prospects, and further, select 1 design to continue pursuing. This year, we had such an influx of new, dedicated members with a range of skills that we saw it worthwhile to experiment with new design options; an undertaking that was not even on our radar as of last year. Ideally, by the time the Critical Design Review (CDR) comes around a couple weeks later, we will be fully done with the major components of our design, and only need to fine-tune certain smaller aspects.
+    </div>
+</SplitSection>
+
+<SplitSection>
+    <div slot="left">
+        ## Mechanical Grind Sesh
+
+        The Mechanical team is hard at work conducting a reality check on the status of the rover. This internal review helped guide our thinking, and ensure everyone was clear on which directions we would be taking.
+    </div>
+    <Image src={realityCheckImage} alt="Reality Check" slot="right" style="height: 400px; object-fit: cover;" />
+</SplitSection>
+
+
+## Robot Design Ideas
+
+This year, we had separate teams creating CADs for three potential robot designs, to give us options. This is something we did not do last year, but is a newly integrated concept this year. The three designs are described below.
+
+<SplitSection>
+    <Image src={bucketDrumCADImage} alt="Bucket Drum CAD" slot="left" />
+    <div slot="right">
+        ## Bucket Drum
+
+        The bucket drum consists of hollow cylinders with scoops evenly spaced around the perimeter. The drums rotate in the forward direction, using the scoops to collect regolith. Simultaneously, the “internal baffling system” within this design ensures regolith does not fall out of the scoops (NASA, 2022).
+
+        Between CADing, water-jetting, and metal bending, the bucket drum team worked hard to make this prototype, and their hard work certainly paid off!
+    </div>
+</SplitSection>
+
+<CenterRow>
+    <Image src={bucketDrumPrototypeImage} alt="Bucket Drum Prototype" height="500px" />
+    <Image src={bucketDrumSandTestingImage} alt="Bucket Drum Sand Testing" height="500px" />
+</CenterRow>
+
+<SplitSection>
+    <div slot="left">
+        ## Bucket Ladder
+
+        The bucket ladder involves multiple bucket attachments that rotate to excavate regolith towards the back of the robot. The regolith will be held in a polycarbonate chute while the bucket travels up the ladder, and will dump once the excavation session has concluded. It is raised and lowered by a linear actuator. This design builds upon last year’s competition robot, incorporating solutions to some challenges we identified through experimentation, allowing it to reach its full potential! One major upgrade is the ladder, which now extends lower to help us capture more regolith in the case that we need to dig in a crater. We’ve also reversed the direction of the buckets’ rotation to prevent regolith from being thrown too far back, a change which is further enhanced by the addition of a polycarbonate shute. Finally, the E-box is mounted on the construction bin as to lower the likelihood of loose regolith interfering with it.
+    </div>
+    <Image src={bucketLadderCADImage} alt="Bucket Ladder CAD" slot="right" />
+</SplitSection>
+
+<CenterRow>
+    <Image src={bucketLadderCADGif} alt="Bucket Drum Prototype" height="500px" />
+    <Image src={bucketLadderSpinningGif} alt="Bucket Drum Sand Testing" height="500px" />
+</CenterRow>
+
+<SplitSection>
+    <Image src={frontLoaderCADImage} alt="Bucket Drum Prototype" slot="left" />
+    <div slot="right">
+        ## Front Loader
+
+        The front loader, which is very similar in design to CAT construction loaders, is a bucket that has two cubby compartments that are welded onto the main bucket. It has two prongs on the cubbies and one on the bucket to maximize range, which is ultimately made possible through linear actuators to extend the large bucket down to the regolith level to excavate.
+    </div>
+</SplitSection>
+
+<CenterRow>
+    <Image src={frontLoaderCAD2Image} alt="Bucket Drum Prototype" height="300px" />
+    <Image src={frontLoaderFEAImage} alt="Bucket Drum Sand Testing" height="300px" />
+</CenterRow>
+
+## Computer/Electrical Updates
+
+On the electrical side of things, a completely revamped Electrical Box is coming together. Featuring an upgraded Jetson computer, a more versatile STM32 microcontroller, and brushless motor controllers, the new electrical box will be ready to support whichever robot design we ended up selecting. It's a huge challenge to establish communication between all of these new components, but we've made promising progress lately: we can extend and retract our linear actuators using our new microcontroller! Hopefully that is a sign of more exciting developments to come. The computer subteam has also made significant progress this semester. They upgraded their entire codebase to ROS2 - a big alteration from last year. Using this code base enabled them to write socket code, allowing for fast communication between robot and mission control. Further, the robot was given localization and orientation capabilities with 4 cameras to detect apriltags around the arena. This involved extensive experimenting with Realsense Depth cameras for obstacle detection and path planning. Another major accomplishment of the computer team was developing a clean web UI and integrating it with a gamepad controller such that the robot can be driven.
+
+## What’s going on with MARS’ future comp team?
+
+Though not directly contributing to the competition robot, the training team is well preparing its members to do so in the near-future! In response to feedback from last year, this new branch of the Mechanical team is dedicated to improving the teaching, training, and retention of new mechanical members. This subteam is monitored by the Mechanical team leads, with the primary focus being on new member’s learning. Members of this subteam gain valuable hands-on experience by working on smaller-scale projects that build their knowledge and confidence in using CAD to work on MARS concepts. Last semester, we worked on two mechanical focused projects: Creating a water jetted excavation bucket, and a moving robotic system.
+
+<SplitSection>
+    <Image src={project1TestingImage} alt="Project 1 Testing" slot="left" />
+    <div slot="right">
+        ## Project 1
+
+        The training team split into groups of 3-5 members, each working on creating a CAD blueprint for, water jetting, and metal-bending into a functional bucket that was then attached to the teams’ lunar rover. We made our way to the volleyball court, where we used sand as simulated regolith. Each team was given 60 seconds to control the robot with the intent of capturing as much of this ‘regolith’ as possible, and dumping it into a deposit in the robot. While most of us walked out with uncomfortable sand-filled shoes, we were grateful we didn’t get it in our faces (except Ben, who made the noble sacrifice of continuously shoveling sand underneath the robot).
+    </div>
+</SplitSection>
+
+<CenterRow>
+    <Image src={project1SmileyImage} alt="Project 1 Smiley" height="350px" />
+    <Image src={project1Testing2Image} alt="Project 1 Testing" height="350px" />
+</CenterRow>
+
+<SplitSection>
+    <div slot="left">
+        ## Project 2
+
+        The training team is currently working in similar small groups to create either an excavator arm, scissor lift, or rock filtration device. This project is certainly more intensive than the last, requiring us to employ our newly acquired skills from the last project. For example, the excavator arm requires 5 major parts to be CADed: a boom, stick, H-links, side links, and a bucket; as well as the implementation of two linear actuators, which allow the arm to have a push/pull linear motion in two places.
+    </div>
+    <Image src={project2LiftImage} alt="Project 2 Scissor Lift" slot="right" />
+</SplitSection>
+
+<CenterRow>
+    <Image src={project2ArmImage} alt="Project 2 Excavator Arm" height="500px" />
+    <Image src={project2ArmCADImage} alt="Project 2 Excavator Arm CAD" height="500px" />
+</CenterRow>
+
+<SplitSection>
+    <div slot="left">
+        ## That was a lot. Let’s destress!
+        *Dec 8th, 2024*
+
+        MARS+Artists = MARTISTS! Who knew that MARS members were so artistically inclined? These pictures capture the intense pumpkin painting face-off between subteams, as well as the better Buckee’s pumpkin painted by Nayeon.
+    </div>
+    <Image src={marsPumpkinGroupImage} alt="MARS Pumpking Painting Group" slot="right" />
+</SplitSection>
+
+<CenterRow>
+    <Image src={nayeonPumpkinImage} alt="Nayeon Holding a Pumpkin" height="500px" />
+    <Image src={phineasFerbPumpkinImage} alt="Phineas and Ferb Pumpkin" height="500px" />
+</CenterRow>
+
+<SplitSection>
+    <Image src={trustFundImage} alt="MARS Members" slot="left" />
+    <div slot="right">
+        ## Some good news!
+
+        January 24th was a very busy day for the MARS team! In addition to the aforementioned trade studies, our team made it to the next step in obtaining funding from the Jefferson Trust! Craig, Cayla, Nayeon and Eric (below) gave a pitch for $86,000 towards a regolith arena. As of now, we have to rely on sand as a stimulant because of its convenience and inexpensiveness. Using the real-deal would allow for more accurate data collection, and give us real practice for what the competition is going to be like.
+    </div>
+</SplitSection>
+
+## Outreach
+
+Last semester, Jordan and Michael worked hard to coordinate myriad outreach events at local elementary, middle, and high schools. They, alongside other volunteers, taught students about different STEM and NASA related topics, such as the Artemis Program, how to perform space travel, and predominantly to the highschoolers: robotics. Out of the 13 total educational outreach events conducted this semester (reaching 75 elementary schoolers, 7 middle schoolers, and 40 high schoolers), every single one was a great success, both in terms of student enjoyment and volunteer turnout. With that being said, we are thrilled to be getting increasingly more involved in impactful outreach each semester!
+
+<SplitSection>
+    <div slot="left">
+        ## Outreach 1.1
+
+        The “Launching Paper Rockets” event was a big hit! MARS volunteers initiated this event by giving an interactive presentation of the Artemis mission and lunar exploration, creating excitement about the prospect of exploring the south lunar pole. A NASA STEM video outlined the basics of rocket propulsion to carry payloads into space, specifically demonstrated through the Orion spacecraft. Students were then tasked with making their own paper rockets out of basic supplies (paper, straws, scissors, etc.), prompting students to make connections between their own science/engineering background and what they were recently taught about basic rocket propulsion.
+    </div>
+    <Image src={outreach11Image} alt="Outreach 1.1" slot="right" />
+</SplitSection>
+
+<SplitSection>
+    <div slot="left">
+        ## Outreach 1.2
+
+        Students love Lunar Landers! 7 middle schoolers from an After-School Engineering Club were excited to learn about the fundamentals of lunar landers - predominantly how NASA uses thrust to descend their landers on the moon, since there is minimal air resistance. After Michael and Jordan gave a short presentation on the topic above, the students got into the activity of making their own Lunar Landers using propulsion from balloons to “land” them from a height of 6 feet.
+    </div>
+    <Image src={outreach12Image} alt="Outreach 1.2" slot="right" />
+</SplitSection>
+
+<SplitSection>
+    <Image src={outreachSweetTreatImage} alt="Outreach Sweet Treat" slot="left" />
+    <div slot="right">
+        ## Some good news!
+
+        After a rewarding day of volunteering, outreach volunteers kept the fun going with a well-deserved sweet treat!
+    </div>
+</SplitSection>
+
+## Outreach Report Synopsis
+
+This semester, they have the intent of having one every two weeks. Based on these outreach events, Jordan and Michael cultivated an 8-page outreach report that is worth 20% of our overall NASA score. The report details the different engagement we have done as a team, showcasing the impact of our outreach efforts, community involvement, and how we've communicated NASA's mission and goals effectively to various audiences.
+
+<SplitSection>
+    <div slot="left">
+        ## MARS-Giving ❤️
+
+        The smell of friendship, laughter, and – for some reason – three different brands of macaroni & cheese lingered in the air during our Thanksgiving get-together. We all had a blast getting to know each other more over some delicious food!
+    </div>
+    <Image src={marsgivingImage} alt="MARS-Giving" slot="right" />
+</SplitSection>
+
+<SplitSection leftGrow="3" rightGrow="1">
+    <Image src={sabrinaViewImage} alt="Sabrina Carpenter Concert" slot="left" />
+    <div slot="right">
+        ## Fun during concessions!
+
+        We had so much fun at the Sabrina concert! We had two stands that sold popular concert foods, such as hotdogs, fries, and hamburgers. The view was also amazing!
+    </div>
+</SplitSection>
+
+<CenterRow>
+    <Image src={sabrinaWorkersImage} alt="Sabrina Carpenter Workers" height="500px" />
+</CenterRow>
+
+<SplitSection>
+    <Image src={uvauncImage} alt="UVA vs. UNC Leftovers" slot="left" />
+    <div slot="right">
+        ## UVA vs. UNC Concessions
+
+        We also ran concession stands at the UVA vs. SNU and UVA vs. UNC football and basketball games. We certainly enjoyed the leftovers!
+    </div>
+</SplitSection>
+
+<CenterRow>
+    <Image src={uvaunc2Image} alt="UVA vs. UNC Image" height="450px" />
+    <Image src={uvaunc3Image} alt="UVA vs. UNC Image" height="450px" />
+</CenterRow>
+
+<SplitSection>
+    <Image src={gingerbreadImage} alt="Gingerbread-Gaffe" slot="left" style="height: 500px; object-fit: cover" />
+    <div slot="right">
+        ## And finally… A gingerbread-gaffe
+
+        Although this picture says it all, let's just say this was way messier than intended.
+    </div>
+</SplitSection>
+
+If you enjoyed this post, and want to see more throughout the semester, make sure to follow our Website - this is where we will put all of our updates/blogs! And while you're at it, go ahead and follow our Instagram and add our LinkedIn to stay tuned!
+
+\- Taylor 💛

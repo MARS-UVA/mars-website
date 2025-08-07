@@ -1,0 +1,163 @@
+---
+title: "Manufacturing MAYhem"
+description: May Updates from MARS!
+author: Taylor Levitas
+slug: 2025/may-recap
+date: 05-01-2025
+thumbnail: /images/blog/may-2025-thumbnail.jpeg
+background: linear-gradient(180deg, rgba(255, 255, 240, 1) 0%, rgba(236, 255, 253, 1) 33%, rgba(251, 244, 255, 1) 66%, rgba(255, 236, 236, 1) 100%)
+---
+import { Image } from 'astro:assets';
+import SplitSection from '../../components/SplitSection.astro';
+import CenterRow from '../../components/CenterRow.astro';
+import ist1Image from '../../assets/images/blog/may-2025/IST1.jpeg';
+import robotTippingGif from '../../assets/images/blog/may-2025/RobotTipping.gif';
+import brooksandDunnImage from '../../assets/images/blog/may-2025/BrooksandDunn1.jpg';
+import brooksandDunn2Image from '../../assets/images/blog/may-2025/BrooksandDunn2.jpg';
+import brooksandDunn3Image from '../../assets/images/blog/may-2025/BrooksandDunn3.jpg';
+import centrifugalCalcImage from '../../assets/images/blog/may-2025/CentrifugalCalc.jpeg';
+import ist2LoadingImage from '../../assets/images/blog/may-2025/IST2Loading.jpg';
+import dryRunImage from '../../assets/images/blog/may-2025/DryRun.jpeg';
+import proofOfLifeImage from '../../assets/images/blog/may-2025/ProofOfLife.jpeg';
+import openHouseImage from '../../assets/images/blog/may-2025/OpenHouse1.jpg';
+import openHouse2Image from '../../assets/images/blog/may-2025/OpenHouse2.jpg';
+import openHouse3Image from '../../assets/images/blog/may-2025/OpenHouse3.jpeg';
+import hoosGratefulImage from '../../assets/images/blog/may-2025/HoosGrateful.jpg';
+import finalPushDocImage from '../../assets/images/blog/may-2025/FinalPushDoc.jpg';
+import duosAwardImage from '../../assets/images/blog/may-2025/DuosAward.jpeg';
+import presentationNightImage from '../../assets/images/blog/may-2025/PresentationNight1.jpeg';
+
+<SplitSection>
+    <Image src={ist1Image} alt="Integrated Systems Test 1" slot="left" style="height: 500px; object-fit: cover;" />
+    <div slot="right">
+        ## Integrated Systems Testing (IST)
+
+        In the latter half of this semester, we conducted multiple Integrated Systems Testings. This is where we tested the robot as a collective, functioning system, and not just individual parts.
+
+        IST 1 was a rollercoaster — but incredibly informative and necessary. The robot tipped! Sand got everywhere (ebox, motor, etc.), and we didn’t collect too much quantitative data. The motor was constrained to 60% power during the test. We also discovered that our robot was quite overweight... and she desperately needs to go on a diet (see more in “weight reduction” section).
+    </div>
+</SplitSection>
+
+<CenterRow>
+    <Image src={robotTippingGif} alt="Robot Tipping" height="500px" />
+</CenterRow>
+
+<SplitSection>
+    <div slot="left">
+        ## Fun During Concessions!
+        Set up in trustworthy Station 104 - nothing can go wrong! The team was split half and half in the kitchen, serving up delicious oily chicken tenders and fries, and at the registers, smiles plastered on our faces for 4 hours straight trying to score a 10% tip. Money aside, the event was a blast, and we got to listen to some great music by the country band Brooks and Dunn!
+
+        I guess all of those chicken tenders made us feel like kids again. To conclude the night, we hiked a mile to have some fun at a playground. They felt much bigger 10 years ago...
+    </div>
+    <Image src={brooksandDunnImage} alt="Brooks and Dunn Workers" slot="right" />
+</SplitSection>
+
+<CenterRow>
+    <Image src={brooksandDunn2Image} alt="Brooks and Dunn Concert" height="450px" />
+    <Image src={brooksandDunn3Image} alt="Craig" height="450px" />
+</CenterRow>
+
+## IST 2
+
+During IST 2, we focused on gathering quantitative data—such as excavation rate, cycle time, and power consumption—to evaluate our robot's performance and compare it to our TPMs under full power, allowing us to make informed decisions if updates are needed. One key lesson from IST 1 was that running the bucket drum too high contributed to the robot tipping. This time, we adjusted by driving lower to the ground, effectively lowering the center of mass. We tested this by driving over small hills, and it was a success—no tipping occurred this time around! We also did not employ any power constraints during this test, and ran a full 15-minute simulated UCF qualifier to verify our integrated Concept of Operations. Excitingly, we reached full autonomy a few times, wherein the robot looped over the last input indefinitely!
+
+On the mechanical side, we also conducted an investigation into the dynamics of the bucket drum system—specifically analyzing the centrifugal acceleration acting on regolith particles during rotation. By solving for the RPM at which the outward (centrifugal) acceleration equals the gravitational acceleration of lunar regolith, we established an upper limit for rotational speed to prevent material from being flung out of the bucket prematurely. This analysis ensures that we maintain optimal excavation efficiency, without sacrificing control.
+
+<CenterRow>
+    <Image src={centrifugalCalcImage} alt="Centrifugal Acceleration Calculation" height="450px" />
+    <Image src={ist2LoadingImage} alt="IST 2 Loading" height="450px" />
+</CenterRow>
+
+## Zac Brown Band Concessions
+
+This Country-themed concession event was run entirely by first years! On that note, very forgetful first years who totally spaced on taking any photos. But take our word – we were there!!!
+
+<SplitSection>
+    <div slot="left">
+        ## Proof of Life (POL) Dry Run
+
+        After weighing in at 44.15 kg, we drove the robot over to the courts around 2:30PM for a series of runs. The first attempt ended early—just four minutes in—after a wheel snipped a wire, but we quickly fixed the issue. In the second run, the robot successfully built a 24.71L berm before veering out of bounds and disconnecting post-dump. The third run showed more consistent digging and dumping, though we encountered occasional motor noises and temporary loss of control. Despite these hiccups, the robot managed to build two more berms, bringing our total volume to approximately 60.55L over about 13 minutes. We used a total of 35.7 Wh over the coarse of the run. We wrapped up testing with a few fun rounds of volleyball (keeping the robot far, far out of range of our energetic strikers)
+    </div>
+    <Image src={dryRunImage} alt="Dry Run" slot="right" style="height: 500px; object-fit: cover;" />
+</SplitSection>
+
+<SplitSection>
+    <Image src={proofOfLifeImage} alt="Proof of Life" slot="left" />
+    <div slot="right">
+        ## Anddd the actual thing!
+
+        Proof of Life was definitely worth waking up at 6:00AM for! We completed a full 15-minute run with our faculty advisor–Dr. Smith–there to certify it, giving us the final thumbs-up needed to head to NASA competition. Ben and Cayla got to Lacy at 7:26AM to load the robot into Ben’s car and made it to the courts before 8:00AM. After noticing some lag in the Jetson, we decided to all put our phones on Airplane Mode, which helped smooth things out. We filmed one 15-minute cycle of excavating and dumping, finishing the run at 10:08AM. In this run, we created two berms: Berm 1 measured 27 inches in length, 21 inches in width, and 10 inches in height (24.33L), and Berm 2 came in at 30 inches in length, 23.5 inches in width, and 9 inches in height (27.22L), for a total of approximately 51.5 liters!
+    </div>
+</SplitSection>
+
+## Systems paper has been submitted!
+
+We’ve officially submitted our Systems Paper—a major milestone in our NASA competition journey! This document is worth 25/80 total points and showcases how our robot functions as a cohesive, integrated system. Unlike technical papers, this one focuses more on the “why” and “how” behind our process, rather than getting too far into technical detail.
+A huge shoutout to our Systems Lead, Hao, for guiding the team through the writing, review, and final submission process. The paper covered key elements of our project like cost budgeting, technical performance measures (TPMs), design reviews, and the core principles of systems engineering that keep us from working aimlessly. It’s all about making sure each and every subsystem works together and that our robot is more than just a collection of parts.
+
+## CCS STEMFest
+
+Our team had an amazing time at CCS STEMFest, where over 640 students, teachers, and local community members joined in to celebrate science and engineering! Our team ran interactive exhibits throughout the day—one of the biggest hits being our miniature lunar rover demo, designed specifically for hands-on STEM education. This demonstration helped kids explore concepts like lunar navigation, obstacle avoidance, and regolith sampling, all while learning about programming and sensors in an interactive and fun way.
+We also brought out the full-scale robot from last year, giving attendees a behind-the-scenes look at the engineering and design process. Finally, we hosted a robot navigation challenge that let students test their skills and creativity. A big thanks to our amazing outreach team who represented us at the STEMFest!
+
+<br />
+
+<CenterRow>
+    <div>
+        ## New Exec Team‼️🚨
+
+        Stay tuned to find out more about our 2025-2026 executive board!
+    </div>
+</CenterRow>
+
+<br />
+
+<SplitSection>
+    <div slot="left">
+        ## Engineering Open House
+
+        At this year’s Engineering Open House, we set up along E-Way alongside many other engineering clubs and design teams. Our booth drew in a crowd of STEM enthusiasts, especially incoming first-years to UVA’s Engineering School and their families. It was exciting to see so many students express interest in joining our mechanical, electrical, and computer subteams—made even better by having all our team leads on hand to showcase the full gamut of what we do. We demonstrated how both last year’s and this year’s robots operate and even let some little kids try their hand at driving Bermie! In addition to explaining what we do as a club, we talked about our connection to NASA’s Artemis mission and the competition that ties us to it.
+    </div>
+    <Image src={openHouseImage} alt="Open House" slot="right" />
+</SplitSection>
+
+<CenterRow>
+    <Image src={openHouse2Image} alt="Open House 2" height="375px" />
+    <Image src={openHouse3Image} alt="Open House 3" height="375px" />
+</CenterRow>
+
+<SplitSection>
+    <div slot="left">
+        ## Grateful Miners!
+        *April 23rd, 2025*
+
+        A handful of our team members volunteered at the Hoos Grateful program on 4/23, where we wrote and signed 25 thank you notes and filmed a thank you video for the amazing Parents Program that continually supports us. Out of luck of the draw, we wrote cards for the Lacy couple (of Lacy Hall) and the Rice couple (of Rice Hall). We gave an extra personalized message to the Lacy's mentioning MARS and how much we appreciate their support of experiential learning at UVA, and we all signed it. We’re so thankful for everything they do to help make our work possible!
+    </div>
+    <Image src={hoosGratefulImage} alt="Hoos Grateful" slot="right" style="height: 500px; object-fit: cover;" />
+</SplitSection>
+
+<SplitSection leftGrow="3">
+    <Image src={finalPushDocImage} alt="Final Push Document" slot="left" />
+    <div slot="right">
+        ## Weight Reduction
+
+        Up until about a month out from competition, our robot was over the TPM we had set of 40kg. To remedy this, we remade the top support bars to be 1x1s instead of 2x1s and welded them together, so there wasn't a need for as many fasteners (saving 1 kg). We also milled out both triangle bars (also saving 1 kg), and created a thinner e-box (again, saving 1 kg).
+    </div>
+</SplitSection>
+
+<SplitSection>
+    <div slot="left">
+        ## Presentation + Paper Plate Awards Night
+
+        Who knew “Present a topic of your choosing” could have so many interpretations? Those who attended this fun team bonding event were allotted 10 minutes to present a certain topic of interest. While some took the route of presenting their research, others doom scrolled through their Instagram feed for 10 minutes (both of which were very entertaining!) At the end of the night, paper plate awards were created and distributed to attendees. This was a super fun team bonding night with lots of laughter!
+    </div>
+    <Image src={duosAwardImage} alt="Duos Award" slot="right" style="height: 500px; object-fit: cover;" />
+</SplitSection>
+
+<CenterRow>
+    <Image src={presentationNightImage} alt="Presentation Night" height="500px" />
+</CenterRow>
+
+If you enjoyed this post, and want to see more throughout the semester, make sure to follow our Website - this is where we will put all of our updates/blogs! And while you're at it, go ahead and follow our Instagram and add our LinkedIn to stay tuned!
+
+\- Taylor 💛

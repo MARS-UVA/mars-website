@@ -1,0 +1,48 @@
+---
+const { leftGrow, rightGrow } = Astro.props;
+---
+
+<section>
+    <div class="split-content">
+        <div class="left" style={{ flex: leftGrow }}>
+            <slot name="left" />
+        </div>
+        <div class="right" style={{ flex: rightGrow }}>
+            <slot name="right" />
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .split-content {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left,
+    .right {
+        flex: 1;
+    }
+
+    .left img,
+    .right img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+<style is:global>
+    .left > *,
+    .right > * {
+        width: 100%;
+    }
+</style>
