@@ -1,16 +1,37 @@
 ---
-const { addCloseButton, id, buttonContent, buttonAttributes } = Astro.props;
+const {
+    addCloseButton,
+    id,
+    buttonContent,
+    buttonAttributes,
+    defaultOpen,
+    showX,
+    width,
+} = Astro.props;
 ---
 
-<span class="open-modal" data-id={id} {...buttonAttributes}>
-    {buttonContent || "Open Modal"}
-</span>
-<div class="overlay hidden" id={id}>
-    <div class="modal">
+<>
+    {
+        buttonContent ? (
+            <span class="open-modal" data-id={id} {...buttonAttributes}>
+                {buttonContent || "Open Modal"}
+            </span>
+        ) : null
+    }
+</>
+<div class={"overlay" + (defaultOpen ? "" : " hidden")} id={id}>
+    <div class="modal" style={{ maxWidth: width ?? "800px" }}>
+        {
+            showX ? (
+                <button class="close-button x-button" data-id={id}>
+                    &times;
+                </button>
+            ) : null
+        }
         <slot />
         {
             addCloseButton ? (
-                <button class="close-button" data-id={id}>
+                <button class="close-button bottom-button" data-id={id}>
                     Close
                 </button>
             ) : null
@@ -81,13 +102,23 @@ const { addCloseButton, id, buttonContent, buttonAttributes } = Astro.props;
         background-color: white;
         padding: 20px;
         border-radius: 10px;
-        max-width: 800px;
         width: 100%;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         font-size: 1.2rem;
+        position: relative;
     }
 
-    .close-button {
+    .x-button {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        background: transparent;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .bottom-button {
         display: block;
         margin: 10px auto;
         padding: 10px 20px;

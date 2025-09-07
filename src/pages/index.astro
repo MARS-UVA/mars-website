@@ -9,11 +9,13 @@ import robotCADImage from "../assets/images/RobotCAD2025.png";
 import InfoTile from "../components/InfoTile.astro";
 import BlogTile from "../components/BlogTile.astro";
 
-import BildImage from "../assets/images/sponsors/Bild.png";
+import OnshapeImage from "../assets/images/sponsors/Onshape.svg";
 import UVAEngineeringImage from "../assets/images/sponsors/UVAEngineering.png";
 import UVAParentsProgramImage from "../assets/images/sponsors/UVAParentsProgram.png";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import Modal from "../components/Modal.astro";
+import marsLogo from "../assets/images/MARSLogo.png";
 
 const allPosts = await getCollection("blog");
 const latestPost = allPosts
@@ -27,6 +29,46 @@ const latestPost = allPosts
 <Layout solidNav={false}>
 	<Hero />
 	<Main>
+		<Modal defaultOpen showX width="400px" id="join-modal">
+			<div style={{ textAlign: "center" }}>
+				<Image
+					src={marsLogo}
+					alt="MARS Logo"
+					style={{
+						width: "4em",
+						height: "auto",
+						borderRadius: "50%",
+						boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+					}}
+				/>
+			</div>
+			<h2 style={{ color: "navy", textAlign: "center" }}>Join MARS</h2>
+			<p class="checkmark-list" style={{ textAlign: "center" }}>
+				Fill out our <a
+					href="https://docs.google.com/forms/d/e/1FAIpQLSdDJHzMw1E_dBakWyxilB7WZnKxoLAL3JtF2Tg9j51ryZoqmA/viewform"
+					target="_blank"
+					style={{ color: "#2a4d9b", fontWeight: "bold" }}
+					>interest form</a
+				> to learn more.
+			</p>
+			<ul
+				class="checkmark-list"
+				style={{ textAlign: "center", fontSize: "1em", color: "#222" }}
+			>
+				<li>No dues</li>
+				<li>No application</li>
+				<li>No experience required</li>
+			</ul>
+			<p
+				style={{
+					textAlign: "center",
+					fontSize: "0.95em",
+					color: "#555",
+				}}
+			>
+				Everyone is welcome!
+			</p>
+		</Modal>
 		<InfoSection imageSrc={stockImage.src} imagePosition="left">
 			<h2>About Us</h2>
 			<p>
@@ -131,9 +173,9 @@ const latestPost = allPosts
 		<InfoSection center={true}>
 			<h2>Our Sponsors (thanks!)</h2>
 			<div class="row responsive" style="align-items: center;">
-				<Image src={BildImage} alt="Bild" />
 				<Image src={UVAEngineeringImage} alt="UVA Engineering" />
 				<Image src={UVAParentsProgramImage} alt="UVA Parents Program" />
+				<Image src={OnshapeImage} alt="Onshape" />
 			</div>
 		</InfoSection>
 	</Main>
@@ -162,6 +204,20 @@ const latestPost = allPosts
 				object-fit: contain;
 				margin: 20px 0;
 			}
+		}
+
+		.checkmark-list {
+			list-style: none;
+			padding: 0;
+		}
+
+		.checkmark-list > li::before {
+			content: "\2713";
+			margin: 0 0.5em;
+		}
+
+		.checkmark-list {
+			margin-bottom: 8px;
 		}
 	</style>
 </Layout>
