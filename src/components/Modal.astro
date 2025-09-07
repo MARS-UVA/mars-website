@@ -19,7 +19,11 @@ const {
         ) : null
     }
 </>
-<div class={"overlay" + (defaultOpen ? "" : " hidden")} id={id}>
+<div
+    class="overlay hidden"
+    id={id}
+    data-default-open={defaultOpen ? "true" : "false"}
+>
     <div class="modal" style={{ maxWidth: width ?? "800px" }}>
         {
             showX ? (
@@ -40,6 +44,19 @@ const {
 </div>
 
 <script>
+    // Detect document.referrer. If from external site, show defaultOpen modals
+    const referrer = document.referrer;
+    const modals = document.querySelectorAll(".overlay");
+    modals.forEach((modal) => {
+        const isDefaultOpen = modal.getAttribute("data-default-open");
+        if (
+            (referrer === "" || !referrer.includes(window.location.hostname)) &&
+            isDefaultOpen === "true"
+        ) {
+            modal.classList.remove("hidden");
+        }
+    });
+
     function closeModal(id: string) {
         const targetOverlay = document.getElementById(id);
         if (targetOverlay) {
