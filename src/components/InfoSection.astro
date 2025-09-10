@@ -29,6 +29,7 @@ const { imageSrc, imagePosition, center, id } = Astro.props;
         padding: 50px;
         gap: 20px;
         width: 100%;
+        box-sizing: border-box;
     }
 
     .image {
@@ -47,11 +48,35 @@ const { imageSrc, imagePosition, center, id } = Astro.props;
         flex: 2;
         padding: 20px;
         width: 100%;
+        box-sizing: border-box;
     }
 
     .content.center {
         text-align: center;
         padding: 0;
+    }
+
+    @media (max-width: 768px) {
+        section {
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .image {
+            flex: none;
+            width: 100%;
+        }
+
+        .content {
+            flex: none;
+            width: 100%;
+            padding: 10px;
+        }
+
+        img {
+            height: 300px;
+        }
     }
 </style>
 
@@ -99,5 +124,26 @@ const { imageSrc, imagePosition, center, id } = Astro.props;
         top: -25px;
         font-size: 3em;
         color: navy;
+    }
+
+    @media (max-width: 768px) {
+        .content h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .content ul li {
+            font-size: 1rem;
+            margin: 8px 0;
+        }
+
+        .content ul ul {
+            margin-left: 20px;
+        }
     }
 </style>

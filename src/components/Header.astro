@@ -151,4 +151,42 @@ const { solidNav } = Astro.props as { solidNav?: boolean };
         background-color: rgba(255, 255, 255, 0.5);
         transform: scale(1.1);
     }
+
+    @media (max-width: 768px) {
+        .header {
+            padding: 10px 15px;
+        }
+
+        .header .logo h2 {
+            font-size: 1.8rem;
+        }
+
+        .nav {
+            gap: 5px;
+        }
+
+        .nav a {
+            font-size: 1rem;
+            padding: 8px 12px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .header {
+            padding: 10px;
+        }
+
+        .header .logo h2 {
+            font-size: 1.5rem;
+        }
+
+        .nav {
+            gap: 3px;
+        }
+
+        .nav a {
+            font-size: 0.85rem;
+            padding: 6px 10px;
+        }
+    }
 </style>
