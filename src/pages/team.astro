@@ -249,6 +249,13 @@ const peopleCollection = await getCollection("people");
         }
     }
 
+    @media (max-width: 600px) {
+        .members {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
     .member h3 {
         font-size: 2rem;
         margin-top: 10px;
