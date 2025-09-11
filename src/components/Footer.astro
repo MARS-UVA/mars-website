@@ -9,8 +9,13 @@ const year = new Date().getFullYear();
 <footer class="footer">
     <div class="thickbar">
         <div class="logo">
-            <Image src={marsBlueLogo} alt="MARS Logo" style="height: 100%;" />
-            <h2>Mechatronics and Robotics Society (MARS) at UVA</h2>
+            <Image
+                src={marsBlueLogo}
+                alt="MARS Logo"
+                style="height: 100%;"
+                class="footer-image"
+            />
+            <!-- <h2>Mechatronics and Robotics Society (MARS) at UVA</h2> -->
         </div>
         <div class="socialemail">
             <div class="socials">
@@ -265,6 +270,11 @@ const year = new Date().getFullYear();
 
         .footer .email h2 {
             font-size: 0.9rem;
+        }
+
+        .footer-image {
+            max-width: 100px;
+            height: auto;
         }
     }
 
