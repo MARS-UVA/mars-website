@@ -113,6 +113,13 @@ const { imageSrc, imagePosition, center, id } = Astro.props;
         color: navy;
     }
 
+    @media (max-width: 768px) {
+        .content ul li::before {
+            font-size: 2em;
+            top: -12px;
+        }
+    }
+
     .content ul ul {
         margin-left: 50px;
     }
