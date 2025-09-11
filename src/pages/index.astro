@@ -186,7 +186,6 @@ const latestPost = allPosts
 			flex-direction: row;
 			gap: 40px;
 			justify-content: center;
-			flex-wrap: wrap;
 		}
 
 		.row img {
@@ -197,7 +196,6 @@ const latestPost = allPosts
 
 		@media (max-width: 768px) {
 			.row {
-				flex-direction: column;
 				gap: 20px;
 			}
 
@@ -210,13 +208,19 @@ const latestPost = allPosts
 
 		@media (max-width: 1000px) {
 			.row.responsive {
-				flex-direction: column;
+				flex-wrap: wrap;
 			}
 
 			.row.responsive img {
 				width: 100%;
 				object-fit: contain;
 				margin: 20px 0;
+			}
+		}
+
+		@media (max-width: 1200px) {
+			.row {
+				flex-direction: column;
 			}
 		}
 
