@@ -17,6 +17,7 @@ const { title, icon } = Astro.props;
         border-width: 4px;
         padding: 10px 30px;
         border-radius: 60px;
+        box-sizing: border-box;
     }
 </style>
 <style is:global>
@@ -34,5 +35,26 @@ const { title, icon } = Astro.props;
         font-size: 7rem;
         margin-top: -20px;
         text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .info-tile {
+            padding: 15px 20px;
+            border-radius: 30px;
+        }
+
+        .info-tile h3 {
+            font-size: 1.5rem;
+        }
+
+        .info-tile .icon {
+            font-size: 4rem;
+            margin-top: -10px;
+        }
+
+        .info-tile p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
     }
 </style>
