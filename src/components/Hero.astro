@@ -9,9 +9,6 @@ import teamPicture from "../assets/images/MARSTeam.jpg";
         src={teamPicture}
         alt="MARS Team"
         loading="lazy"
-        width="1920"
-        height="1080"
-        style={{ objectFit: "cover" }}
     />
     <div class="main-title">
         <h1>MARS at UVA</h1>
@@ -39,13 +36,23 @@ import teamPicture from "../assets/images/MARSTeam.jpg";
         position: absolute;
         top: 0;
         left: 0;
-        width: 200%;
+        min-width: 200%;
         height: 100%;
-        background-size: cover;
-        background-position: center;
+        object-fit: cover;
         animation: pan 90s ease-in-out infinite;
         animation-delay: -22.5s;
         z-index: -1;
+        overflow-x: visible;
+    }
+
+    @media screen and (max-height: 600px) {
+        .background {
+            animation: none;
+            transform: none;
+            min-width: auto;
+            object-fit: cover;
+            width: 100%;
+        }
     }
 
     @keyframes pan {
