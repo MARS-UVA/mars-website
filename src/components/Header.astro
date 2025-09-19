@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import marsLogo from "../assets/images/MARSLogo.png"; // Adjust the path as necessary
 
 // Get current path
@@ -8,22 +9,33 @@ const currentPath = Astro.url.pathname;
 // Assign active class based on current path
 const isActive = (path: string) => (currentPath === path ? "active" : "");
 
+const { solidNav } = Astro.props as { solidNav?: boolean };
+
+const people = await getCollection("people");
+
+// Get all unique years
+const years = new Set<number>();
+people.forEach((person) =>
+    person.data.subteams?.forEach((subteam) =>
+        subteam.years?.forEach((year) => years.add(year)),
+    ),
+);
+const latestYear = Math.max(...Array.from(years));
+
 // Generate navigation bar
 const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/team", label: "Team" },
+    { href: `/team/${latestYear}`, label: "Team" },
     { href: "/blog", label: "Blog" },
 ];
-
-const { solidNav } = Astro.props as { solidNav?: boolean };
 ---
 
 <header class={`header ${solidNav ? "solid" : ""}`}>
     <div class="logo">
         <a href="/">
             <Image src={marsLogo} alt="MARS Logo" />
+            <h2>MARS</h2>
         </a>
-        <h2>MARS</h2>
     </div>
     <nav class="nav" style={{ display: "flex", gap: "20px" }}>
         {
@@ -88,6 +100,7 @@ const { solidNav } = Astro.props as { solidNav?: boolean };
         display: none;
         align-items: center;
         gap: 10px;
+        text-decoration: none;
     }
 
     .header.scrolled .logo > *,
