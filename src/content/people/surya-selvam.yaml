@@ -1,9 +1,6 @@
 name: Surya Selvam
 professionalPicture: /images/people/formal/Surya Selvam.jpg
 profilePicture: /images/people/Surya Selvam.jpg
-roles:
-- name: Computer Lead
-  subteam: computer
+roles: []
 subteams:
-- exec
 - computer

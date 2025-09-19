@@ -1,5 +1,8 @@
 name: Jayrady Sok
 profilePicture: /images/people/Jayrady Sok.jpg
-roles: []
+roles:
+- name: Electrical Lead
+  subteam: electrical
 subteams:
 - electrical
+- exec

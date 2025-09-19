@@ -2,8 +2,8 @@ name: Craig Kalkwarf
 professionalPicture: /images/people/formal/Craig Kalkwarf.jpg
 profilePicture: /images/people/Craig Kalkwarf.jpg
 roles:
-- name: President
-  subteam: exec
+- name: Senior Mechanical Lead
+  subteam: mechanical
 subteams:
 - mechanical
 - exec

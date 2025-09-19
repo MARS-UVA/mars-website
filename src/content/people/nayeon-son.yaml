@@ -2,8 +2,8 @@ name: Nayeon Son
 professionalPicture: /images/people/formal/Nayeon Son.jpg
 profilePicture: /images/people/Nayeon Son.jpg
 roles:
-- name: Mechanical Lead
-  subteam: mechanical
+- name: President
+  subteam: exec
 subteams:
 - mechanical
 - exec

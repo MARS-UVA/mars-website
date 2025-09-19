@@ -39,17 +39,17 @@ const subteams = [
 const showSubteams = subteams.filter((s) => s.show !== false);
 
 const rolePriority = {
-    President: 1,
+    President: 0,
     "Vice President": 1,
     Treasurer: 2,
-    "Systems Lead": 3,
-    "Manufacturing Lead": 4,
-    "Mechanical Lead": 4,
-    "Electrical Lead": 4,
-    "Software Lead": 4,
-    "Computer Lead": 4,
-    "Outreach Chair": 5,
-    Secretary: 5,
+    Secretary: 3,
+    "Systems Lead": 4,
+    "Senior Mechanical Lead": 4.5,
+    "Manufacturing Lead": 5,
+    "Mechanical Lead": 5,
+    "Electrical Lead": 5.5,
+    "Computer Lead": 5.5,
+    "Outreach Chair": 6,
 } as { [key: string]: number };
 
 const colors: { [key: string]: string } = {};

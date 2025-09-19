@@ -1,5 +1,8 @@
 name: Chris Lim
 profilePicture: /images/people/Chris Lim.jpg
-roles: []
+roles:
+- name: Mechanical Lead
+  subteam: mechanical
 subteams:
 - mechanical
+- exec

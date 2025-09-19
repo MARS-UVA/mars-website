@@ -1,5 +1,8 @@
 name: Ayaan Siddiqui
 profilePicture: /images/people/Ayaan Siddiqui.jpg
-roles: []
+roles:
+- name: Outreach Chair
+  subteam: exec
 subteams:
 - computer
+- exec

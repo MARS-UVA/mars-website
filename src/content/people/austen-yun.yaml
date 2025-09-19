@@ -2,8 +2,8 @@ name: Austen Yun
 professionalPicture: /images/people/formal/Austen Yun.jpg
 profilePicture: /images/people/Austen Yun.jpg
 roles:
-- name: Electrical Lead
-  subteam: electrical
+- name: Secretary
+  subteam: exec
 subteams:
 - electrical
 - exec

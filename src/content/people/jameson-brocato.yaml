@@ -1,5 +1,8 @@
 name: Jameson Brocato
 profilePicture: /images/people/Jameson Brocato.jpg
-roles: []
+roles:
+- name: Manufacturing Lead
+  subteam: mechanical
 subteams:
 - mechanical
+- exec

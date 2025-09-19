@@ -1,9 +1,6 @@
 name: Maggie Clarke
 professionalPicture: /images/people/formal/Maggie Clarke.jpg
 profilePicture: /images/people/Maggie Clarke.jpg
-roles:
-- name: Secretary
-  subteam: exec
+roles: []
 subteams:
 - mechanical
-- exec
