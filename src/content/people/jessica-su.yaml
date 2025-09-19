@@ -2,4 +2,7 @@ name: Jessica Su
 profilePicture: /images/people/Jessica Su.jpg
 roles: []
 subteams:
-- electrical
+- id: electrical
+  years:
+  - 2025
+  - 2026

@@ -1,5 +1,11 @@
 name: Dante Huaman
+years:
+- 2025
+- 2026
 profilePicture: /images/people/Dante Huaman.jpg
 roles: []
 subteams:
-- mechanical
+- id: mechanical
+  years:
+  - 2025
+  - 2026

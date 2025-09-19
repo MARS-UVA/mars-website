@@ -2,4 +2,7 @@ name: Carlos Giron
 profilePicture: /images/people/Carlos Giron.jpg
 roles: []
 subteams:
-- electrical
+- id: electrical
+  years:
+  - 2025
+  - 2026

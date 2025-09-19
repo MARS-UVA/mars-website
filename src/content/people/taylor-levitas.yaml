@@ -2,8 +2,20 @@ name: Taylor Levitas
 professionalPicture: /images/people/formal/Taylor Levitas.jpg
 profilePicture: /images/people/Taylor Levitas.jpg
 roles:
+- name: Secretary
+  subteam: exec
+  years:
+  - 2025
 - name: Mechanical Lead
   subteam: mechanical
+  years:
+  - 2026
 subteams:
-- mechanical
-- exec
+- id: mechanical
+  years:
+  - 2025
+  - 2026
+- id: exec
+  years:
+  - 2025
+  - 2026

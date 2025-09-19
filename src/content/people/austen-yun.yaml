@@ -2,8 +2,20 @@ name: Austen Yun
 professionalPicture: /images/people/formal/Austen Yun.jpg
 profilePicture: /images/people/Austen Yun.jpg
 roles:
+- name: Electrical Lead
+  subteam: electrical
+  years:
+  - 2025
 - name: Secretary
   subteam: exec
+  years:
+  - 2026
 subteams:
-- electrical
-- exec
+- id: electrical
+  years:
+  - 2025
+  - 2026
+- id: exec
+  years:
+  - 2025
+  - 2026

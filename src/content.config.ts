@@ -9,10 +9,14 @@ const people = defineCollection({
     name: z.string(),
     professionalPicture: z.string().optional(),
     profilePicture: z.string().optional(),
-    subteams: z.array(z.string()).optional(),
+    subteams: z.array(z.object({
+      id: z.string(),
+      years: z.array(z.number()),
+    })),
     roles: z.array(z.object({
       name: z.string(),
       subteam: z.string().optional(),
+      years: z.array(z.number()),
     })).optional(),
   })
 });

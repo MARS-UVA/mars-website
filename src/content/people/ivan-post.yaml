@@ -2,6 +2,13 @@ name: Ivan Post
 roles:
 - name: Systems Lead
   subteam: systems
+  years:
+  - 2026
 subteams:
-- computer
-- exec
+- id: computer
+  years:
+  - 2025
+  - 2026
+- id: exec
+  years:
+  - 2026

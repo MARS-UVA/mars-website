@@ -1,8 +1,18 @@
 name: Chris Lim
+years:
+- 2025
+- 2026
 profilePicture: /images/people/Chris Lim.jpg
 roles:
 - name: Mechanical Lead
   subteam: mechanical
+  years:
+  - 2026
 subteams:
-- mechanical
-- exec
+- id: mechanical
+  years:
+  - 2025
+  - 2026
+- id: exec
+  years:
+  - 2026

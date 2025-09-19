@@ -2,4 +2,7 @@ name: Max Meer
 profilePicture: /images/people/Max Meer.jpg
 roles: []
 subteams:
-- electrical
+- id: electrical
+  years:
+  - 2025
+  - 2026

@@ -2,4 +2,7 @@ name: Vinay Bhimavarapu
 profilePicture: /images/people/Vinay Bhimavarapu.jpg
 roles: []
 subteams:
-- mechanical
+- id: mechanical
+  years:
+  - 2025
+  - 2026

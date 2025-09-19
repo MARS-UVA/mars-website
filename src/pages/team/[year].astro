@@ -1,0 +1,315 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Main from "../../components/Main.astro";
+import InfoSection from "../../components/InfoSection.astro";
+import SubteamButton from "../../components/SubteamButton.astro";
+import { getCollection } from "astro:content";
+import BackToTop from "../../components/BackToTop.astro";
+import YearButton from "../../components/YearButton.astro";
+
+const subteams = [
+    { name: "Executives", id: "exec", color: "#4a89ff", image: "Exec.jpg" },
+    {
+        name: "Mechanical",
+        id: "mechanical",
+        color: "#9b81cf",
+        image: "Mechanical.jpg",
+    },
+    {
+        name: "Computer",
+        id: "computer",
+        color: "#ad1457",
+        image: "Computer.jpg",
+    },
+    {
+        name: "Electrical",
+        id: "electrical",
+        color: "#66ca93",
+        image: "Electrical.jpg",
+        picWidth: "50%",
+    },
+    {
+        name: "Systems",
+        id: "systems",
+        color: "#c27c0e",
+        show: false,
+    },
+];
+
+const showSubteams = subteams.filter((s) => s.show !== false);
+
+const rolePriority = {
+    President: 0,
+    "Vice President": 1,
+    Treasurer: 2,
+    Secretary: 3,
+    "Systems Lead": 4,
+    "Senior Mechanical Lead": 4.5,
+    "Manufacturing Lead": 5,
+    "Mechanical Lead": 5,
+    "Electrical Lead": 5.5,
+    "Computer Lead": 5.5,
+    "Outreach Chair": 6,
+} as { [key: string]: number };
+
+const colors: { [key: string]: string } = {};
+subteams.forEach((subteam) => {
+    colors[subteam.id] = subteam.color;
+});
+
+export function getStaticPaths(): Promise<{ params: { year: string } }[]> {
+    // Get all years from people collection
+    return getCollection("people").then((people) => {
+        // Get all unique years
+        const years = new Set<number>();
+        people.forEach((person) =>
+            person.data.subteams?.forEach((subteam) =>
+                subteam.years?.forEach((year) => years.add(year)),
+            ),
+        );
+
+        return Array.from(years)
+            .sort((a, b) => b - a) // Sort years in descending order
+            .map((year) => ({
+                params: { year: year.toString() },
+                props: {
+                    year: year,
+                    allYears: Array.from(years).sort((a, b) => a - b),
+                },
+            }));
+    });
+}
+
+const peopleCollection = await getCollection("people", (person) => {
+    return person.data.subteams?.some((subteam) =>
+        subteam.years.includes(parseInt(Astro.params.year)),
+    );
+});
+
+const { year, allYears } = Astro.props as { year: number; allYears: number[] };
+---
+
+<Layout solidNav={true} title="Team">
+    <BackToTop />
+    <Main maxWidth="1500px">
+        <InfoSection center={true}>
+            <h2>Teams</h2>
+            <div class="subteam-buttons">
+                {
+                    showSubteams.map((subteam) => (
+                        <SubteamButton subteam={subteam} />
+                    ))
+                }
+            </div>
+        </InfoSection>
+        {
+            showSubteams.map((subteam) => (
+                <InfoSection id={subteam.id} center={true}>
+                    <h2>{subteam.name}</h2>
+                    <img
+                        src={`/images/subteams/${year}/${subteam.image}`}
+                        alt={`${subteam.name} Team`}
+                        class="subteam-image"
+                        style={{
+                            width: "100%",
+                            borderRadius: "50px",
+                            borderWidth: "7px",
+                            borderStyle: "solid",
+                            color: subteam.color,
+                            maxWidth: subteam.picWidth || "100%",
+                        }}
+                    />
+                    <div class="members">
+                        {peopleCollection
+                            .filter((member) =>
+                                member.data.subteams?.find(
+                                    (s) =>
+                                        s.id === subteam.id &&
+                                        s.years?.includes(year),
+                                ),
+                            )
+                            .sort((a, b) => {
+                                // If a member has a subteam role, sort by that
+                                const findRoles = (member: any) => {
+                                    if (subteam.id === "exec")
+                                        return member.data.roles?.filter(
+                                            (role: any) =>
+                                                role.years?.includes(year),
+                                        );
+
+                                    return member.data.roles?.filter(
+                                        (role: any) =>
+                                            role.subteam === subteam.id &&
+                                            role.years?.includes(year),
+                                    );
+                                };
+                                // Find max priority role for each member
+                                const aRole = findRoles(a).reduce(
+                                    (max: any, role: any) =>
+                                        rolePriority[role.name] <
+                                        (max
+                                            ? rolePriority[max.name]
+                                            : Infinity)
+                                            ? role
+                                            : max,
+                                    null,
+                                );
+                                const bRole = findRoles(b).reduce(
+                                    (max: any, role: any) =>
+                                        rolePriority[role.name] <
+                                        (max
+                                            ? rolePriority[max.name]
+                                            : Infinity)
+                                            ? role
+                                            : max,
+                                    null,
+                                );
+                                if (aRole && bRole) {
+                                    return (
+                                        rolePriority[aRole.name] -
+                                        rolePriority[bRole.name]
+                                    );
+                                } else if (aRole) {
+                                    return -1;
+                                } else if (bRole) {
+                                    return 1;
+                                }
+
+                                // If no subteam role, sort by name
+                                return a.data.name.localeCompare(b.data.name);
+                            })
+                            .map((member) => (
+                                <div
+                                    class="member"
+                                    style={{ borderColor: subteam.color }}
+                                >
+                                    <img
+                                        src={
+                                            subteam.id === "exec" &&
+                                            member.data.professionalPicture
+                                                ? member.data
+                                                      .professionalPicture
+                                                : member.data.profilePicture ||
+                                                  "/images/default-profile.jpg"
+                                        }
+                                        alt={member.data.name}
+                                        class="profile-picture"
+                                    />
+                                    <h3 class="name">{member.data.name}</h3>
+                                    {member.data.roles?.map(
+                                        (role) =>
+                                            role.years?.includes(year) && (
+                                                <span
+                                                    class="role"
+                                                    style={{
+                                                        backgroundColor:
+                                                            colors[
+                                                                role.subteam
+                                                                    ? role.subteam
+                                                                    : subteam.id
+                                                            ] || subteam.color,
+                                                    }}
+                                                >
+                                                    {role.name}
+                                                </span>
+                                            ),
+                                    )}
+                                </div>
+                            ))}
+                    </div>
+                </InfoSection>
+            ))
+        }
+        <InfoSection center={true}>
+            <h2>MARS Through the Years</h2>
+            <div class="subteam-buttons">
+                {
+                    allYears.map((y: number) => (
+                        <YearButton year={y} currentYear={year} />
+                    ))
+                }
+            </div>
+        </InfoSection>
+        <div style="height: 50px;"></div>
+    </Main>
+
+    <style>
+        .subteam-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .members {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* grid-auto-rows: max-content; */
+            margin: 50px 0;
+            gap: 30px;
+        }
+
+        .member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            background-color: #fff;
+            border-style: solid;
+            border-width: 4px;
+            border-radius: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .member .profile-picture {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .member .role {
+            display: inline-block;
+            font-size: 1rem;
+            border-radius: 20px;
+            padding: 5px 15px;
+            color: white;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 1300px) {
+            .members {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .members {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .subteam-buttons {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .members {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .member h3 {
+            font-size: 2rem;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+    </style>
+</Layout>

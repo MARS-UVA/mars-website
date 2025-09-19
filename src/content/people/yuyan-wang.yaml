@@ -1,4 +1,7 @@
 name: Yuyan Wang
 roles: []
 subteams:
-- computer
+- id: computer
+  years:
+  - 2025
+  - 2026

@@ -2,4 +2,7 @@ name: Joshua Cho
 profilePicture: /images/people/Joshua Cho.jpg
 roles: []
 subteams:
-- mechanical
+- id: mechanical
+  years:
+  - 2025
+  - 2026

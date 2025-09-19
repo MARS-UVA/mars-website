@@ -1,4 +1,7 @@
-name: Bhargav  Garre Venkata
+name: Bhargav Garre Venkata
 roles: []
 subteams:
-- computer
+- id: computer
+  years:
+  - 2025
+  - 2026

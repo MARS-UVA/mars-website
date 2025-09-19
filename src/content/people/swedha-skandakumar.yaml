@@ -1,6 +1,15 @@
 name: Swedha Skandakumar
 professionalPicture: /images/people/formal/Swedha Skandakumar.jpg
 profilePicture: /images/people/Swedha Skandakumar.jpg
-roles: []
+roles:
+- name: Vice President
+  subteam: exec
+  years:
+  - 2025
 subteams:
-- electrical
+- id: electrical
+  years:
+  - 2025
+- id: exec
+  years:
+  - 2025

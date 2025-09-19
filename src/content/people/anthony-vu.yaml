@@ -1,4 +1,7 @@
 name: Anthony Vu
 roles: []
 subteams:
-- electrical
+- id: electrical
+  years:
+  - 2025
+  - 2026
