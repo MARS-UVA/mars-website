@@ -1,12 +1,12 @@
 ---
 import { Image } from "astro:assets";
-import teamPicture from "../assets/images/MARSTeam.jpg";
+import artieMinePicture from "../assets/images/ArtieMining.jpeg";
 ---
 
 <section class="hero">
     <Image
         class="background"
-        src={teamPicture}
+        src={artieMinePicture}
         alt="MARS Team"
         loading="lazy"
     />
@@ -36,11 +36,11 @@ import teamPicture from "../assets/images/MARSTeam.jpg";
         position: absolute;
         top: 0;
         left: 0;
-        min-width: 200%;
+        min-width: 100%;
         height: 100%;
         object-fit: cover;
-        animation: pan 90s ease-in-out infinite;
-        animation-delay: -22.5s;
+        /* animation: pan 90s ease-in-out infinite; */
+        /* animation-delay: -22.5s; */
         z-index: -1;
         overflow-x: visible;
     }
