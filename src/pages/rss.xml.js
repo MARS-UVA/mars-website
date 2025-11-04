@@ -25,6 +25,7 @@ export async function GET(context) {
             return {
                 link: `/blog/${post.data.slug}/`,
                 content: await container.renderToString(Content),
+                pubDate: post.data.date,
                 ...post.data
             };
         })),
