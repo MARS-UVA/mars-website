@@ -10,8 +10,6 @@ export async function GET(context) {
 
     const blog = await getCollection('blog');
 
-    console.log(blog[0].rendered)
-
     return rss({
         // `<title>` field in output xml
         title: 'MARS at UVA - Mechatronics and Robotics Society',
