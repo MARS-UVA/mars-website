@@ -34,14 +34,16 @@ import HeroPicture from "../assets/images/Hero.png";
 
     .background {
         position: absolute;
+        top: 0;
         bottom: 0;
         left: 0;
         width: 100%;
-        /* height: 100%; */
+        height: 100%;
         object-fit: cover;
         /* animation: pan 90s ease-in-out infinite; */
         /* animation-delay: -22.5s; */
         z-index: -1;
+        object-position: bottom center;
     }
 
     @media screen and (max-height: 600px) {
