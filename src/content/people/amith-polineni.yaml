@@ -1,5 +1,4 @@
 name: Amith Polineni
-profilePicture: /images/people/Amith Polineni.jpg
 roles:
 - name: Vice President
   subteam: exec
@@ -13,3 +12,12 @@ subteams:
 - id: exec
   years:
   - 2026
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Amith Polineni.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile
+professionalPictures:
+- year: 2026
+  src: /images/people/2026/formal/Amith Polineni.jpg

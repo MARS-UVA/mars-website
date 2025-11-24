@@ -7,8 +7,20 @@ const people = defineCollection({
   }),
   schema: z.object({
     name: z.string(),
-    professionalPicture: z.string().optional(),
-    profilePicture: z.string().optional(),
+    defaultProfilePicture: z.object({
+      year: z.number(),
+    }).optional(),
+    defaultProfessionalPicture: z.object({
+      year: z.number(),
+    }).optional(),
+    professionalPictures: z.array(z.object({
+      year: z.number(),
+      src: z.string(),
+    })).optional(),
+    profilePictures: z.array(z.object({
+      year: z.number(),
+      src: z.string(),
+    })).optional(),
     subteams: z.array(z.object({
       id: z.string(),
       years: z.array(z.number()),

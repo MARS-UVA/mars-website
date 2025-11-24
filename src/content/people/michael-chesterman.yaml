@@ -1,6 +1,4 @@
 name: Michael Chesterman
-professionalPicture: /images/people/formal/Michael Chesterman.jpg
-profilePicture: /images/people/Michael Chesterman.jpg
 roles:
 - name: Outreach Chair
   subteam: exec
@@ -16,3 +14,14 @@ subteams:
   years:
   - 2025
   - 2026
+professionalPictures:
+- year: 2025
+  src: /images/people/2025/formal/Michael Chesterman.jpg
+- year: 2026
+  src: /images/people/2026/formal/Michael Chesterman.jpg
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Michael Chesterman.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile

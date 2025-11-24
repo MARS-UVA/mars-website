@@ -1,6 +1,4 @@
 name: Austen Yun
-professionalPicture: /images/people/formal/Austen Yun.jpg
-profilePicture: /images/people/Austen Yun.jpg
 roles:
 - name: Electrical Lead
   subteam: electrical
@@ -19,3 +17,14 @@ subteams:
   years:
   - 2025
   - 2026
+professionalPictures:
+- year: 2025
+  src: /images/people/2025/formal/Austen Yun.jpg
+- year: 2026
+  src: /images/people/2026/formal/Austen Yun.jpg
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Austen Yun.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile

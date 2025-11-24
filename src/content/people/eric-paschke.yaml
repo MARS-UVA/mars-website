@@ -1,6 +1,4 @@
 name: Eric Paschke
-professionalPicture: /images/people/formal/Eric Paschke.jpg
-profilePicture: /images/people/Eric Paschke.jpg
 roles:
 - name: Treasurer
   subteam: exec
@@ -16,3 +14,14 @@ subteams:
   years:
   - 2025
   - 2026
+professionalPictures:
+- year: 2025
+  src: /images/people/2025/formal/Eric Paschke.jpg
+- year: 2026
+  src: /images/people/2026/formal/Eric Paschke.jpg
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Eric Paschke.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile

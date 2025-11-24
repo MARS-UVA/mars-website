@@ -2,8 +2,6 @@ name: Craig Kalkwarf
 years:
 - 2025
 - 2026
-professionalPicture: /images/people/formal/Craig Kalkwarf.jpg
-profilePicture: /images/people/Craig Kalkwarf.jpg
 roles:
 - name: President
   subteam: exec
@@ -22,3 +20,14 @@ subteams:
   years:
   - 2025
   - 2026
+professionalPictures:
+- year: 2025
+  src: /images/people/2025/formal/Craig Kalkwarf.jpg
+- year: 2026
+  src: /images/people/2026/formal/Craig Kalkwarf.jpg
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Craig Kalkwarf.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile

@@ -1,6 +1,4 @@
 name: Maggie Clarke
-professionalPicture: /images/people/formal/Maggie Clarke.jpg
-profilePicture: /images/people/Maggie Clarke.jpg
 roles:
 - name: Secretary
   subteam: exec
@@ -13,3 +11,12 @@ subteams:
 - id: exec
   years:
   - 2025
+professionalPictures:
+- year: 2025
+  src: /images/people/2025/formal/Maggie Clarke.jpg
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Maggie Clarke.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile

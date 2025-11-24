@@ -1,5 +1,4 @@
 name: Jayrady Sok
-profilePicture: /images/people/Jayrady Sok.jpg
 roles:
 - name: Electrical Lead
   subteam: electrical
@@ -13,3 +12,12 @@ subteams:
 - id: exec
   years:
   - 2026
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Jayrady Sok.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile
+professionalPictures:
+- year: 2026
+  src: /images/people/2026/formal/Jayrady Sok.jpg

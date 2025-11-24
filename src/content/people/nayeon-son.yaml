@@ -1,6 +1,4 @@
 name: Nayeon Son
-professionalPicture: /images/people/formal/Nayeon Son.jpg
-profilePicture: /images/people/Nayeon Son.jpg
 roles:
 - name: Mechanical Lead
   subteam: mechanical
@@ -19,3 +17,14 @@ subteams:
   years:
   - 2025
   - 2026
+professionalPictures:
+- year: 2025
+  src: /images/people/2025/formal/Nayeon Son.jpg
+- year: 2026
+  src: /images/people/2026/formal/Nayeon Son.jpg
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Nayeon Son.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile

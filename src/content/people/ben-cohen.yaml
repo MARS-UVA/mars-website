@@ -1,6 +1,4 @@
 name: Ben Cohen
-professionalPicture: /images/people/formal/Ben Cohen.jpg
-profilePicture: /images/people/Ben Cohen.jpg
 roles:
 - name: Manufacturing Lead
   subteam: mechanical
@@ -13,3 +11,12 @@ subteams:
 - id: exec
   years:
   - 2025
+professionalPictures:
+- year: 2025
+  src: /images/people/2025/formal/Ben Cohen.jpg
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Ben Cohen.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile

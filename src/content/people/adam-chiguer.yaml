@@ -1,7 +1,12 @@
 name: Adam Chiguer
-profilePicture: /images/people/Adam Chiguer.jpg
 roles: []
 subteams:
 - id: mechanical
   years:
   - 2025
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Adam Chiguer.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile

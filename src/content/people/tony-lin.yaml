@@ -1,8 +1,13 @@
 name: Tony Lin
-profilePicture: /images/people/Tony Lin.jpg
 roles: []
 subteams:
 - id: computer
   years:
   - 2025
   - 2026
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Tony Lin.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile

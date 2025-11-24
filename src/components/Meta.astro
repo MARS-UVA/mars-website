@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { getYearPictureSrc } from "../util.ts";
 
 const { author, date, fontSize, imgSize } = Astro.props;
 
@@ -10,7 +11,8 @@ const authorInfo = peopleCollection.find(
 );
 
 const authorPicture =
-    authorInfo?.data.profilePicture || "/images/default-profile.png";
+    (authorInfo && getYearPictureSrc(authorInfo, "profile", -1)) ||
+    "/images/default-profile.jpg";
 
 const authorName = authorInfo?.data.name || "Unknown Author";
 

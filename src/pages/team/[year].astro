@@ -7,6 +7,7 @@ import SubteamButton from "../../components/SubteamButton.astro";
 import { getCollection } from "astro:content";
 import BackToTop from "../../components/BackToTop.astro";
 import YearButton from "../../components/YearButton.astro";
+import { getYearPictureSrc } from "../../util.ts";
 
 const subteams = [
     { name: "Executives", id: "exec", color: "#4a89ff", image: "Exec.jpg" },
@@ -27,7 +28,6 @@ const subteams = [
         id: "electrical",
         color: "#66ca93",
         image: "Electrical.jpg",
-        picWidth: "50%",
     },
     {
         name: "Systems",
@@ -112,12 +112,13 @@ const { year, allYears } = Astro.props as { year: number; allYears: number[] };
                         alt={`${subteam.name} Team`}
                         class="subteam-image"
                         style={{
-                            width: "100%",
+                            width: "auto",
                             borderRadius: "50px",
                             borderWidth: "7px",
                             borderStyle: "solid",
                             color: subteam.color,
-                            maxWidth: subteam.picWidth || "100%",
+                            maxWidth: "100%",
+                            maxHeight: "40vw",
                         }}
                     />
                     <div class="members">
@@ -186,12 +187,13 @@ const { year, allYears } = Astro.props as { year: number; allYears: number[] };
                                 >
                                     <img
                                         src={
-                                            subteam.id === "exec" &&
-                                            member.data.professionalPicture
-                                                ? member.data
-                                                      .professionalPicture
-                                                : member.data.profilePicture ||
-                                                  "/images/default-profile.jpg"
+                                            getYearPictureSrc(
+                                                member,
+                                                subteam.id === "exec"
+                                                    ? "professional"
+                                                    : "profile",
+                                                year,
+                                            ) || "/images/default-profile.jpg"
                                         }
                                         alt={member.data.name}
                                         class="profile-picture"

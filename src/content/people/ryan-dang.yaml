@@ -1,8 +1,13 @@
 name: Ryan Dang
-profilePicture: /images/people/Ryan Dang.jpg
 roles: []
 subteams:
 - id: mechanical
   years:
   - 2025
   - 2026
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Ryan Dang.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile

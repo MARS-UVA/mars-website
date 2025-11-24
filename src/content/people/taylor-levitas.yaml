@@ -1,6 +1,4 @@
 name: Taylor Levitas
-professionalPicture: /images/people/formal/Taylor Levitas.jpg
-profilePicture: /images/people/Taylor Levitas.jpg
 roles:
 - name: Secretary
   subteam: exec
@@ -19,3 +17,14 @@ subteams:
   years:
   - 2025
   - 2026
+professionalPictures:
+- year: 2025
+  src: /images/people/2025/formal/Taylor Levitas.jpg
+- year: 2026
+  src: /images/people/2026/formal/Taylor Levitas.jpg
+profilePictures:
+- year: 2025
+  src: /images/people/2025/Taylor Levitas.jpg
+defaultProfilePicture:
+  year: 2025
+  type: profile
