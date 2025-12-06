@@ -8,6 +8,7 @@ import stockImage from "../assets/images/StockImage.jpg";
 import ucfImage from "../assets/images/UCFCompetition2025.jpeg";
 import InfoTile from "../components/InfoTile.astro";
 import BlogTile from "../components/BlogTile.astro";
+import SignUpForm from "../components/SignUpForm.astro";
 
 import OnshapeImage from "../assets/images/sponsors/Onshape.svg";
 import UVAEngineeringImage from "../assets/images/sponsors/UVAEngineering.png";
@@ -170,6 +171,8 @@ const latestPost = allPosts
 			<br />
 			<BlogTile frontmatter={latestPost.data} />
 		</InfoSection>
+		<SignUpForm />
+			<!-- MAILCHIMP SIGNUP FORM COMPONENT -->
 		<InfoSection center={true}>
 			<h2>Our Sponsors (thanks!)</h2>
 			<div class="row responsive" style="align-items: center;">
