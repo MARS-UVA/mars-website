@@ -1,0 +1,168 @@
+---
+title: Freaky Fancy Fall Fun
+
+description: Fall of 2025 was a freaky time for MARS. After achieving outstanding results in the Lunabotics Challenge last year, placing 5th out of 35 teams, the organization has finally found its footing and now aims for new heights.
+author: Austen Yun
+slug: 2025/fall-recap
+date: 12-06-2025
+thumbnail: /images/blog/fall-2025-thumbnail.jpg
+---
+import { Image } from 'astro:assets';
+import SplitSection from '../../components/SplitSection.astro';
+import CenterRow from '../../components/CenterRow.astro';
+
+# Intro
+
+Fall of 2025 was a freaky time for MARS. After achieving outstanding results in the Lunabotics Challenge last year, placing 5th out of 35 teams, the organization has finally found its footing and now aims for new heights. Tales of our success quickly reached the masses, as new members flocked to MARS like bears to honey, all itching to make an impact. A variety of experimentation was done at the start of the year, ranging from the training team on the mechanical subteam and the mentor projects on the computer subteam. There are also way too many meetings now. With subteam meetings, operations meetings, systems meetings, and the three-hour long General Body Meetings, there’s not a single day that goes by without some kind of MARS activity. In this blog, we’ll take you through the highlights of this freaky, fancy, fall that was full of fun.
+
+import intro1Image from '../../assets/images/blog/fall-2025/Intro_1.jpg';
+import intro2Image from '../../assets/images/blog/fall-2025/Intro_2.jpg';
+import intro3Image from '../../assets/images/blog/fall-2025/Intro_3.png';
+
+<CenterRow>
+    <Image src={intro1Image} alt="Intro 1" height="445px" />
+    <Image src={intro2Image} alt="Intro 2" height="445px" />
+    <Image src={intro3Image} alt="Intro 3" height="445px" />
+</CenterRow>
+
+# Starting from scratch: new designs ⚒️
+
+The mechanical subteam, as a tradition, has been developing their robot designs from scratch at the start of each year. The updated competition rules, which requires the robot to traverse through an obstacle zone between the excavation and construction zones, gave inspiration to brand new robot concepts, including systems that include multiple robots. We have several two-robot designs in the kitchen, each involving one digging robot and one dumping robot. Mechanical veteran Javier’s “ants in pants” design, a brilliant amalgamation featuring three robots, is no less awe inspiring. At the same time as we’re pursuing all of these innovative multiple robot designs, we’re also covering our bases by iterating upon last year’s successful bucket drum design. After narrowing it down to three potential designs, we are currently developing each subsystem, including the intermediary system on the dig robot, which transfers the collected regolith to the dump robot. As of writing (11/17/2025), mech team lost the plot for the seventeenth time this semester on the intermediary system! But we’re so back now, as of 12/1/2025.
+
+import startingFromScratch1Image from '../../assets/images/blog/fall-2025/Starting_From_Scratch_1.jpg';
+import startingFromScratch2Image from '../../assets/images/blog/fall-2025/Starting_From_Scratch_2.jpg';
+import startingFromScratch3Image from '../../assets/images/blog/fall-2025/Starting_From_Scratch_3.png';
+
+<CenterRow>
+    <Image src={startingFromScratch1Image} alt="Starting From Scratch 1" height="445px" />
+    <Image src={startingFromScratch2Image} alt="Starting From Scratch 2" height="445px" />
+    <Image src={startingFromScratch3Image} alt="Starting From Scratch 3" height="445px" />
+</CenterRow>
+
+# Bananas and a dream for autonomy: schizophrenia in robotics 🍌
+
+import bananas1Image from '../../assets/images/blog/fall-2025/Bananas_1.JPG';
+import bananas2Image from '../../assets/images/blog/fall-2025/Bananas_2.gif';
+import bananas3Image from '../../assets/images/blog/fall-2025/Bananas_3.jpg';
+
+The new generation of the computer subteam is absolutely bananas. There are just way too many bananas. Something we cooked up over the summer was mentor projects, where experienced computer subteam members from last year would lead a small group of new members on training projects. These projects ranged from goofy side projects like the maze-solving robot to important research tasks like depth camera research that would contribute to the development of the competition robot. 
+
+<CenterRow>
+    <Image src={bananas1Image} alt="Bananas 1" height="445px" />
+</CenterRow>
+
+Like any other year, we are once again pursuing autonomy. Except this year, we have a somewhat concrete plan. The first step? Make a schizophrenic robot that runs SLAM (Simultaneous Localization and Mapping) in a simulated environment, while using those simulated sensor inputs and decisions to dictate how the robot moves in a real physical environment. Another major development is Ivan Post, our systems engineering lead. When he’s not blessing our ears with his cello, he’s making groundbreaking developments on AprilTags. We can now tell the position of our cameras relative to AprilTags. This is monumental.
+
+<SplitSection>
+    <Image src={bananas2Image} alt="Bananas 2" height="300px" slot="left" />
+    <Image src={bananas3Image} alt="Bananas 3" height="300px" slot="right" />
+</SplitSection>
+
+# Systems is Systeming! ⚙️
+
+import systems1Image from '../../assets/images/blog/fall-2025/Systems_1.jpg';
+import systems2Image from '../../assets/images/blog/fall-2025/Systems_2.jpg';
+
+Speaking of Ivan Post, he might be the GOAT of systems engineering. This year we popped off early by deriving requirements from the Lunabotics guidebook and breaking those down into subsystem level requirements. In the span of 3 months, we have already gone through the Mission Concept Review, System Requirement Review, System Definition Review, and Preliminary Design Review. We have also established formal criteria that need to be met at each of these control gates, paving the way for a bright future in systems engineering.
+
+<CenterRow>
+    <Image src={systems1Image} alt="Systems 1" height="350px" />
+    <Image src={systems2Image} alt="Systems 2" height="350px" />
+</CenterRow>
+
+# So many microcontrollers 🦥
+
+import microcontrollers1Image from '../../assets/images/blog/fall-2025/Microcontrollers_1.jpg';
+import microcontrollers2Image from '../../assets/images/blog/fall-2025/Microcontrollers_2.jpg';
+
+I love the electrical subteam. We just goof around and do whatever we want since the electrical system on the old robot already works pretty well and can be reused for this year. So to create fictional work for ourselves, we introduced 3 microcontroller options for collecting sensor feedback and controlling the motors on the robot. This year, we have more than 10 microcontroller development boards. The goal is to control last year’s robot from all three new microcontrollers. At the same time, we’re also developing wireless communications applications on our microcontrollers just for fun. For extra efficiency, we are holding optional meetings at midnight on Fridays.
+
+<SplitSection>
+    <Image src={microcontrollers1Image} alt="Microcontrollers 1" height="445px" slot="left" />
+    <Image src={microcontrollers2Image} alt="Microcontrollers 2" height="445px" slot="right" />
+</SplitSection>
+
+# IEEE Telepresence Competition: scammed
+
+import ieee1Image from '../../assets/images/blog/fall-2025/IEEE_1.jpg';
+import ieee2Image from '../../assets/images/blog/fall-2025/IEEE_2.jpg';
+
+We lowkey got scammed in the IEEE Telepresence Competition, a competition where we remotely operate a robot in Australia in an attempt to navigate past obstacles within the shortest amount of time. The prize? $5,000. Ultimately, we came in second, a minute short of the first-place team that competed in person, sponsored the competition, and didn’t have to deal with the latency issues we encountered by being halfway across the globe. But it was a very fun time. Several members were introduced to poker for the first time, and tasted the sweet sweet rush of gambling away their savings.
+
+<CenterRow>
+    <Image src={ieee1Image} alt="IEEE 1" height="445px" />
+    <Image src={ieee2Image} alt="IEEE 2" height="445px" />
+</CenterRow>
+
+# We love our alumni and donors
+
+import alumni1Image from '../../assets/images/blog/fall-2025/Alumni_1.jpg';
+import alumni2Image from '../../assets/images/blog/fall-2025/Alumni_2.jpg';
+
+MARS was so honored to be invited to the Thornton Society Dinner. Our representatives Nayeon, Amith, and Craig got to meet Chip Lacy (of Lacy Hall) and acting president of UVA Paul Mahoney, along with so many other cool people. They drank fancy champagne. We got to show them Artie at the dinner, and we even filmed a reel : ) 
+
+<CenterRow>
+    <Image src={alumni1Image} alt="Alumni 1" height="445px" />
+</CenterRow>
+
+I miss Surya Shanmugaselvam. In a visionary tribute to Surya Shanmugaselvam’s enduring legacy, we are proud to inaugurate Surya’s Office: a synergistic nexus of intellectual empowerment and transformative pedagogy, meticulously designed to catalyze the next frontier of CS kids.
+
+On a more serious note, we held our annual Young Alumni Reunion event at the beach volleyball courts. We got to meet so many of our favorite young alumni cutie pies who have graduated over the past years. Some of our more senior graduates got to operate Artie for the first time! Artie’s emergency stop button was not harmed throughout this process.
+
+<CenterRow>
+    <Image src={alumni2Image} alt="Alumni 2" height="445px" />
+</CenterRow>
+
+# Greatest MARS concessions run of all time
+
+import concessions1Image from '../../assets/images/blog/fall-2025/Concessions_1.jpg';
+import concessions2Image from '../../assets/images/blog/fall-2025/Concessions_2.jpg';
+import concessions3Image from '../../assets/images/blog/fall-2025/Concessions_3.jpg';
+import concessions4Image from '../../assets/images/blog/fall-2025/Concessions_4.jpg';
+
+We did concessions for all 7 home football games this season. UVA’s football team was having a generational run up until we lost to Wake Forest, but unlike UVA Football, our generational run continues. It is estimated that we’ll earn a grand total of $12.5k from football concessions alone. That’s a lot of money. The concessions volunteers have also been rewarded with a steady supply of Hoo Dogs, used in a variety of dishes ranging from fried rice to ramen. In other news, 10-time concessions veteran Gabriel Estrella announces his retirement from concessions.
+
+<CenterRow>
+    <Image src={concessions1Image} alt="Concessions 1" height="300px" />
+    <Image src={concessions2Image} alt="Concessions 2" height="300px" />
+    <Image src={concessions3Image} alt="Concessions 3" height="300px" />
+    <Image src={concessions4Image} alt="Concessions 4" height="300px" />
+</CenterRow>
+
+# Halloween Festivities
+
+import halloween1Image from '../../assets/images/blog/fall-2025/Halloween_1.jpg';
+import halloween2Image from '../../assets/images/blog/fall-2025/Halloween_2.JPG';
+import halloween3Image from '../../assets/images/blog/fall-2025/Halloween_3.jpg';
+
+MARS attended our first trick or treating on the lawn, and it was a huge success! Our lovely and talented manufacturing lead, Jameson, manufactured a guillotine looking candy launcher that would entertain the kids by shooting candy up into the air. The guillotine was so scarily realistic that the UVA mascot, Cavman, was too afraid to put his arm under it. We also brought out our inflatable Buc-ee’s, which served as a beacon of light on the dim, sprawling lawn. We rounded off Halloween weekend with a nice, chill afternoon of painting pumpkins and watching KPop Demon Hunters. Zach Parsia, the future mechanical lead, made this cute little pumpkin dedicated to Pochita of Chainsaw Man. 
+
+<CenterRow>
+    <Image src={halloween1Image} alt="Halloween 1" height="400px" />
+    <Image src={halloween2Image} alt="Halloween 2" height="400px" />
+    <Image src={halloween3Image} alt="Halloween 3" height="400px" />
+</CenterRow>
+
+# What can’t Zacharie Parsia do? Employee of the month 👍
+
+import zacharie1Image from '../../assets/images/blog/fall-2025/Zacharie_1.JPG';
+import zacharie2Image from '../../assets/images/blog/fall-2025/Zacharie_2.jpg';
+
+Speaking of Zach, shoutout to Zachary Parsia! From being the greatest computer mentor of all time to being the greatest future mechanical lead to eating up the maid outfit to playing the cello, he might just be able to do anything. I will glaze him any day. He is truly the MARS employee of the month.
+
+<CenterRow>
+    <Image src={zacharie1Image} alt="Zacharie 1" height="445px" />
+    <Image src={zacharie2Image} alt="Zacharie 2" height="445px" />
+</CenterRow>
+
+# Where we stand now
+
+import whereWeStand1Image from '../../assets/images/blog/fall-2025/Where_we_stand_1.jpg';
+import whereWeStand2Image from '../../assets/images/blog/fall-2025/Where_we_stand_2.jpg';
+
+As of November 14, we have just hosted our Preliminary Design Review, where we presented our robot designs, plans for autonomy, and plans for improving the electrical system. Mechanical team has an ambitious plan to make a functional bucket drum robot before winter break while simultaneously working on maturing the two-robot design. Computer team has found their footing after a successful demonstration of “schizo SLAM”, but will need to integrate real depth camera and AprilTag sensor inputs into their autonomy application. Electrical team is testing out some new hardware. Systems committee is diligently breaking down requirements and maintaining communication between the subteams. Overall, it’s looking like a promising start to our 2025-2026 robot!
+
+<CenterRow>
+    <Image src={whereWeStand1Image} alt="Where We Stand 1" height="500px" />
+    <Image src={whereWeStand2Image} alt="Where We Stand 2" height="500px" />
+</CenterRow>
