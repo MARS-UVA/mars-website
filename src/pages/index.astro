@@ -8,6 +8,7 @@ import stockImage from "../assets/images/StockImage.jpg";
 import ucfImage from "../assets/images/UCFCompetition2025.jpeg";
 import InfoTile from "../components/InfoTile.astro";
 import BlogTile from "../components/BlogTile.astro";
+import ColorBlock from "../components/ColorBlock.astro";
 import SignUpForm from "../components/SignUpForm.astro";
 
 import OnshapeImage from "../assets/images/sponsors/Onshape.svg";
@@ -70,119 +71,157 @@ const latestPost = allPosts
 				Everyone is welcome!
 			</p>
 		</Modal> -->
-		<InfoSection imageSrc={stockImage.src} imagePosition="left">
-			<h2>About Us</h2>
-			<p>
-				The Mechatronics and Robotics Society (MARS) at UVA is a
-				student-run, experiential learning engineering team dedicated to
-				teaching members and creating leaders in STEM.
-			</p>
-			<p>
-				Every year, we build a Moon robot for the
-				<a
-					href="https://www.nasa.gov/learning-resources/lunabotics-challenge/"
-					style="color:black">NASA Lunabotics Challenge</a
-				>. This year, our robot will mine lunar regolith (lunar soil)
-				and construct berms.
-			</p>
-			<ul>
-				<li>
-					Gain hands-on experience in design, machining, circuitry,
-					and coding
-				</li>
-				<li>
-					Practice organizing and collaborating with a professional
-					engineering team
-				</li>
-				<li>
-					Volunteer to promote STEM in the Charlottesville community
-				</li>
-				<li>Based out of Lacy Hall at the University of Virginia</li>
-			</ul>
-		</InfoSection>
-		<InfoSection imageSrc={ucfImage.src} imagePosition="right">
-			<h2>Lunabotics Challenge</h2>
-			<p>
-				An annual challenge for ~60 universities to design and build
-				autonomous rovers for lunar tasks supporting NASA's Artemis
-				Mission.
-			</p>
-			<ul>
-				<li>
-					<strong>Objective:</strong> Mine regolith and construct a regolith-based
-					berm to protect lunar landings.
-				</li>
-				<li>
-					<strong>Significance:</strong> Supports Artemis goals for sustained
-					Moon habitation and future Mars missions.
-				</li>
-				<li><strong>Requirements:</strong></li>
-				<ul class="sublist">
+		<ColorBlock>
+			<InfoSection imageSrc={stockImage.src} imagePosition="left">
+				<h2>About Us</h2>
+				<p>
+					The Mechatronics and Robotics Society (MARS) at UVA is a
+					student-run, experiential learning engineering team
+					dedicated to teaching members and creating leaders in STEM.
+				</p>
+				<p>
+					Every year, we build a Moon robot for the
+					<a
+						href="https://www.nasa.gov/learning-resources/lunabotics-challenge/"
+						style="color:black">NASA Lunabotics Challenge</a
+					>. This year, our robot will mine lunar regolith (lunar
+					soil) and construct berms.
+				</p>
+				<ul>
 					<li>
-						Build a rover from scratch to compete at annual
-						competition.
+						Gain hands-on experience in design, machining,
+						circuitry, and coding
 					</li>
 					<li>
-						Submit a systems engineering paper outlining design.
+						Practice organizing and collaborating with a
+						professional engineering team
 					</li>
-					<li>Submit an outreach paper detailing K-12 engagement.</li>
+					<li>
+						Volunteer to promote STEM in the Charlottesville
+						community
+					</li>
+					<li>
+						Based out of Lacy Hall at the University of Virginia
+					</li>
 				</ul>
-				<li>
-					<strong>Innovation:</strong> Exceptional designs may inspire
-					NASA excavation devices for Moon or Mars deployment.
-				</li>
-			</ul>
-		</InfoSection>
-		<InfoSection center={true}>
-			<h2>Get Involved</h2>
-			<p>
-				We’d love your help. Reach out in the way that works best for
-				you, and we’ll handle the rest.
-			</p>
-			<div class="row" style="margin: 40px 0;">
-				<InfoTile title="Sponsors" icon="🤝">
-					We accept any donation, no matter the size. Your donations
-					provide the resources necessary for the team to inspire new
-					generations to develop essential engineering skills. Also,
-					we'd love to hear about the various opportunities available
-					to our members! We highly appreciate advice from
-					professionals in the workplace.
-				</InfoTile>
-				<InfoTile title="Mentors" icon="🧠">
-					Are you interested in teaching and demonstrating your
-					passion for engineering, math and science? Become a part of
-					our mechanical, electrical, or computer teams and make an
-					impact on the next generation of engineers! Your experience
-					and advice will be highly valued and greatly appreciated!
-				</InfoTile>
-				<InfoTile title="Students" icon="🔨">
-					The success of the team is due to the diversity, creativity,
-					and dedication of our members; responsibility and commitment
-					are essential for the team to succeed. We hope that you will
-					create friendships and gain skills that inspire your future
-					career. You don't have to be an engineering student; we are
-					always looking for people who are driven, dedicated, and
-					committed!
-				</InfoTile>
-			</div>
-		</InfoSection>
-		<InfoSection center={true}>
-			<h2>Latest Blog Post</h2>
-			<br />
-			<BlogTile frontmatter={latestPost.data} />
-		</InfoSection>
-		<InfoSection center={true}>
-			<SignUpForm />
-		</InfoSection>
-			<!-- MAILCHIMP SIGNUP FORM COMPONENT -->
-		<InfoSection center={true}>
-			<h2>Our Sponsors (thanks!)</h2>
-			<div class="row responsive" style="align-items: center;">
-				<Image src={UVAEngineeringImage} alt="UVA Engineering" />
-				<Image src={UVAParentsProgramImage} alt="UVA Parents Program" />
-				<Image src={OnshapeImage} alt="Onshape" />
-			</div>
-		</InfoSection>
+			</InfoSection>
+		</ColorBlock>
+		<ColorBlock>
+			<InfoSection imageSrc={ucfImage.src} imagePosition="right">
+				<h2>Lunabotics Challenge</h2>
+				<p>
+					An annual challenge for ~60 universities to design and build
+					autonomous rovers for lunar tasks supporting NASA's Artemis
+					Mission.
+				</p>
+				<ul>
+					<li>
+						<strong>Objective:</strong> Mine regolith and construct a
+						regolith-based berm to protect lunar landings.
+					</li>
+					<li>
+						<strong>Significance:</strong> Supports Artemis goals for
+						sustained Moon habitation and future Mars missions.
+					</li>
+					<li><strong>Requirements:</strong></li>
+					<ul class="sublist">
+						<li>
+							Build a rover from scratch to compete at annual
+							competition.
+						</li>
+						<li>
+							Submit a systems engineering paper outlining design.
+						</li>
+						<li>
+							Submit an outreach paper detailing K-12 engagement.
+						</li>
+					</ul>
+					<li>
+						<strong>Innovation:</strong> Exceptional designs may inspire
+						NASA excavation devices for Moon or Mars deployment.
+					</li>
+				</ul>
+			</InfoSection>
+		</ColorBlock>
+		<ColorBlock>
+			<InfoSection center={true}>
+				<h2>Get Involved</h2>
+				<p>
+					We’d love your help. Reach out in the way that works best
+					for you, and we’ll handle the rest.
+				</p>
+				<div class="row" style="margin: 40px 0;">
+					<InfoTile title="Sponsors" icon="🤝">
+						We accept any donation, no matter the size. Your
+						donations provide the resources necessary for the team
+						to inspire new generations to develop essential
+						engineering skills. Also, we'd love to hear about the
+						various opportunities available to our members! We
+						highly appreciate advice from professionals in the
+						workplace.
+					</InfoTile>
+					<InfoTile title="Mentors" icon="🧠">
+						Are you interested in teaching and demonstrating your
+						passion for engineering, math and science? Become a part
+						of our mechanical, electrical, or computer teams and
+						make an impact on the next generation of engineers! Your
+						experience and advice will be highly valued and greatly
+						appreciated!
+					</InfoTile>
+					<InfoTile title="Students" icon="🔨">
+						The success of the team is due to the diversity,
+						creativity, and dedication of our members;
+						responsibility and commitment are essential for the team
+						to succeed. We hope that you will create friendships and
+						gain skills that inspire your future career. You don't
+						have to be an engineering student; we are always looking
+						for people who are driven, dedicated, and committed!
+					</InfoTile>
+				</div>
+			</InfoSection>
+		</ColorBlock>
+		<ColorBlock>
+			<InfoSection center={true}>
+				<h2>Latest Blog Post</h2>
+				<br />
+				<BlogTile frontmatter={latestPost.data} />
+			</InfoSection>
+		</ColorBlock>
+		<ColorBlock>
+			<InfoSection center={true}>
+				<SignUpForm />
+			</InfoSection>
+		</ColorBlock>
+		<!-- MAILCHIMP SIGNUP FORM COMPONENT -->
+		<ColorBlock>
+			<InfoSection center={true}>
+				<h2>Our Sponsors (thanks!)</h2>
+				<div class="row responsive" style="align-items: center;">
+					<Image src={UVAEngineeringImage} alt="UVA Engineering" />
+					<Image
+						src={UVAParentsProgramImage}
+						alt="UVA Parents Program"
+					/>
+					<Image src={OnshapeImage} alt="Onshape" />
+				</div>
+			</InfoSection>
+		</ColorBlock>
+		<ColorBlock>
+			<InfoSection center={true}>
+				<h2>Donate to MARS</h2>
+				<p>
+					Your support helps us build our lunar rover and inspire the
+					next generation of engineers. Consider making a
+					tax-deductible donation to MARS today!
+				</p>
+				<a
+					href="https://www.givecampus.com/campaigns/21200/donations/new?designation=mechatronicsandroboticssociety&"
+					class="button"
+				>
+					Donate
+				</a>
+			</InfoSection>
+		</ColorBlock>
 	</Main>
 
 	<style>
@@ -241,6 +280,24 @@ const latestPost = allPosts
 
 		.checkmark-list {
 			margin-bottom: 8px;
+		}
+
+		.button {
+			background-color: black;
+			display: block;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			text-decoration: none;
+			font-size: 1.1rem;
+			cursor: pointer;
+			width: 100%;
+			transition: transform 0.2s ease-in-out;
+		}
+
+		.button:hover {
+			transform: scale(1.02);
 		}
 	</style>
 </Layout>
