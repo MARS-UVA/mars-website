@@ -1,6 +1,6 @@
 name: JP Manapsal
 roles: []
 subteams:
-- id: electrical
-  years:
-  - 2025
+  - id: electrical
+    years:
+      - 2025

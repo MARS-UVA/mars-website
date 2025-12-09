@@ -1,7 +1,6 @@
 name: Samiya Young
 roles: []
 subteams:
-- id: mechanical
-  years:
-  - 2025
-  - 2026
+  - id: mechanical
+    years:
+      - 2025

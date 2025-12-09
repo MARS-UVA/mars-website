@@ -1,13 +1,12 @@
 name: Reed Finch
 roles: []
 subteams:
-- id: mechanical
-  years:
-  - 2025
-  - 2026
+  - id: mechanical
+    years:
+      - 2025
 profilePictures:
-- year: 2025
-  src: /images/people/2025/Reed Finch.jpg
+  - year: 2025
+    src: /images/people/2025/Reed Finch.jpg
 defaultProfilePicture:
   year: 2025
   type: profile

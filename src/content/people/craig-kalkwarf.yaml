@@ -1,33 +1,33 @@
-name: Craig Kalkwarf
-years:
-- 2025
-- 2026
-roles:
-- name: President
-  subteam: exec
-  years:
-  - 2025
-- name: Senior Mechanical Lead
-  subteam: mechanical
-  years:
-  - 2026
-subteams:
-- id: mechanical
-  years:
-  - 2025
-  - 2026
-- id: exec
-  years:
-  - 2025
-  - 2026
-professionalPictures:
-- year: 2025
-  src: /images/people/2025/formal/Craig Kalkwarf.jpg
-- year: 2026
-  src: /images/people/2026/formal/Craig Kalkwarf.jpg
-profilePictures:
-- year: 2025
-  src: /images/people/2025/Craig Kalkwarf.jpg
 defaultProfilePicture:
-  year: 2025
   type: profile
+  year: 2025
+name: Craig Kalkwarf
+professionalPictures:
+  - src: /images/people/2025/formal/Craig Kalkwarf.jpg
+    year: 2025
+  - src: /images/people/2026/formal/Craig Kalkwarf.jpg
+    year: 2026
+profilePictures:
+  - src: /images/people/2025/Craig Kalkwarf.jpg
+    year: 2025
+roles:
+  - name: President
+    subteam: exec
+    years:
+      - 2025
+  - name: Senior Mechanical Lead
+    subteam: mechanical
+    years:
+      - 2026
+subteams:
+  - id: mechanical
+    years:
+      - 2025
+      - 2026
+  - id: exec
+    years:
+      - 2025
+      - 2026
+years:
+  - 2025
+  - 2026

@@ -1,0 +1,9 @@
+name: Richard Corp
+roles: []
+subteams:
+  - id: mechanical
+    years:
+      - 2026
+  - id: electrical
+    years:
+      - 2026

@@ -1,19 +1,19 @@
+defaultProfilePicture:
+  type: profile
+  year: 2025
 name: Dante Huaman
-years:
-- 2025
-- 2026
+professionalPictures:
+  - src: /images/people/2026/formal/Dante Huaman.jpg
+    year: 2026
+profilePictures:
+  - src: /images/people/2025/Dante Huaman.jpg
+    year: 2025
 roles: []
 subteams:
-- id: mechanical
-  years:
+  - id: mechanical
+    years:
+      - 2025
+      - 2026
+years:
   - 2025
   - 2026
-profilePictures:
-- year: 2025
-  src: /images/people/2025/Dante Huaman.jpg
-defaultProfilePicture:
-  year: 2025
-  type: profile
-professionalPictures:
-- year: 2026
-  src: /images/people/2026/formal/Dante Huaman.jpg

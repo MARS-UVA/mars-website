@@ -1,27 +1,27 @@
 name: Michael Chesterman
 roles:
-- name: Outreach Chair
-  subteam: exec
-  years:
-  - 2025
-  - 2026
+  - name: Outreach Chair
+    subteam: exec
+    years:
+      - 2025
+      - 2026
 subteams:
-- id: mechanical
-  years:
-  - 2025
-  - 2026
-- id: exec
-  years:
-  - 2025
-  - 2026
+  - id: mechanical
+    years:
+      - 2025
+      - 2026
+  - id: exec
+    years:
+      - 2025
+      - 2026
 professionalPictures:
-- year: 2025
-  src: /images/people/2025/formal/Michael Chesterman.jpg
-- year: 2026
-  src: /images/people/2026/formal/Michael Chesterman.jpg
+  - year: 2025
+    src: /images/people/2025/formal/Michael Chesterman.jpg
+  - year: 2026
+    src: /images/people/2026/formal/Michael Chesterman.jpg
 profilePictures:
-- year: 2025
-  src: /images/people/2025/Michael Chesterman.jpg
+  - year: 2025
+    src: /images/people/2025/Michael Chesterman.jpg
 defaultProfilePicture:
   year: 2025
   type: profile

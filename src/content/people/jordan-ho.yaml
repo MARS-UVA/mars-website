@@ -1,23 +1,22 @@
-name: Jordan Ho
-roles:
-- name: Outreach Chair
-  subteam: exec
-  years:
-  - 2025
-subteams:
-- id: electrical
-  years:
-  - 2025
-  - 2026
-- id: exec
-  years:
-  - 2025
-professionalPictures:
-- year: 2025
-  src: /images/people/2025/formal/Jordan Ho.jpg
-profilePictures:
-- year: 2025
-  src: /images/people/2025/Jordan Ho.jpg
 defaultProfilePicture:
-  year: 2025
   type: profile
+  year: 2025
+name: Jordan Ho
+professionalPictures:
+  - src: /images/people/2025/formal/Jordan Ho.jpg
+    year: 2025
+profilePictures:
+  - src: /images/people/2025/Jordan Ho.jpg
+    year: 2025
+roles:
+  - name: Outreach Chair
+    subteam: exec
+    years:
+      - 2025
+subteams:
+  - id: electrical
+    years:
+      - 2025
+  - id: exec
+    years:
+      - 2025

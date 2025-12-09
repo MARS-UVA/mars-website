@@ -1,7 +1,6 @@
 name: Rohit Gayali
 roles: []
 subteams:
-- id: electrical
-  years:
-  - 2025
-  - 2026
+  - id: electrical
+    years:
+      - 2025

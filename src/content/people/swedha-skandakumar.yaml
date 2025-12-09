@@ -1,22 +1,22 @@
 name: Swedha Skandakumar
 roles:
-- name: Vice President
-  subteam: exec
-  years:
-  - 2025
+  - name: Vice President
+    subteam: exec
+    years:
+      - 2025
 subteams:
-- id: electrical
-  years:
-  - 2025
-- id: exec
-  years:
-  - 2025
+  - id: electrical
+    years:
+      - 2025
+  - id: exec
+    years:
+      - 2025
 professionalPictures:
-- year: 2025
-  src: /images/people/2025/formal/Swedha Skandakumar.jpg
+  - year: 2025
+    src: /images/people/2025/formal/Swedha Skandakumar.jpg
 profilePictures:
-- year: 2025
-  src: /images/people/2025/Swedha Skandakumar.jpg
+  - year: 2025
+    src: /images/people/2025/Swedha Skandakumar.jpg
 defaultProfilePicture:
   year: 2025
   type: profile

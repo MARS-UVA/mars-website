@@ -1,22 +1,22 @@
 name: Cayla Celis
 roles:
-- name: Mechanical Lead
-  subteam: mechanical
-  years:
-  - 2025
+  - name: Mechanical Lead
+    subteam: mechanical
+    years:
+      - 2025
 subteams:
-- id: mechanical
-  years:
-  - 2025
-- id: exec
-  years:
-  - 2025
+  - id: mechanical
+    years:
+      - 2025
+  - id: exec
+    years:
+      - 2025
 professionalPictures:
-- year: 2025
-  src: /images/people/2025/formal/Cayla Celis.jpg
+  - year: 2025
+    src: /images/people/2025/formal/Cayla Celis.jpg
 profilePictures:
-- year: 2025
-  src: /images/people/2025/Cayla Celis.jpg
+  - year: 2025
+    src: /images/people/2025/Cayla Celis.jpg
 defaultProfilePicture:
   year: 2025
   type: profile
