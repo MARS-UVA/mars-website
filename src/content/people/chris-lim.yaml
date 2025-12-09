@@ -20,6 +20,9 @@ profilePictures:
     src: /images/people/2025/Chris Lim.jpg
   - year: 2026
     src: /images/people/2026/Chris Lim.jpg
+professionalPictures:
+  - src: /images/people/2026/formal/Chris Lim.jpg
+    year: 2026
 defaultProfilePicture:
   year: 2025
 defaultProfessionalPicture:
