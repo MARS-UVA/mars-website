@@ -17,6 +17,7 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Modal from "../components/Modal.astro";
 import marsLogo from "../assets/images/MARSLogo.png";
+import ActionSection from "../components/ActionSection.astro";
 
 const allPosts = await getCollection("blog");
 const latestPost = allPosts
@@ -172,76 +173,116 @@ const latestPost = allPosts
 			<BlogTile frontmatter={latestPost.data} />
 		</InfoSection>
 		<InfoSection center={true}>
-			<h2>Subscribe to the MARS Newsletter</h2>
-			<SignUpForm />
-		</InfoSection>
-		<!-- MAILCHIMP SIGNUP FORM COMPONENT -->
-		<InfoSection center={true}>
-			<h2>Our Sponsors (thanks!)</h2>
-			<div class="row responsive" style="align-items: center;">
-				<Image src={UVAEngineeringImage} alt="UVA Engineering" />
-				<Image src={UVAParentsProgramImage} alt="UVA Parents Program" />
-				<Image src={OnshapeImage} alt="Onshape" />
+			<h2>Connect with MARS</h2>
+			<div class="row">
+				<SignUpForm />
+				<ActionSection>
+					<div
+						style="display: flex; flex-direction: column; height: 100%;"
+					>
+						<h3 style="font-size: 2rem; margin-bottom: 0.5rem;">
+							Donate to MARS
+						</h3>
+						<p>
+							Your support helps us build our lunar rover and
+							inspire the next generation of engineers. Consider
+							making a tax-deductible donation to MARS today!
+						</p>
+						<a
+							href="https://www.givecampus.com/campaigns/21200/donations/new?designation=mechatronicsandroboticssociety&"
+							class="button"
+							target="_blank"
+						>
+							Donate
+						</a>
+					</div>
+				</ActionSection>
 			</div>
+			<InfoSection center={true}>
+				<h2>Our Sponsors (thanks!)</h2>
+				<div class="row responsive" style="align-items: center;">
+					<Image src={UVAEngineeringImage} alt="UVA Engineering" />
+					<Image
+						src={UVAParentsProgramImage}
+						alt="UVA Parents Program"
+					/>
+					<Image src={OnshapeImage} alt="Onshape" />
+				</div>
+			</InfoSection>
+			<InfoSection center={true} />
+			<!-- MAILCHIMP SIGNUP FORM COMPONENT -->
 		</InfoSection>
 	</Main>
+</Layout>
+<style>
+	.row {
+		display: flex;
+		flex-direction: row;
+		gap: 40px;
+		justify-content: center;
+	}
 
-	<style>
+	.row img {
+		width: 30%;
+		object-fit: contain;
+		height: min-content;
+	}
+
+	@media (max-width: 768px) {
 		.row {
-			display: flex;
-			flex-direction: row;
-			gap: 40px;
-			justify-content: center;
+			gap: 20px;
 		}
 
 		.row img {
-			width: 30%;
+			width: 100%;
 			object-fit: contain;
-			height: min-content;
+			margin: 10px 0;
+		}
+	}
+
+	@media (max-width: 1000px) {
+		.row.responsive {
+			flex-wrap: wrap;
 		}
 
-		@media (max-width: 768px) {
-			.row {
-				gap: 20px;
-			}
-
-			.row img {
-				width: 100%;
-				object-fit: contain;
-				margin: 10px 0;
-			}
+		.row.responsive img {
+			width: 100%;
+			object-fit: contain;
+			margin: 20px 0;
 		}
+	}
 
-		@media (max-width: 1000px) {
-			.row.responsive {
-				flex-wrap: wrap;
-			}
-
-			.row.responsive img {
-				width: 100%;
-				object-fit: contain;
-				margin: 20px 0;
-			}
+	@media (max-width: 1200px) {
+		.row {
+			flex-direction: column;
 		}
+	}
 
-		@media (max-width: 1200px) {
-			.row {
-				flex-direction: column;
-			}
-		}
+	.checkmark-list {
+		list-style: none;
+		padding: 0;
+	}
 
-		.checkmark-list {
-			list-style: none;
-			padding: 0;
-		}
+	.checkmark-list > li::before {
+		content: "\2713";
+		margin: 0 0.5em;
+	}
 
-		.checkmark-list > li::before {
-			content: "\2713";
-			margin: 0 0.5em;
-		}
+	.checkmark-list {
+		margin-bottom: 8px;
+	}
 
-		.checkmark-list {
-			margin-bottom: 8px;
-		}
-	</style>
-</Layout>
+	.button {
+		background-color: black;
+		color: white;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 5px;
+		text-decoration: none;
+		font-size: 1.1rem;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+		display: inline-block;
+		width: 100%;
+	}
+</style>

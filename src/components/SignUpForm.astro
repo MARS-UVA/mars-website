@@ -1,28 +1,32 @@
-<!-- MAILCHIMP SIGNUP FORM COMPONENT -->
-<link
-  href="https://cdn-images.mailchimp.com/embedcode/classic-061523.css"
-  rel="stylesheet"
-  type="text/css"
-/>
+---
+import ActionSection from "./ActionSection.astro";
+---
 
 <style>
-  #mc_embed_signup {
-    background: #fff;
-    font: 14px;
-    width: 100%;
-    margin: 2rem auto;
-    padding: 1rem;
-    border-radius: 20px;
-    border-style: solid;
-    border-width: 1px;
-  }
-
-  #mc_embed_signup h2 {
+  h3 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    height: 100%;
   }
 
-  #mc_embed_signup .button {
+  label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: block;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    margin: 0;
+    height: auto;
+    outline: none;
+    padding: 10px;
+    text-indent: 0%;
+    padding: 10px;
+  }
+
+  .button {
     color: white;
     font-size: 1rem;
     padding: 5px;
@@ -35,39 +39,31 @@
     margin: 0;
     height: auto;
     font-family: inherit;
-  }
-
-  #mc_embed_signup label {
-    font-weight: bold;
-    font-size: 0.9rem;
-    display: block;
-  }
-
-  #mc_embed_signup .mc-field-group {
-    width: 100%;
-  }
-
-  #mc_embed_signup input[type="email"] {
-    width: 100%;
-    margin: 0;
-    height: auto;
-    outline: none;
+    background-color: black;
     padding: 10px;
-    text-indent: 0%;
   }
 
-  #mc_embed_signup .button:hover {
+  .button:hover {
     transform: scale(1.02);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
   }
 </style>
 
-<div id="mc_embed_signup">
+<ActionSection>
   <form
     action="https://marsatuva.us6.list-manage.com/subscribe/post?u=e4373a6764c06e5221396c3b9&id=12e1c200fd&f_id=004809e3f0"
     method="post"
     target="_blank"
     novalidate
   >
+    <h3>Subscribe to the MARS Newsletter</h3>
+
     <div class="mc-field-group">
       <label for="mce-EMAIL">Email Address *</label>
       <input
@@ -91,4 +87,4 @@
 
     <input type="submit" name="subscribe" class="button" value="Subscribe" />
   </form>
-</div>
+</ActionSection>
