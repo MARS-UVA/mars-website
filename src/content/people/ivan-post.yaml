@@ -2,6 +2,9 @@ name: Ivan Post
 professionalPictures:
 - src: /images/people/2026/formal/Ivan Post.jpg
   year: 2026
+profilePictures:
+- year: 2026
+  src: /images/people/2026/Ivan Post.jpg
 roles:
 - name: Systems Lead
   subteam: systems

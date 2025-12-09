@@ -7,3 +7,6 @@ subteams:
   - id: electrical
     years:
       - 2026
+profilePictures:
+- year: 2026
+  src: /images/people/2026/Richard Corp.jpg

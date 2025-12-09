@@ -4,3 +4,6 @@ subteams:
   - id: mechanical
     years:
       - 2026
+profilePictures:
+- year: 2026
+  src: /images/people/2026/Eva Klinker.jpg

@@ -8,6 +8,8 @@ professionalPictures:
 profilePictures:
   - src: /images/people/2025/Amith Polineni.jpg
     year: 2025
+  - src: /images/people/2026/Amith Polineni.jpg
+    year: 2026
 roles:
   - name: Vice President
     subteam: exec

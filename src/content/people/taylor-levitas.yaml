@@ -10,6 +10,9 @@ professionalPictures:
 profilePictures:
   - src: /images/people/2025/Taylor Levitas.jpg
     year: 2025
+profilePictures:
+  - src: /images/people/2026/Taylor Levitas.jpg
+    year: 2026
 roles:
   - name: Secretary
     subteam: exec

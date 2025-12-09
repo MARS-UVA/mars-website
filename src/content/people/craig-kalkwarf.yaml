@@ -10,6 +10,8 @@ professionalPictures:
 profilePictures:
   - src: /images/people/2025/Craig Kalkwarf.jpg
     year: 2025
+  - src: /images/people/2026/Craig Kalkwarf.jpg
+    year: 2026
 roles:
   - name: President
     subteam: exec
