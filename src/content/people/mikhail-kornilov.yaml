@@ -1,4 +1,15 @@
+defaultProfilePicture:
+  type: profile
+  year: 2025
 name: Mikhail Kornilov
+professionalPictures:
+- src: /images/people/2025/formal/Mikhail Kornilov.jpg
+  year: 2025
+- src: /images/people/2026/formal/Mikhail Kornilov.jpg
+  year: 2026
+profilePictures:
+- src: /images/people/2025/Mikhail Kornilov.jpg
+  year: 2025
 roles:
 - name: Computer Lead
   subteam: computer
@@ -14,14 +25,3 @@ subteams:
   years:
   - 2025
   - 2026
-professionalPictures:
-- year: 2025
-  src: /images/people/2025/formal/Mikhail Kornilov.jpg
-- year: 2026
-  src: /images/people/2026/formal/Mikhail Kornilov.jpg
-profilePictures:
-- year: 2025
-  src: /images/people/2025/Mikhail Kornilov.jpg
-defaultProfilePicture:
-  year: 2025
-  type: profile

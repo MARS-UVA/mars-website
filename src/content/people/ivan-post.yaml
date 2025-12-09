@@ -1,4 +1,7 @@
 name: Ivan Post
+professionalPictures:
+- src: /images/people/2026/formal/Ivan Post.jpg
+  year: 2026
 roles:
 - name: Systems Lead
   subteam: systems
@@ -12,6 +15,3 @@ subteams:
 - id: exec
   years:
   - 2026
-professionalPictures:
-- year: 2026
-  src: /images/people/2026/formal/Ivan Post.jpg

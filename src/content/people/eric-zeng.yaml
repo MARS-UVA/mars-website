@@ -1,4 +1,13 @@
+defaultProfilePicture:
+  type: profile
+  year: 2025
 name: Eric Zeng
+professionalPictures:
+- src: /images/people/2026/formal/Eric Zeng.jpg
+  year: 2026
+profilePictures:
+- src: /images/people/2025/Eric Zeng.jpg
+  year: 2025
 roles:
 - name: Computer Lead
   subteam: computer
@@ -12,12 +21,3 @@ subteams:
 - id: exec
   years:
   - 2026
-profilePictures:
-- year: 2025
-  src: /images/people/2025/Eric Zeng.jpg
-defaultProfilePicture:
-  year: 2025
-  type: profile
-professionalPictures:
-- year: 2026
-  src: /images/people/2026/formal/Eric Zeng.jpg
