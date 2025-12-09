@@ -22,6 +22,8 @@ professionalPictures:
 profilePictures:
   - year: 2025
     src: /images/people/2025/Michael Chesterman.jpg
+  - year: 2026
+    src: /images/people/2026/Michael Chesterman.jpg
 defaultProfilePicture:
   year: 2025
   type: profile

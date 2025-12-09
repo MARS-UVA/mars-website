@@ -8,6 +8,8 @@ professionalPictures:
 profilePictures:
   - src: /images/people/2025/Dante Huaman.jpg
     year: 2025
+  - src: /images/people/2026/Dante Huaman.jpg
+    year: 2026
 roles: []
 subteams:
   - id: mechanical
