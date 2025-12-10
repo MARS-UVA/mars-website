@@ -9,55 +9,6 @@ import BackToTop from "../../components/BackToTop.astro";
 import YearButton from "../../components/YearButton.astro";
 import { getYearPictureSrc } from "../../util.ts";
 
-const subteams = [
-    { name: "Executives", id: "exec", color: "#4a89ff", image: "Exec.jpg" },
-    {
-        name: "Mechanical",
-        id: "mechanical",
-        color: "#9b81cf",
-        image: "Mechanical.jpg",
-    },
-    {
-        name: "Computer",
-        id: "computer",
-        color: "#ad1457",
-        image: "Computer.jpg",
-    },
-    {
-        name: "Electrical",
-        id: "electrical",
-        color: "#66ca93",
-        image: "Electrical.jpg",
-    },
-    {
-        name: "Systems",
-        id: "systems",
-        color: "#c27c0e",
-        show: false,
-    },
-];
-
-const showSubteams = subteams.filter((s) => s.show !== false);
-
-const rolePriority = {
-    President: 0,
-    "Vice President": 1,
-    Treasurer: 2,
-    Secretary: 3,
-    "Systems Lead": 4,
-    "Senior Mechanical Lead": 4.5,
-    "Manufacturing Lead": 5,
-    "Mechanical Lead": 5,
-    "Electrical Lead": 6,
-    "Computer Lead": 7,
-    "Outreach Chair": 8,
-} as { [key: string]: number };
-
-const colors: { [key: string]: string } = {};
-subteams.forEach((subteam) => {
-    colors[subteam.id] = subteam.color;
-});
-
 export function getStaticPaths(): Promise<{ params: { year: string } }[]> {
     // Get all years from people collection
     return getCollection("people").then((people) => {
@@ -88,6 +39,31 @@ const peopleCollection = await getCollection("people", (person) => {
 });
 
 const { year, allYears } = Astro.props as { year: number; allYears: number[] };
+
+const yearData = (await getCollection("years", (y) => y.data.year === year))[0];
+
+const subteams = yearData.data.subteams;
+
+const showSubteams = subteams.filter((s) => s.show !== false);
+
+const rolePriority = {
+    President: 0,
+    "Vice President": 1,
+    Treasurer: 2,
+    Secretary: 3,
+    "Systems Lead": 4,
+    "Senior Mechanical Lead": 4.5,
+    "Manufacturing Lead": 5,
+    "Mechanical Lead": 5,
+    "Electrical Lead": 6,
+    "Computer Lead": 7,
+    "Outreach Chair": 8,
+} as { [key: string]: number };
+
+const colors: { [key: string]: string } = {};
+subteams.forEach((subteam) => {
+    colors[subteam.id] = subteam.color;
+});
 ---
 
 <Layout solidNav={true} title="Team">
@@ -108,7 +84,7 @@ const { year, allYears } = Astro.props as { year: number; allYears: number[] };
                 <InfoSection id={subteam.id} center={true}>
                     <h2>{subteam.name}</h2>
                     <img
-                        src={`/images/subteams/${year}/${subteam.image}`}
+                        src={subteam.photoSrc}
                         alt={`${subteam.name} Team`}
                         class="subteam-image"
                         style={{
@@ -193,7 +169,8 @@ const { year, allYears } = Astro.props as { year: number; allYears: number[] };
                                                     ? "professional"
                                                     : "profile",
                                                 year,
-                                            ) || "/images/default-profile.jpg"
+                                            ) ||
+                                            yearData.data.defaultProfilePicture
                                         }
                                         alt={member.data.name}
                                         class="profile-picture"

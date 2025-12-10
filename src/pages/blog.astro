@@ -18,7 +18,13 @@ const sortedPosts = publishedPosts.sort(
         <InfoSection center={true}>
             <h2>Blog</h2>
             <br />
-            {sortedPosts.map((post) => <BlogTile frontmatter={post.data} />)}
+            <div style="display: flex; flex-direction: column; gap: 40px;">
+                {
+                    sortedPosts.map((post) => (
+                        <BlogTile frontmatter={post.data} />
+                    ))
+                }
+            </div>
         </InfoSection>
     </Main>
 </Layout>

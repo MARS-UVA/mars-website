@@ -1,0 +1,47 @@
+- year: 2025
+  defaultProfilePicture: /images/people/2025/default-profile.jpg
+  subteams:
+    - id: exec
+      name: Executives
+      photoSrc: /images/subteams/2025/Exec.jpg
+      color: "#4a89ff"
+    - id: mechanical
+      name: Mechanical
+      photoSrc: /images/subteams/2025/Mechanical.jpg
+      color: "#9b81cf"
+    - id: computer
+      name: Computer
+      photoSrc: /images/subteams/2025/Computer.jpg
+      color: "#ad1457"
+    - id: electrical
+      name: Electrical
+      photoSrc: /images/subteams/2025/Electrical.jpg
+      color: "#66ca93"
+    - id: systems
+      name: Systems
+      color: "#c27c0e"
+      show: false
+
+- year: 2026
+  defaultProfilePicture: /images/people/2026/default-profile.webp
+  subteams:
+    - id: exec
+      name: Executives
+      photoSrc: /images/subteams/2026/Exec.jpg
+      color: "#4a89ff"
+    - id: mechanical
+      name: Mechanical
+      photoSrc: /images/subteams/2026/Mechanical.jpg
+      color: "#9b81cf"
+    - id: computer
+      name: Computer
+      photoSrc: /images/subteams/2026/Computer.jpg
+      color: "#ad1457"
+    - id: electrical
+      name: Electrical
+      photoSrc: /images/subteams/2026/Electrical.jpg
+      color: "#66ca93"
+    - id: systems
+      name: Systems
+      color: "#c27c0e"
+      show: false

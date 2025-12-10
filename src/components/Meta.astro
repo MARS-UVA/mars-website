@@ -11,8 +11,7 @@ const authorInfo = peopleCollection.find(
 );
 
 const authorPicture =
-    (authorInfo && getYearPictureSrc(authorInfo, "profile", -1)) ||
-    "/images/default-profile.jpg";
+    authorInfo && getYearPictureSrc(authorInfo, "profile", -1);
 
 const authorName = authorInfo?.data.name || "Unknown Author";
 

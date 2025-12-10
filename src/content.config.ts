@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { file, glob } from 'astro/loaders';
+import { parse } from 'yaml';
 
 const people = defineCollection({
   loader: glob({
@@ -51,7 +52,28 @@ const blog = defineCollection({
   })
 });
 
+const years = defineCollection({
+  loader: file("./src/content/years.yaml", {
+    parser: (data) => parse(data).map((item: { year: number }) => ({
+      id: String(item.year),
+      ...item,
+    })),
+  }),
+  schema: z.object({
+    year: z.number(),
+    defaultProfilePicture: z.string(),
+    subteams: z.object({
+      id: z.string(),
+      name: z.string(),
+      photoSrc: z.string().optional(),
+      show: z.boolean().optional(),
+      color: z.string()
+    }).array()
+  })
+});
+
 export const collections = {
   people,
   blog,
+  years,
 };
