@@ -4,3 +4,6 @@ subteams:
   - id: electrical
     years:
       - 2026
+profilePictures:
+  - src: /images/people/2026/Frederick Mensah.jpg
+    year: 2026

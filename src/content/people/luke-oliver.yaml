@@ -4,3 +4,6 @@ subteams:
   - id: electrical
     years:
       - 2026
+profilePictures:
+  - src: /images/people/2026/Luke Oliver.jpg
+    year: 2026
