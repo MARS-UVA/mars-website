@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { getYearPictureSrc } from "../util.ts";
+import { Image } from "astro:assets";
 
 const { author, date, fontSize, imgSize } = Astro.props;
 
@@ -22,11 +23,15 @@ const dateFormatted = new Intl.DateTimeFormat("en-US", {
 ---
 
 <div class="meta">
-    <img
-        src={authorPicture}
-        alt={authorName}
-        style={{ height: imgSize ?? "35px", width: imgSize ?? "35px" }}
-    />
+    {
+        authorPicture && (
+            <Image
+                src={authorPicture}
+                alt={authorName}
+                style={{ height: imgSize ?? "35px", width: imgSize ?? "35px" }}
+            />
+        )
+    }
     <div class="stack" style={{ fontSize: fontSize ?? "initial" }}>
         <p class="author">{authorName}</p>
         <p class="date">{dateFormatted}</p>

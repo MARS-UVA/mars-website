@@ -7,7 +7,8 @@ import SubteamButton from "../../components/SubteamButton.astro";
 import { getCollection } from "astro:content";
 import BackToTop from "../../components/BackToTop.astro";
 import YearButton from "../../components/YearButton.astro";
-import { getYearPictureSrc } from "../../util.ts";
+import { getPicture, getYearPictureSrc } from "../../util.ts";
+import { Image } from "astro:assets";
 
 export function getStaticPaths(): Promise<{ params: { year: string } }[]> {
     // Get all years from people collection
@@ -80,125 +81,137 @@ subteams.forEach((subteam) => {
             </div>
         </InfoSection>
         {
-            showSubteams.map((subteam) => (
-                <InfoSection id={subteam.id} center={true}>
-                    <h2>{subteam.name}</h2>
-                    <img
-                        src={subteam.photoSrc}
-                        alt={`${subteam.name} Team`}
-                        class="subteam-image"
-                        style={{
-                            width: "auto",
-                            borderRadius: "50px",
-                            borderWidth: "7px",
-                            borderStyle: "solid",
-                            color: subteam.color,
-                            maxWidth: "100%",
-                            maxHeight: "40vw",
-                        }}
-                    />
-                    <div class="members">
-                        {peopleCollection
-                            .filter((member) =>
-                                member.data.subteams?.find(
-                                    (s) =>
-                                        s.id === subteam.id &&
-                                        s.years?.includes(year),
-                                ),
-                            )
-                            .sort((a, b) => {
-                                // If a member has a subteam role, sort by that
-                                const findRoles = (member: any) => {
-                                    if (subteam.id === "exec")
+            showSubteams.map((subteam) => {
+                const subteamPicture = getPicture(subteam.photoSrc ?? "");
+                return (
+                    <InfoSection id={subteam.id} center={true}>
+                        <h2>{subteam.name}</h2>
+                        {subteamPicture !== null && (
+                            <Image
+                                src={subteamPicture}
+                                alt={`${subteam.name} Team`}
+                                class="subteam-image"
+                                style={{
+                                    width: "auto",
+                                    borderRadius: "50px",
+                                    borderWidth: "7px",
+                                    borderStyle: "solid",
+                                    color: subteam.color,
+                                    maxWidth: "100%",
+                                    maxHeight: "40vw",
+                                    height: "auto",
+                                }}
+                            />
+                        )}
+                        <div class="members">
+                            {peopleCollection
+                                .filter((member) =>
+                                    member.data.subteams?.find(
+                                        (s) =>
+                                            s.id === subteam.id &&
+                                            s.years?.includes(year),
+                                    ),
+                                )
+                                .sort((a, b) => {
+                                    // If a member has a subteam role, sort by that
+                                    const findRoles = (member: any) => {
+                                        if (subteam.id === "exec")
+                                            return member.data.roles?.filter(
+                                                (role: any) =>
+                                                    role.years?.includes(year),
+                                            );
+
                                         return member.data.roles?.filter(
                                             (role: any) =>
+                                                role.subteam === subteam.id &&
                                                 role.years?.includes(year),
                                         );
-
-                                    return member.data.roles?.filter(
-                                        (role: any) =>
-                                            role.subteam === subteam.id &&
-                                            role.years?.includes(year),
+                                    };
+                                    // Find max priority role for each member
+                                    const aRole = findRoles(a).reduce(
+                                        (max: any, role: any) =>
+                                            rolePriority[role.name] <
+                                            (max
+                                                ? rolePriority[max.name]
+                                                : Infinity)
+                                                ? role
+                                                : max,
+                                        null,
                                     );
-                                };
-                                // Find max priority role for each member
-                                const aRole = findRoles(a).reduce(
-                                    (max: any, role: any) =>
-                                        rolePriority[role.name] <
-                                        (max
-                                            ? rolePriority[max.name]
-                                            : Infinity)
-                                            ? role
-                                            : max,
-                                    null,
-                                );
-                                const bRole = findRoles(b).reduce(
-                                    (max: any, role: any) =>
-                                        rolePriority[role.name] <
-                                        (max
-                                            ? rolePriority[max.name]
-                                            : Infinity)
-                                            ? role
-                                            : max,
-                                    null,
-                                );
-                                if (aRole && bRole) {
-                                    return (
-                                        rolePriority[aRole.name] -
-                                        rolePriority[bRole.name]
+                                    const bRole = findRoles(b).reduce(
+                                        (max: any, role: any) =>
+                                            rolePriority[role.name] <
+                                            (max
+                                                ? rolePriority[max.name]
+                                                : Infinity)
+                                                ? role
+                                                : max,
+                                        null,
                                     );
-                                } else if (aRole) {
-                                    return -1;
-                                } else if (bRole) {
-                                    return 1;
-                                }
+                                    if (aRole && bRole) {
+                                        return (
+                                            rolePriority[aRole.name] -
+                                            rolePriority[bRole.name]
+                                        );
+                                    } else if (aRole) {
+                                        return -1;
+                                    } else if (bRole) {
+                                        return 1;
+                                    }
 
-                                // If no subteam role, sort by name
-                                return a.data.name.localeCompare(b.data.name);
-                            })
-                            .map((member) => (
-                                <div
-                                    class="member"
-                                    style={{ borderColor: subteam.color }}
-                                >
-                                    <img
-                                        src={
-                                            getYearPictureSrc(
-                                                member,
-                                                subteam.id === "exec"
-                                                    ? "professional"
-                                                    : "profile",
-                                                year,
-                                            ) ||
-                                            yearData.data.defaultProfilePicture
-                                        }
-                                        alt={member.data.name}
-                                        class="profile-picture"
-                                    />
-                                    <h3 class="name">{member.data.name}</h3>
-                                    {member.data.roles?.map(
-                                        (role) =>
-                                            role.years?.includes(year) && (
-                                                <span
-                                                    class="role"
-                                                    style={{
-                                                        backgroundColor:
-                                                            colors[
-                                                                role.subteam
-                                                                    ? role.subteam
-                                                                    : subteam.id
-                                                            ] || subteam.color,
-                                                    }}
-                                                >
-                                                    {role.name}
-                                                </span>
-                                            ),
-                                    )}
-                                </div>
-                            ))}
-                    </div>
-                </InfoSection>
-            ))
+                                    // If no subteam role, sort by name
+                                    return a.data.name.localeCompare(
+                                        b.data.name,
+                                    );
+                                })
+                                .map((member) => (
+                                    <div
+                                        class="member"
+                                        style={{ borderColor: subteam.color }}
+                                    >
+                                        <Image
+                                            src={
+                                                getYearPictureSrc(
+                                                    member,
+                                                    subteam.id === "exec"
+                                                        ? "professional"
+                                                        : "profile",
+                                                    year,
+                                                ) ||
+                                                (getPicture(
+                                                    yearData.data
+                                                        .defaultProfilePicture,
+                                                ) as ImageMetadata)
+                                            }
+                                            alt={member.data.name}
+                                            class="profile-picture"
+                                        />
+                                        <h3 class="name">{member.data.name}</h3>
+                                        {member.data.roles?.map(
+                                            (role) =>
+                                                role.years?.includes(year) && (
+                                                    <span
+                                                        class="role"
+                                                        style={{
+                                                            backgroundColor:
+                                                                colors[
+                                                                    role.subteam
+                                                                        ? role.subteam
+                                                                        : subteam.id
+                                                                ] ||
+                                                                subteam.color,
+                                                        }}
+                                                    >
+                                                        {role.name}
+                                                    </span>
+                                                ),
+                                        )}
+                                    </div>
+                                ))}
+                        </div>
+                    </InfoSection>
+                );
+            })
         }
         <InfoSection center={true}>
             <h2>MARS Through the Years</h2>

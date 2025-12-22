@@ -1,13 +1,21 @@
 ---
 import Meta from "./Meta.astro";
+import { Image } from "astro:assets";
+import { getPicture } from "../util.ts";
 
 const { frontmatter } = Astro.props;
 const { title, author, date, description, thumbnail, slug } = frontmatter;
+
+const thumbnailPicture = getPicture(thumbnail);
 ---
 
 <a href={`/blog/${slug}`} class="blog-tile">
     <section>
-        <img src={thumbnail} alt={title} class="main-pic" />
+        {
+            thumbnailPicture && (
+                <Image src={thumbnailPicture} alt={title} class="main-pic" />
+            )
+        }
         <div class="info">
             <h2 class="title">{title}</h2>
             <Meta author={author} date={date} />
@@ -46,9 +54,9 @@ const { title, author, date, description, thumbnail, slug } = frontmatter;
 
     section .main-pic {
         width: 50%;
+        height: auto;
         aspect-ratio: 4/3;
         object-fit: cover;
-        border-radius: 60px 0px 0px 60px;
         flex-shrink: 0;
     }
 
