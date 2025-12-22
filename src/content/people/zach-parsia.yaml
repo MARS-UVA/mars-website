@@ -23,6 +23,9 @@ profilePictures:
 professionalPictures:
   - year: 2026
     src: /images/people/2026/formal/Zachary Parsia.jpg
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/ZachParsia.png
 defaultProfilePicture:
   year: 2025
   type: profile

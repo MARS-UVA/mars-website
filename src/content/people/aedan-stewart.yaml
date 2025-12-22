@@ -7,3 +7,6 @@ subteams:
 profilePictures:
   - year: 2026
     src: /images/people/2026/Aedan Stewart.jpg
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/AedanStewart.png

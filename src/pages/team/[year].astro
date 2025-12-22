@@ -67,6 +67,27 @@ subteams.forEach((subteam) => {
 });
 ---
 
+<script>
+    const catMode = Math.random() < 1 / 50; // 2% chance to enable cat mode
+
+    if (catMode) {
+        console.log("Cat mode enabled! 🐱");
+        console.log("Displaying cat pictures for team members!");
+        // If img tag has data-cat attribute, replace src with it
+        document.addEventListener("DOMContentLoaded", () => {
+            const imgTags = document.querySelectorAll(
+                ".profile-picture[data-cat]",
+            ) as NodeListOf<HTMLImageElement>;
+            imgTags.forEach((img) => {
+                const catSrc = img.getAttribute("data-cat");
+                if (catSrc) {
+                    img.src = catSrc;
+                }
+            });
+        });
+    }
+</script>
+
 <Layout solidNav={true} title="Team">
     <BackToTop />
     <Main maxWidth="1500px">
@@ -182,6 +203,13 @@ subteams.forEach((subteam) => {
                                                     yearData.data
                                                         .defaultProfilePicture,
                                                 ) as ImageMetadata)
+                                            }
+                                            data-cat={
+                                                getYearPictureSrc(
+                                                    member,
+                                                    "cat",
+                                                    year,
+                                                )?.src
                                             }
                                             alt={member.data.name}
                                             class="profile-picture"

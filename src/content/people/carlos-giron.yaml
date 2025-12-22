@@ -10,6 +10,9 @@ profilePictures:
     year: 2025
   - src: /images/people/2026/Carlos Giron.jpg
     year: 2026
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/CarlosGiron.png
 roles:
   - name: Electrical Lead
     subteam: electrical

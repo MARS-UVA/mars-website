@@ -1,22 +1,25 @@
 name: Hao Gu
 roles:
-- name: Systems Lead
-  subteam: systems
-  years:
-  - 2025
+  - name: Systems Lead
+    subteam: systems
+    years:
+      - 2025
 subteams:
-- id: computer
-  years:
-  - 2025
-- id: exec
-  years:
-  - 2025
+  - id: computer
+    years:
+      - 2025
+  - id: exec
+    years:
+      - 2025
 professionalPictures:
-- year: 2025
-  src: /images/people/2025/formal/Hao Gu.jpg
+  - year: 2025
+    src: /images/people/2025/formal/Hao Gu.jpg
 profilePictures:
-- year: 2025
-  src: /images/people/2025/Hao Gu.jpg
+  - year: 2025
+    src: /images/people/2025/Hao Gu.jpg
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/HaoGu.png
 defaultProfilePicture:
   year: 2025
   type: profile

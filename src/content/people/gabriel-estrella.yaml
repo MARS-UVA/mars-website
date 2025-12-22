@@ -7,6 +7,9 @@ profilePictures:
     year: 2025
   - src: /images/people/2026/Gabriel Estrella.jpg
     year: 2026
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/GabrielEstrella.png
 roles: []
 subteams:
   - id: mechanical

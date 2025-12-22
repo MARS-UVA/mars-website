@@ -5,5 +5,8 @@ subteams:
     years:
       - 2026
 profilePictures:
-- year: 2026
-  src: /images/people/2026/Luke Sun.jpg
+  - year: 2026
+    src: /images/people/2026/Luke Sun.jpg
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/LukeSun.png

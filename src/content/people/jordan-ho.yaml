@@ -8,6 +8,9 @@ professionalPictures:
 profilePictures:
   - src: /images/people/2025/Jordan Ho.jpg
     year: 2025
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/JordanHo.png
 roles:
   - name: Outreach Chair
     subteam: exec

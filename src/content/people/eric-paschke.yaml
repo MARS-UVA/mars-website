@@ -3,30 +3,33 @@ defaultProfilePicture:
   year: 2025
 name: Eric Paschke
 professionalPictures:
-- src: /images/people/2025/formal/Eric Paschke.jpg
-  year: 2025
-- src: /images/people/2026/formal/Eric Paschke.jpg
-  year: 2026
+  - src: /images/people/2025/formal/Eric Paschke.jpg
+    year: 2025
+  - src: /images/people/2026/formal/Eric Paschke.jpg
+    year: 2026
 profilePictures:
-- src: /images/people/2025/Eric Paschke.jpg
-  year: 2025
-- src: /images/people/2026/Eric Paschke.jpg
-  year: 2026
+  - src: /images/people/2025/Eric Paschke.jpg
+    year: 2025
+  - src: /images/people/2026/Eric Paschke.jpg
+    year: 2026
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/EricPaschke.png
 roles:
-- name: Treasurer
-  subteam: exec
-  years:
-  - 2025
-  - 2026
+  - name: Treasurer
+    subteam: exec
+    years:
+      - 2025
+      - 2026
 subteams:
-- id: exec
-  years:
-  - 2025
-  - 2026
-- id: computer
-  years:
-  - 2025
-  - 2026
-- id: electrical
-  years:
-  - 2026
+  - id: exec
+    years:
+      - 2025
+      - 2026
+  - id: computer
+    years:
+      - 2025
+      - 2026
+  - id: electrical
+    years:
+      - 2026

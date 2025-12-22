@@ -21,6 +21,9 @@ roles:
     subteam: mechanical
     years:
       - 2026
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/CraigKalkwarf.png
 subteams:
   - id: mechanical
     years:

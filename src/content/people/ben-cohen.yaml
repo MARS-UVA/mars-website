@@ -13,6 +13,9 @@ roles:
     subteam: mechanical
     years:
       - 2025
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/BenCohen.png
 subteams:
   - id: mechanical
     years:

@@ -22,13 +22,14 @@ const peopleCollection = await getCollection("people");
 
 const getYearPictureSrc = (
     person: (typeof peopleCollection)[number],
-    type: "professional" | "profile",
+    type: "professional" | "profile" | "cat",
     year: number,
 ): ImageMetadata | null => {
-    const pictures =
-        type === "professional"
-            ? person.data.professionalPictures
-            : person.data.profilePictures;
+    const pictures = {
+        cat: person.data.catPictures,
+        professional: person.data.professionalPictures,
+        profile: person.data.profilePictures,
+    }[type] ?? person.data.profilePictures;
 
     if (pictures) {
         // Find pictureSrc for the given year

@@ -22,6 +22,10 @@ const people = defineCollection({
       year: z.number(),
       src: z.string(),
     })).optional(),
+    catPictures: z.array(z.object({
+      year: z.number(),
+      src: z.string(),
+    })).optional(),
     subteams: z.array(z.object({
       id: z.string(),
       years: z.array(z.number()),

@@ -12,6 +12,9 @@ profilePictures:
     year: 2025
   - src: /images/people/2026/Nayeon Son.jpg
     year: 2026
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/NayeonSon.png
 roles:
   - name: Mechanical Lead
     subteam: mechanical

@@ -15,6 +15,9 @@ subteams:
   - id: exec
     years:
       - 2026
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/ChrisLim.png
 profilePictures:
   - year: 2025
     src: /images/people/2025/Chris Lim.jpg

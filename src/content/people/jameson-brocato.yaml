@@ -10,6 +10,9 @@ profilePictures:
     year: 2025
   - src: /images/people/2026/Jameson Brocato.jpg
     year: 2026
+catPictures:
+  - year: 2026
+    src: /images/people/2026/cats/JamesonBrocato.png
 roles:
   - name: Manufacturing Lead
     subteam: mechanical
