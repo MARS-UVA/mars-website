@@ -1,0 +1,187 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Main from "../components/Main.astro";
+---
+
+<Main>
+    <div class="container">
+        <h2>Berm Volume Calculator</h2>
+
+        <div>
+            <label for="shape">Select Berm Shape:</label>
+            <select id="shape">
+                <option value="ellipticCone">Elliptic Cone</option>
+                <option value="cone">Cone</option>
+                <option value="pyramid">Pyramid</option>
+            </select>
+        </div>
+
+        <div id="coneInputs" style="display:none;">
+            <label for="diameter">Enter Berm Diameter:</label>
+            <input
+                type="number"
+                id="diameter"
+                placeholder="e.g. 4"
+                step="0.01"
+            />
+        </div>
+
+        <div id="pyramidInputs" style="display:none;">
+            <label for="length">Enter Long Side Length:</label>
+            <input type="number" id="length" placeholder="e.g. 5" step="0.01" />
+            <label for="width">Enter Short Side Length:</label>
+            <input type="number" id="width" placeholder="e.g. 3" step="0.01" />
+        </div>
+
+        <div id="ellipticInputs">
+            <div>
+                <label for="major">Enter Major Axis:</label>
+                <input
+                    type="number"
+                    id="major"
+                    placeholder="e.g. 5"
+                    step="0.01"
+                />
+            </div>
+            <div>
+                <label for="minor">Enter Minor Axis:</label>
+                <input
+                    type="number"
+                    id="minor"
+                    placeholder="e.g. 3"
+                    step="0.01"
+                />
+            </div>
+        </div>
+
+        <div>
+            <label for="height">Enter Berm Height:</label>
+            <input type="number" id="height" placeholder="e.g. 2" step="0.01" />
+        </div>
+
+        <select id="unit">
+            <option value="in">inches</option>
+            <option value="cm">centimeters</option>
+            <option value="m">meters</option>
+        </select>
+
+        <button id="calculateVolumeButton">Calculate Volume</button>
+        <div class="result" id="result"></div>
+    </div>
+</Main>
+
+<style>
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        box-sizing: border-box;
+    }
+</style>
+
+<script>
+    function get<T extends HTMLElement>(id: string): T {
+        const el = document.getElementById(id);
+        if (!el) throw new Error(`Element with id "${id}" not found`);
+        return el as T;
+    }
+
+    function toggleShapeInputs() {
+        const shape = get<HTMLSelectElement>("shape").value;
+        get<HTMLElement>("coneInputs").style.display =
+            shape === "cone" ? "block" : "none";
+        get<HTMLElement>("pyramidInputs").style.display =
+            shape === "pyramid" ? "block" : "none";
+        get<HTMLElement>("ellipticInputs").style.display =
+            shape === "ellipticCone" ? "block" : "none";
+    }
+
+    get<HTMLSelectElement>("shape").addEventListener(
+        "change",
+        toggleShapeInputs,
+    );
+
+    function convertToMeters(value: number, unit: string): number {
+        if (unit === "cm") return value / 100;
+        if (unit === "in") return value * 0.0254;
+        return value;
+    }
+
+    function calculateVolume() {
+        const shape = get<HTMLSelectElement>("shape").value;
+        const unit = get<HTMLSelectElement>("unit").value;
+        const heightVal = parseFloat(get<HTMLInputElement>("height").value);
+        const height = convertToMeters(heightVal, unit);
+        const result = get<HTMLDivElement>("result");
+
+        if (isNaN(height) || height <= 0) {
+            result.textContent = "Please enter a valid height.";
+            return;
+        }
+
+        let volume_m3 = 0;
+
+        if (shape === "cone") {
+            const diameterVal = parseFloat(
+                get<HTMLInputElement>("diameter").value,
+            );
+            const diameter = convertToMeters(diameterVal, unit);
+            if (isNaN(diameter) || diameter <= 0) {
+                result.textContent = "Please enter a valid diameter.";
+                return;
+            }
+            const radius = diameter / 2;
+            volume_m3 = (Math.PI * Math.pow(radius, 2) * height) / 3;
+        } else if (shape === "pyramid") {
+            const lengthVal = parseFloat(get<HTMLInputElement>("length").value);
+            const widthVal = parseFloat(get<HTMLInputElement>("width").value);
+            const length = convertToMeters(lengthVal, unit);
+            const width = convertToMeters(widthVal, unit);
+            if (isNaN(length) || length <= 0 || isNaN(width) || width <= 0) {
+                result.textContent = "Please enter valid side lengths.";
+                return;
+            }
+            volume_m3 = (length * width * height) / 3;
+        } else if (shape === "ellipticCone") {
+            const majorVal = parseFloat(get<HTMLInputElement>("major").value);
+            const minorVal = parseFloat(get<HTMLInputElement>("minor").value);
+            const major = convertToMeters(majorVal, unit);
+            const minor = convertToMeters(minorVal, unit);
+            if (isNaN(major) || major <= 0 || isNaN(minor) || minor <= 0) {
+                result.textContent = "Please enter valid ellipse axes.";
+                return;
+            }
+            const a = major / 2;
+            const b = minor / 2;
+            volume_m3 = (Math.PI * a * b * height) / 3;
+        }
+
+        const volume_L = (volume_m3 * 1000).toFixed(2);
+        result.innerHTML = `Estimated volume: <br><strong>${volume_L} L</strong>`;
+    }
+
+    get<HTMLButtonElement>("calculateVolumeButton").addEventListener(
+        "click",
+        calculateVolume,
+    );
+</script>
