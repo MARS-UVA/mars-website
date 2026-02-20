@@ -3,6 +3,9 @@ subteams:
   - id: computer
     years:
       - 2026
+  - id: exec
+    years:
+      - 2026
 roles:
   - name: Computer Lead
     subteam: computer
@@ -11,3 +14,10 @@ roles:
 profilePictures:
   - year: 2026
     src: /images/people/2026/Cameron Spears.jpg
+professionalPictures:
+  - src: /images/people/2026/formal/Chris Lim.jpg
+    year: 2026
+defaultProfilePicture:
+  year: 2026
+defaultProfessionalPicture:
+  year: 2026
