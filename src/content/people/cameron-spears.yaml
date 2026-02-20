@@ -1,9 +1,13 @@
 name: Cameron Spears
-roles: []
 subteams:
-- id: computer
-  years:
-  - 2026
+  - id: computer
+    years:
+      - 2026
+roles:
+  - name: Computer Lead
+    subteam: computer
+    years:
+      - 2026
 profilePictures:
-- year: 2026
-  src: /images/people/2026/Cameron Spears.jpg
+  - year: 2026
+    src: /images/people/2026/Cameron Spears.jpg
