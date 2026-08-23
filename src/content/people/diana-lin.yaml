@@ -1,7 +1,10 @@
-defaultProfilePicture:
+name: Diana Lin
+defaultProfessionalPicture:
   type: profile
   year: 2025
-name: Diana Lin
+defaultProfilePicture:
+  type: profile
+  year: 2026
 profilePictures:
   - src: /images/people/2025/Diana Lin.jpg
     year: 2025
@@ -10,9 +13,19 @@ profilePictures:
 catPictures:
   - year: 2026
     src: /images/people/2026/cats/DianaLin.png
-roles: []
+roles:
+  - name: Lunabotics Software Lead
+    subteam: software
+    years:
+      - 2027
 subteams:
   - id: electrical
     years:
       - 2025
       - 2026
+  - id: software
+    years:
+      - 2027
+  - id: exec
+    years:
+      - 2027

@@ -1,7 +1,10 @@
+name: Jayrady Sok
 defaultProfilePicture:
   type: profile
   year: 2025
-name: Jayrady Sok
+defaultProfessionalPicture:
+  type: professional
+  year: 2026
 professionalPictures:
   - src: /images/people/2026/formal/Jayrady Sok.jpg
     year: 2026
@@ -18,11 +21,17 @@ roles:
     subteam: electrical
     years:
       - 2026
+  - name: Lunabotics Electrical Lead
+    subteam: electrical
+    years:
+      - 2027
 subteams:
   - id: electrical
     years:
       - 2025
       - 2026
+      - 2027
   - id: exec
     years:
       - 2026
+      - 2027

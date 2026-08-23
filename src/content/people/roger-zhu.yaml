@@ -1,0 +1,13 @@
+name: Roger Zhu
+roles:
+  - name: URC Systems Lead
+    subteam: systems
+    years:
+      - 2027
+subteams:
+  - id: exec
+    years:
+      - 2027
+  - id: systems
+    years:
+      - 2027

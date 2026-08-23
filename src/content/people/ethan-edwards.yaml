@@ -1,9 +1,25 @@
 name: Ethan Edwards
-roles: []
+roles:
+  - name: Lunabotics Software Lead
+    subteam: software
+    years:
+      - 2027
 subteams:
 - id: computer
   years:
   - 2026
+- id: software
+  years:
+  - 2027
+- id: exec
+  years:
+  - 2027
 profilePictures:
 - year: 2026
   src: /images/people/2026/Ethan Edwards.jpg
+defaultProfessionalPicture:
+  year: 2026
+  type: profile
+defaultProfilePicture:
+  year: 2026
+  type: profile

@@ -1,9 +1,23 @@
 name: Ethan Lapier
-roles: []
+roles:
+  - name: URC Mechanical Lead
+    subteam: mechanical
+    years:
+      - 2027
 subteams:
   - id: mechanical
     years:
       - 2026
+      - 2027
+  - id: exec
+    years:
+      - 2027
 profilePictures:
   - src: /images/people/2026/Ethan Lapier.jpg
     year: 2026
+defaultProfessionalPicture:
+  type: profile
+  year: 2026
+defaultProfilePicture:
+  type: profile
+  year: 2026

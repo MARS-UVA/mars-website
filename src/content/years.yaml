@@ -45,3 +45,27 @@
       name: Systems
       color: "#c27c0e"
       show: false
+
+- year: 2027
+  defaultProfilePicture: /images/people/2026/default-profile.webp
+  subteams:
+    - id: exec
+      name: Executives
+      photoSrc: /images/subteams/2027/Exec.jpg
+      color: "#4a89ff"
+    - id: mechanical
+      name: Mechanical
+      photoSrc: /images/subteams/2027/Mechanical.jpg
+      color: "#9b81cf"
+    - id: software
+      name: Software
+      photoSrc: /images/subteams/2027/Software.jpg
+      color: "#ad1457"
+    - id: electrical
+      name: Electrical
+      photoSrc: /images/subteams/2027/Electrical.jpg
+      color: "#66ca93"
+    - id: systems
+      name: Systems
+      color: "#c27c0e"
+      show: false

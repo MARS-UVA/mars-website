@@ -1,12 +1,29 @@
 name: Richard Corp
-roles: []
+roles:
+  - name: Lunabotics Mechanical Lead
+    subteam: mechanical
+    years:
+      - 2027
 subteams:
   - id: mechanical
     years:
       - 2026
+      - 2027
   - id: electrical
     years:
       - 2026
+  - id: exec
+    years:
+      - 2027
 profilePictures:
 - year: 2026
   src: /images/people/2026/Richard Corp.jpg
+professionalPictures:
+- year: 2026
+  src: /images/people/2026/formal/Richard Corp.jpg
+defaultProfilePicture:
+  year: 2026
+  type: profile
+defaultProfessionalPicture:
+  year: 2026
+  type: professional

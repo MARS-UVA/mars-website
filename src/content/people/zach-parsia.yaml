@@ -4,6 +4,10 @@ roles:
     subteam: mechanical
     years:
       - 2026
+  - name: Vice President
+    subteam: exec
+    years:
+      - 2027
 subteams:
   - id: mechanical
     years:
@@ -12,6 +16,7 @@ subteams:
   - id: exec
     years:
       - 2026
+      - 2027
   - id: computer
     years:
       - 2026
@@ -29,3 +34,6 @@ catPictures:
 defaultProfilePicture:
   year: 2025
   type: profile
+defaultProfessionalPicture:
+  year: 2026
+  type: professional

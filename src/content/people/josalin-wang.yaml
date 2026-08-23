@@ -1,9 +1,23 @@
 name: Josalin Wang
-roles: []
+roles:
+  - name: URC Electrical Lead
+    subteam: electrical
+    years:
+      - 2027
 subteams:
   - id: electrical
     years:
       - 2026
+      - 2027
+  - id: exec
+    years:
+      - 2027
 profilePictures:
 - year: 2026
   src: /images/people/2026/Josalin Wang.jpg
+defaultProfessionalPicture:
+  type: profile
+  year: 2026
+defaultProfilePicture:
+  type: profile
+  year: 2026

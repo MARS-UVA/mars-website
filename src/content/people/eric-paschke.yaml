@@ -21,11 +21,16 @@ roles:
     years:
       - 2025
       - 2026
+  - name: URC Software Lead
+    subteam: software
+    years:
+      - 2027
 subteams:
   - id: exec
     years:
       - 2025
       - 2026
+      - 2027
   - id: computer
     years:
       - 2025
@@ -33,3 +38,9 @@ subteams:
   - id: electrical
     years:
       - 2026
+  - id: software
+    years:
+      - 2027
+defaultProfessionalPicture:
+  type: professional
+  year: 2026

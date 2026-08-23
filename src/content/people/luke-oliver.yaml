@@ -1,9 +1,23 @@
 name: Luke Oliver
-roles: []
+roles:
+  - name: Lunabotics Electrical Lead
+    subteam: electrical
+    years:
+      - 2027
 subteams:
   - id: electrical
     years:
       - 2026
+      - 2027
+  - id: exec
+    years:
+      - 2027
 profilePictures:
   - src: /images/people/2026/Luke Oliver.jpg
     year: 2026
+defaultProfessionalPicture:
+  type: profile
+  year: 2026
+defaultProfilePicture:
+  type: profile
+  year: 2026

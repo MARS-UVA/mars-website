@@ -1,12 +1,26 @@
 name: Luke Sun
-roles: []
+roles:
+  - name: URC Mechanical Lead
+    subteam: mechanical
+    years:
+      - 2027
 subteams:
   - id: mechanical
     years:
       - 2026
+      - 2027
+  - id: exec
+    years:
+      - 2027
 profilePictures:
   - year: 2026
     src: /images/people/2026/Luke Sun.jpg
 catPictures:
   - year: 2026
     src: /images/people/2026/cats/LukeSun.png
+defaultProfilePicture:
+  year: 2026
+  type: profile
+defaultProfessionalPicture:
+  year: 2026
+  type: profile

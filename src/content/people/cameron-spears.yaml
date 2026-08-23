@@ -6,11 +6,19 @@ subteams:
   - id: exec
     years:
       - 2026
+      - 2027
+  - id: science
+    years:
+      - 2027
 roles:
   - name: Computer Lead
     subteam: computer
     years:
       - 2026
+  - name: URC Science Lead
+    subteam: science
+    years:
+      - 2027
 profilePictures:
   - year: 2026
     src: /images/people/2026/Cameron Spears.jpg
@@ -19,5 +27,7 @@ professionalPictures:
     year: 2026
 defaultProfilePicture:
   year: 2026
+  type: profile
 defaultProfessionalPicture:
   year: 2026
+  type: profile

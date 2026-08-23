@@ -1,7 +1,10 @@
+name: Amith Polineni
 defaultProfilePicture:
   type: profile
   year: 2025
-name: Amith Polineni
+defaultProfessionalPicture:
+  type: professional
+  year: 2026
 professionalPictures:
   - src: /images/people/2026/formal/Amith Polineni.jpg
     year: 2026
@@ -18,6 +21,10 @@ roles:
     subteam: exec
     years:
       - 2026
+  - name: President
+    subteam: exec
+    years:
+      - 2027
 subteams:
   - id: mechanical
     years:
@@ -26,3 +33,4 @@ subteams:
   - id: exec
     years:
       - 2026
+      - 2027

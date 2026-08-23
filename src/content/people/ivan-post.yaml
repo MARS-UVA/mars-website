@@ -13,6 +13,10 @@ roles:
     subteam: systems
     years:
       - 2026
+  - name: Lunabotics Systems Lead
+    subteam: systems
+    years:
+      - 2027
 subteams:
   - id: computer
     years:
@@ -21,3 +25,14 @@ subteams:
   - id: exec
     years:
       - 2026
+      - 2027
+  - id: systems
+    years:
+      - 2026
+      - 2027
+defaultProfessionalPicture:
+  type: professional
+  year: 2026
+defaultProfilePicture:
+  type: profile
+  year: 2026
