@@ -4,18 +4,19 @@ import HeroPicture from "../assets/images/Hero.png";
 ---
 
 <section class="hero">
-    <Image
-        class="background"
-        src={HeroPicture}
-        alt="MARS Team"
-        loading="lazy"
-    />
+    <div class="parallax">
+        <Image
+            class="background"
+            src={HeroPicture}
+            alt="MARS Team"
+            loading="lazy"
+        />
+    </div>
     <div class="main-title">
         <h1>MARS at UVA</h1>
         <h3>Mechatronics and Robotics Society</h3>
-        <h2>NASA Lunabotics Team</h2>
+        <h2>2026 NASA Lunabotics Champions</h2>
     </div>
-    <div class="fading-box"></div>
 </section>
 
 <style>
@@ -34,16 +35,20 @@ import HeroPicture from "../assets/images/Hero.png";
 
     .background {
         position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
         /* animation: pan 90s ease-in-out infinite; */
         /* animation-delay: -22.5s; */
-        z-index: -1;
         object-position: bottom center;
+    }
+
+    .parallax {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        transform-style: preserve-3d;
     }
 
     @media screen and (max-height: 600px) {
@@ -68,43 +73,36 @@ import HeroPicture from "../assets/images/Hero.png";
     }
 
     .main-title {
-        position: relative;
+        position: absolute;
+        top: 0;
+        bottom: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         z-index: 1;
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.95),
-            rgba(0, 0, 0, 0.7)
-        );
+        background: rgba(0, 0, 0, 0.6);
         padding: 100px;
         padding-bottom: 20px;
         text-align: center;
         width: 100%;
+        height: 100vh;
     }
 
     .main-title h1 {
-        font-size: 4.5em;
+        font-size: 5rem;
         margin: 0;
         font-weight: bold;
     }
 
     .main-title h2 {
-        font-size: 2em;
-        margin-top: 20px;
+        font-size: 2rem;
+        margin-top: 30px;
+        font-weight: normal;
     }
 
     .main-title h3 {
-        font-size: 1.5em;
+        font-size: 1.75rem;
         margin: 0;
-        margin-top: 20px;
-    }
-
-    .fading-box {
-        width: 100%;
-        height: 100px;
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.7),
-            rgba(0, 0, 0, 0)
-        );
     }
 </style>

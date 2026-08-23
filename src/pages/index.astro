@@ -9,6 +9,7 @@ import ucfImage from "../assets/images/UCFCompetition2025.jpeg";
 import InfoTile from "../components/InfoTile.astro";
 import BlogTile from "../components/BlogTile.astro";
 import SignUpForm from "../components/SignUpForm.astro";
+import InstagramFeed from "../components/InstagramFeed.astro";
 
 import OnshapeImage from "../assets/images/sponsors/Onshape.svg";
 import UVAEngineeringImage from "../assets/images/sponsors/UVAEngineering.png";
@@ -168,9 +169,12 @@ const latestPost = allPosts
 			</div>
 		</InfoSection>
 		<InfoSection center={true}>
-			<h2>Latest Blog Post</h2>
+			<h2>Latest Instagram Post</h2>
 			<br />
-			<BlogTile frontmatter={latestPost.data} />
+			<div class="row">
+				<InstagramFeed />
+			</div>
+			<!-- <BlogTile frontmatter={latestPost.data} /> -->
 		</InfoSection>
 		<InfoSection center={true}>
 			<h2>Connect with MARS</h2>
