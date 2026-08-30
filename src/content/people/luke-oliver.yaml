@@ -15,9 +15,11 @@ subteams:
 profilePictures:
   - src: /images/people/2026/Luke Oliver.jpg
     year: 2026
+  - src: /images/people/2027/Luke Oliver.jpg
+    year: 2027
 defaultProfessionalPicture:
   type: profile
-  year: 2026
+  year: 2027
 defaultProfilePicture:
   type: profile
-  year: 2026
+  year: 2027
