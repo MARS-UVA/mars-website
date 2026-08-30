@@ -70,22 +70,22 @@ const navLinks = [
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 20px;
+        padding: 12px clamp(20px, 5vw, 72px);
         position: fixed;
         top: 0;
         width: 100%;
         height: 80px;
         background-color: transparent;
         transition:
-            background-color 0.3s,
-            color 0.3s;
+            background-color 0.2s,
+            box-shadow 0.2s;
         color: white;
     }
 
     .header.scrolled,
     .header.solid {
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        background-color: white;
+        box-shadow: 0 2px 14px rgba(15, 28, 52, 0.12);
+        background-color: rgba(255, 255, 255, 0.97);
         top: 0px;
     }
 
@@ -99,7 +99,7 @@ const navLinks = [
     .header .logo > * {
         display: none;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         text-decoration: none;
     }
 
@@ -110,18 +110,18 @@ const navLinks = [
 
     .nav a {
         text-decoration: none;
-        font-size: 1.2em;
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
         color: inherit;
-        font-weight: normal;
-        padding: 10px 20px;
-        border-radius: 20px;
-        background-color: rgba(255, 255, 255, 0.2);
+        font-weight: 700;
+        padding: 8px 10px;
+        border-radius: 0;
+        background-color: transparent;
         transition:
-            background-color 0.3s,
-            color 0.3s,
-            border 0.3s;
-        font-weight: bold;
-        border: 3px rgba(0, 0, 0, 0) solid;
+            color 0.2s,
+            border-color 0.2s;
+        border: 0;
+        border-bottom: 2px solid transparent;
         display: inline-block;
         height: 100%;
     }
@@ -138,31 +138,30 @@ const navLinks = [
     }
 
     .header .logo h2 {
-        font-size: 2.5rem;
-        color: black;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        color: #222b48;
     }
 
     .header.scrolled .nav a,
     .header.solid .nav a {
-        color: black;
-        border: 3px #222b48 solid;
-        transition: transform 0.3s ease;
+        color: #222b48;
     }
 
     .nav a.active {
-        background-color: white;
-        color: black;
+        border-color: currentColor;
     }
 
     .header.scrolled .nav a.active,
     .header.solid .nav a.active {
-        background-color: #222b48;
-        color: white;
+        background-color: transparent;
+        color: #e57200;
+        border-color: #e57200;
     }
 
     .nav a:hover {
-        background-color: rgba(255, 255, 255, 0.5);
-        transform: scale(1.1);
+        color: #e57200;
+        border-color: currentColor;
     }
 
     @media (max-width: 768px) {

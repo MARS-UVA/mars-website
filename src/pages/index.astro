@@ -158,79 +158,84 @@ const latestPost = allPosts
 				</div>
 			</div>
 		</InfoSection>
-		<div class="row" style="margin: 40px 0;">
-			<InfoTile title="Sponsors" icon="🤝">
-				We accept any donation, no matter the size. Your donations
-				provide the resources necessary for the team to inspire new
-				generations to develop essential engineering skills. Also, we'd
-				love to hear about the various opportunities available to our
-				members! We highly appreciate advice from professionals in the
-				workplace.
-			</InfoTile>
-			<InfoTile title="Mentors" icon="🧠">
-				Are you interested in teaching and demonstrating your passion
-				for engineering, math and science? Become a part of our
-				mechanical, electrical, or computer teams and make an impact on
-				the next generation of engineers! Your experience and advice
-				will be highly valued and greatly appreciated!
-			</InfoTile>
-			<InfoTile title="Students" icon="🔨">
-				The success of the team is due to the diversity, creativity, and
-				dedication of our members; responsibility and commitment are
-				essential for the team to succeed. We hope that you will create
-				friendships and gain skills that inspire your future career. You
-				don't have to be an engineering student; we are always looking
-				for people who are driven, dedicated, and committed!
-			</InfoTile>
-		</div>
-	</Main>
-	<InfoSection center={true}>
-		<h2>Latest Instagram Post</h2>
-		<br />
-		<div class="row">
-			<InstagramFeed />
-		</div>
-		<!-- <BlogTile frontmatter={latestPost.data} /> -->
-	</InfoSection>
-	<InfoSection center={true}>
-		<h2>Connect with MARS</h2>
-		<div class="row">
-			<SignUpForm />
-			<ActionSection>
-				<div
-					style="display: flex; flex-direction: column; height: 100%;"
-				>
-					<h3
-						style="font-size: 2rem; margin-bottom: 0.5rem; margin-top: 1rem;"
-					>
-						Donate to MARS
-					</h3>
-					<p>
-						Your support helps us build our lunar rover and inspire
-						the next generation of engineers. Consider making a
-						tax-deductible donation to MARS today!
-					</p>
-					<a
-						href="https://www.givecampus.com/campaigns/21200/donations/new?designation=mechatronicsandroboticssociety&"
-						class="button"
-						target="_blank"
-					>
-						Donate
-					</a>
-				</div>
-			</ActionSection>
-		</div>
 		<InfoSection center={true}>
-			<h2>Our Sponsors (thanks!)</h2>
+			<div class="row">
+				<InfoTile title="Sponsors" icon="🤝">
+					We accept any donation, no matter the size. Your donations
+					provide the resources necessary for the team to inspire new
+					generations to develop essential engineering skills. Also,
+					we'd love to hear about the various opportunities available
+					to our members! We highly appreciate advice from
+					professionals in the workplace.
+				</InfoTile>
+				<InfoTile title="Mentors" icon="🧠">
+					Are you interested in teaching and demonstrating your
+					passion for engineering, math and science? Become a part of
+					our mechanical, electrical, or computer teams and make an
+					impact on the next generation of engineers! Your experience
+					and advice will be highly valued and greatly appreciated!
+				</InfoTile>
+				<InfoTile title="Students" icon="🔨">
+					The success of the team is due to the diversity, creativity,
+					and dedication of our members; responsibility and commitment
+					are essential for the team to succeed. We hope that you will
+					create friendships and gain skills that inspire your future
+					career. You don't have to be an engineering student; we are
+					always looking for people who are driven, dedicated, and
+					committed!
+				</InfoTile>
+			</div>
+		</InfoSection>
+		<InfoSection id="instagram" center={true}>
+			<h2>Pinned Instagram Post</h2>
+			<div class="row">
+				<InstagramFeed />
+			</div>
+			<!-- <BlogTile frontmatter={latestPost.data} /> -->
+		</InfoSection>
+		<InfoSection center={true}>
+			<h2>Connect with MARS</h2>
+			<div class="row">
+				<SignUpForm />
+				<ActionSection>
+					<div
+						style="display: flex; flex-direction: column; height: 100%;"
+					>
+						<h3
+							style="font-size: 2rem; margin-bottom: 0.5rem; margin-top: 1rem;"
+						>
+							Donate to MARS
+						</h3>
+						<p>
+							Your support helps us build our lunar rover and
+							inspire the next generation of engineers. Consider
+							making a tax-deductible donation to MARS today!
+						</p>
+						<a
+							href="https://www.givecampus.com/campaigns/21200/donations/new?designation=mechatronicsandroboticssociety&"
+							class="button"
+							target="_blank"
+						>
+							Donate
+						</a>
+					</div>
+				</ActionSection>
+			</div>
+		</InfoSection>
+		<InfoSection center={true}>
+			<h2>Our Sponsors</h2>
+			<p>
+				We are grateful for the support of our sponsors, who help us
+				build our lunar rover and inspire the next generation of
+				engineers. If you are interested in sponsoring MARS, please
+				contact us at <a href="mailto:mars_contact@virginia.edu">mars_contact@virginia.edu</a>.
 			<div class="row responsive" style="align-items: center;">
 				<Image src={UVAEngineeringImage} alt="UVA Engineering" />
 				<Image src={UVAParentsProgramImage} alt="UVA Parents Program" />
 				<Image src={OnshapeImage} alt="Onshape" />
 			</div>
 		</InfoSection>
-		<InfoSection center={true} />
-		<!-- MAILCHIMP SIGNUP FORM COMPONENT -->
-	</InfoSection>
+	</Main>
 </Layout>
 
 <style>
@@ -261,10 +266,12 @@ const latestPost = allPosts
 		gap: 6px;
 		min-width: 190px;
 		padding: 18px 24px;
-		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-		border-radius: 20px;
-		background: #b5beea22;
-		font-size: 1.2rem;
+		box-shadow: 0 6px 18px rgba(17, 35, 65, 0.08);
+		border: 1px solid #dbe1e9;
+		border-left: 4px solid #e57200;
+		border-radius: 10px;
+		background: #fff;
+		font-size: 1rem;
 	}
 
 	@media (max-width: 768px) {
@@ -323,16 +330,37 @@ const latestPost = allPosts
 	}
 
 	.button {
-		background-color: black;
+		background-color: #222b48;
 		color: white;
 		padding: 10px 20px;
 		border: none;
-		border-radius: 40px;
+		border-radius: 8px;
 		text-decoration: none;
 		font-size: 1.1rem;
+		width: 136px;
+		height: 46px;
+		box-sizing: border-box;
+		text-align: center;
 		cursor: pointer;
 		transition: background-color 0.3s ease;
 		display: inline-block;
 		align-self: center;
+		margin-top: auto;
+	}
+
+	.button:hover {
+		background-color: #e57200;
+	}
+
+	#instagram {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	@media (max-width: 768px) {
+		#instagram {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
 	}
 </style>

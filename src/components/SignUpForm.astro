@@ -8,43 +8,51 @@ import ActionSection from "./ActionSection.astro";
     font-size: 2rem;
     margin-bottom: 0.5rem;
     margin-top: 1rem;
-    height: 100%;
   }
 
   label {
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.78rem;
     display: block;
-    padding-bottom: 10px;
+    position: absolute;
+    top: -0.62rem;
+    left: 10px;
+    padding: 0 5px;
+    color: #40506a;
+    background: #fff;
+    letter-spacing: 0.02em;
   }
 
   input[type="email"] {
-    width: 75%;
+    width: 100%;
     margin: 0;
     height: auto;
     outline: none;
-    padding: 10px;
+    padding: 13px 12px 9px;
     text-indent: 0%;
     padding: 10px;
-    border-radius: 40px;
-    border: 1px solid black;
+    border-radius: 8px;
+    border: 1px solid #8b96a8;
+    box-sizing: border-box;
   }
 
   .button {
     color: white;
-    font-size: 1rem;
+    font-size: 1.1rem;
     display: block;
     border: none;
-    border-radius: 40px;
-    width: fit-content;
+    appearance: none;
+    border-radius: 8px;
+    width: 136px;
     align-self: center;
     cursor: pointer;
     box-sizing: border-box;
-    margin: 0;
-    height: auto;
+    margin: auto 0 0;
+    height: 46px;
     font-family: inherit;
-    background-color: black;
+    background-color: #222b48;
     padding: 10px 20px;
+    transition: background-color 0.3s ease;
   }
 
   form {
@@ -52,6 +60,15 @@ import ActionSection from "./ActionSection.astro";
     flex-direction: column;
     gap: 10px;
     height: 100%;
+  }
+
+  .mc-field-group {
+    position: relative;
+    padding-top: 4px;
+  }
+
+  .button:hover {
+    background-color: #e57200;
   }
 </style>
 

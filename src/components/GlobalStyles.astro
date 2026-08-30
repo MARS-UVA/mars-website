@@ -1,7 +1,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Lexend:wght@100..900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@600;700&display=swap"
     rel="stylesheet"
 />
 
@@ -17,8 +17,10 @@
         width: 100%;
         min-height: 100vh;
         height: fit-content;
-        font-family: "Lexend", sans-serif;
-        background-color: #eee;
+        font-family: "Inter", Arial, sans-serif;
+        background-color: #fff;
+        color: #172033;
+        line-height: 1.6;
         overflow-x: hidden;
     }
 
@@ -28,6 +30,39 @@
 
     img {
         dynamic-range-limit: standard;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: "Inter", Arial, sans-serif;
+        color: #222b48;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+    }
+
+    h1 {
+        font-weight: 700;
+    }
+    h2 {
+        font-weight: 650;
+    }
+    h3 {
+        font-weight: 600;
+    }
+
+    p,
+    li {
+        line-height: 1.65;
+    }
+
+    a {
+        color: #153f72;
+    }
+
+    ::selection {
+        color: #fff;
+        background: #e57200;
     }
 
     /* body {
