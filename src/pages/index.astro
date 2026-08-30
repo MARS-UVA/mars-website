@@ -52,7 +52,34 @@ const latestPost = allPosts
 					target="_blank"
 					style={{ color: "#2a4d9b", fontWeight: "bold" }}
 					>interest form</a
-				> to learn more.
+				> and attend one of our interest meetings to learn more about the
+				team and how to get involved.
+
+				<div style={{ textAlign: "center", marginTop: "10px" }}>
+					<strong>Interest Meetings</strong>
+				</div>
+
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "row",
+						justifyContent: "space-around",
+						alignItems: "space-between",
+						gap: "10px",
+					}}
+				>
+					<div style={{ textAlign: "center" }}>
+						<span>September 1</span><br />
+						<span>7:30–8:30 PM</span><br />
+						<span>MEC 205</span>
+					</div>
+					<div style={{ textAlign: "center" }}>
+						<span>September 2</span><br />
+						<span>6:00–7:00 PM</span><br />
+						<span>MEC 205</span>
+					</div>
+				</div>
+				<br />
 			</p>
 			<ul
 				class="checkmark-list"
@@ -140,7 +167,13 @@ const latestPost = allPosts
 			<p>
 				We’d love your help. Reach out in the way that works best for
 				you, and we’ll handle the rest. If you're a student interested
-				in joining, please attend one of our interest meetings to learn
+				in joining, please fill out our 
+				<a
+					href="https://go.marsatuva.org/interest"
+					target="_blank"
+					style={{ color: "#2a4d9b", fontWeight: "bold" }}
+					>interest form</a
+				> and attend one of our interest meetings to learn
 				more about the team and how to get involved.
 			</p>
 			<div class="meeting-times">
@@ -228,139 +261,145 @@ const latestPost = allPosts
 				We are grateful for the support of our sponsors, who help us
 				build our lunar rover and inspire the next generation of
 				engineers. If you are interested in sponsoring MARS, please
-				contact us at <a href="mailto:mars_contact@virginia.edu">mars_contact@virginia.edu</a>.
-			<div class="row responsive" style="align-items: center;">
-				<Image src={UVAEngineeringImage} alt="UVA Engineering" />
-				<Image src={UVAParentsProgramImage} alt="UVA Parents Program" />
-				<Image src={OnshapeImage} alt="Onshape" />
-			</div>
+				contact us at <a href="mailto:mars_contact@virginia.edu"
+					>mars_contact@virginia.edu</a
+				>.
+				<div class="row responsive" style="align-items: center;">
+					<Image src={UVAEngineeringImage} alt="UVA Engineering" />
+					<Image
+						src={UVAParentsProgramImage}
+						alt="UVA Parents Program"
+					/>
+					<Image src={OnshapeImage} alt="Onshape" />
+				</div>
+			</p>
 		</InfoSection>
 	</Main>
-</Layout>
 
-<style>
-	.row {
-		display: flex;
-		flex-direction: row;
-		gap: 40px;
-		justify-content: center;
-	}
-
-	.row img {
-		width: 30%;
-		object-fit: contain;
-		height: min-content;
-	}
-
-	.meeting-times {
-		display: flex;
-		gap: 20px;
-		justify-content: center;
-		margin: 30px 0 20px;
-	}
-
-	.meeting-time {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		gap: 6px;
-		min-width: 190px;
-		padding: 18px 24px;
-		box-shadow: 0 6px 18px rgba(17, 35, 65, 0.08);
-		border: 1px solid #dbe1e9;
-		border-left: 4px solid #e57200;
-		border-radius: 10px;
-		background: #fff;
-		font-size: 1rem;
-	}
-
-	@media (max-width: 768px) {
+	<style>
 		.row {
-			gap: 20px;
-		}
-
-		.meeting-times {
-			flex-direction: column;
-			align-items: center;
-		}
-
-		.meeting-time {
-			width: 100%;
-			max-width: 300px;
-			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+			gap: 40px;
+			justify-content: center;
 		}
 
 		.row img {
-			width: 100%;
+			width: 30%;
 			object-fit: contain;
-			margin: 10px 0;
-		}
-	}
-
-	@media (max-width: 1000px) {
-		.row.responsive {
-			flex-wrap: wrap;
+			height: min-content;
 		}
 
-		.row.responsive img {
-			width: 100%;
-			object-fit: contain;
-			margin: 20px 0;
+		.meeting-times {
+			display: flex;
+			gap: 20px;
+			justify-content: center;
+			margin: 30px 0 20px;
 		}
-	}
 
-	@media (max-width: 1200px) {
-		.row {
+		.meeting-time {
+			display: flex;
 			flex-direction: column;
+			width: 100%;
+			gap: 6px;
+			min-width: 190px;
+			padding: 18px 24px;
+			box-shadow: 0 6px 18px rgba(17, 35, 65, 0.08);
+			border: 1px solid #dbe1e9;
+			border-left: 4px solid #e57200;
+			border-radius: 10px;
+			background: #fff;
+			font-size: 1rem;
 		}
-	}
 
-	.checkmark-list {
-		list-style: none;
-		padding: 0;
-	}
+		@media (max-width: 768px) {
+			.row {
+				gap: 20px;
+			}
 
-	.checkmark-list > li::before {
-		content: "\2713";
-		margin: 0 0.5em;
-	}
+			.meeting-times {
+				flex-direction: column;
+				align-items: center;
+			}
 
-	.checkmark-list {
-		margin-bottom: 8px;
-	}
+			.meeting-time {
+				width: 100%;
+				max-width: 300px;
+				box-sizing: border-box;
+			}
 
-	.button {
-		background-color: #222b48;
-		color: white;
-		padding: 10px 20px;
-		border: none;
-		border-radius: 8px;
-		text-decoration: none;
-		font-size: 1.1rem;
-		width: 136px;
-		height: 46px;
-		box-sizing: border-box;
-		text-align: center;
-		cursor: pointer;
-		transition: background-color 0.3s ease;
-		display: inline-block;
-		align-self: center;
-		margin-top: auto;
-	}
+			.row img {
+				width: 100%;
+				object-fit: contain;
+				margin: 10px 0;
+			}
+		}
 
-	.button:hover {
-		background-color: #e57200;
-	}
+		@media (max-width: 1000px) {
+			.row.responsive {
+				flex-wrap: wrap;
+			}
 
-	#instagram {
-		padding-left: 0;
-		padding-right: 0;
-	}
+			.row.responsive img {
+				width: 100%;
+				object-fit: contain;
+				margin: 20px 0;
+			}
+		}
 
-	@media (max-width: 768px) {
+		@media (max-width: 1200px) {
+			.row {
+				flex-direction: column;
+			}
+		}
+
+		.checkmark-list {
+			list-style: none;
+			padding: 0;
+		}
+
+		.checkmark-list > li::before {
+			content: "\2713";
+			margin: 0 0.5em;
+		}
+
+		.checkmark-list {
+			margin-bottom: 8px;
+		}
+
+		.button {
+			background-color: #222b48;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 8px;
+			text-decoration: none;
+			font-size: 1.1rem;
+			width: 136px;
+			height: 46px;
+			box-sizing: border-box;
+			text-align: center;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			display: inline-block;
+			align-self: center;
+			margin-top: auto;
+		}
+
+		.button:hover {
+			background-color: #e57200;
+		}
+
 		#instagram {
-			padding-left: 20px;
-			padding-right: 20px;
+			padding-left: 0;
+			padding-right: 0;
 		}
-	}
-</style>
+
+		@media (max-width: 768px) {
+			#instagram {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		}
+	</style>
+</Layout>
