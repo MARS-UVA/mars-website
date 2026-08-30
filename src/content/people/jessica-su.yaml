@@ -1,6 +1,9 @@
 defaultProfilePicture:
   type: profile
   year: 2025
+defaultProfessionalPicture:
+  type: profile
+  year: 2025
 name: Jessica Su
 profilePictures:
   - src: /images/people/2025/Jessica Su.jpg
@@ -10,9 +13,16 @@ profilePictures:
 catPictures:
   - year: 2026
     src: /images/people/2026/cats/JessicaSu.png
-roles: []
+roles:
+  - name: Treasurer
+    subteam: exec
+    years:
+      - 2027
 subteams:
   - id: electrical
     years:
       - 2025
       - 2026
+  - id: exec
+    years:
+      - 2027
