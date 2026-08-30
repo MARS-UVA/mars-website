@@ -139,87 +139,100 @@ const latestPost = allPosts
 			<h2>Get Involved</h2>
 			<p>
 				We’d love your help. Reach out in the way that works best for
-				you, and we’ll handle the rest.
+				you, and we’ll handle the rest. If you're a student interested
+				in joining, please attend one of our interest meetings to learn
+				more about the team and how to get involved.
 			</p>
-			<div class="row" style="margin: 40px 0;">
-				<InfoTile title="Sponsors" icon="🤝">
-					We accept any donation, no matter the size. Your donations
-					provide the resources necessary for the team to inspire new
-					generations to develop essential engineering skills. Also,
-					we'd love to hear about the various opportunities available
-					to our members! We highly appreciate advice from
-					professionals in the workplace.
-				</InfoTile>
-				<InfoTile title="Mentors" icon="🧠">
-					Are you interested in teaching and demonstrating your
-					passion for engineering, math and science? Become a part of
-					our mechanical, electrical, or computer teams and make an
-					impact on the next generation of engineers! Your experience
-					and advice will be highly valued and greatly appreciated!
-				</InfoTile>
-				<InfoTile title="Students" icon="🔨">
-					The success of the team is due to the diversity, creativity,
-					and dedication of our members; responsibility and commitment
-					are essential for the team to succeed. We hope that you will
-					create friendships and gain skills that inspire your future
-					career. You don't have to be an engineering student; we are
-					always looking for people who are driven, dedicated, and
-					committed!
-				</InfoTile>
-			</div>
-		</InfoSection>
-		<InfoSection center={true}>
-			<h2>Latest Instagram Post</h2>
-			<br />
-			<div class="row">
-				<InstagramFeed />
-			</div>
-			<!-- <BlogTile frontmatter={latestPost.data} /> -->
-		</InfoSection>
-		<InfoSection center={true}>
-			<h2>Connect with MARS</h2>
-			<div class="row">
-				<SignUpForm />
-				<ActionSection>
-					<div
-						style="display: flex; flex-direction: column; height: 100%;"
-					>
-						<h3
-							style="font-size: 2rem; margin-bottom: 0.5rem; margin-top: 1rem;"
-						>
-							Donate to MARS
-						</h3>
-						<p>
-							Your support helps us build our lunar rover and
-							inspire the next generation of engineers. Consider
-							making a tax-deductible donation to MARS today!
-						</p>
-						<a
-							href="https://www.givecampus.com/campaigns/21200/donations/new?designation=mechatronicsandroboticssociety&"
-							class="button"
-							target="_blank"
-						>
-							Donate
-						</a>
-					</div>
-				</ActionSection>
-			</div>
-			<InfoSection center={true}>
-				<h2>Our Sponsors (thanks!)</h2>
-				<div class="row responsive" style="align-items: center;">
-					<Image src={UVAEngineeringImage} alt="UVA Engineering" />
-					<Image
-						src={UVAParentsProgramImage}
-						alt="UVA Parents Program"
-					/>
-					<Image src={OnshapeImage} alt="Onshape" />
+			<div class="meeting-times">
+				<div class="meeting-time">
+					<strong>Interest Meeting #1</strong>
+					<span>September 1</span>
+					<span>7:30–8:30 PM</span>
+					<span>MEC 205</span>
 				</div>
-			</InfoSection>
-			<InfoSection center={true} />
-			<!-- MAILCHIMP SIGNUP FORM COMPONENT -->
+				<div class="meeting-time">
+					<strong>Interest Meeting #2</strong>
+					<span>September 2</span>
+					<span>6:00–7:00 PM</span>
+					<span>MEC 205</span>
+				</div>
+			</div>
 		</InfoSection>
+		<div class="row" style="margin: 40px 0;">
+			<InfoTile title="Sponsors" icon="🤝">
+				We accept any donation, no matter the size. Your donations
+				provide the resources necessary for the team to inspire new
+				generations to develop essential engineering skills. Also, we'd
+				love to hear about the various opportunities available to our
+				members! We highly appreciate advice from professionals in the
+				workplace.
+			</InfoTile>
+			<InfoTile title="Mentors" icon="🧠">
+				Are you interested in teaching and demonstrating your passion
+				for engineering, math and science? Become a part of our
+				mechanical, electrical, or computer teams and make an impact on
+				the next generation of engineers! Your experience and advice
+				will be highly valued and greatly appreciated!
+			</InfoTile>
+			<InfoTile title="Students" icon="🔨">
+				The success of the team is due to the diversity, creativity, and
+				dedication of our members; responsibility and commitment are
+				essential for the team to succeed. We hope that you will create
+				friendships and gain skills that inspire your future career. You
+				don't have to be an engineering student; we are always looking
+				for people who are driven, dedicated, and committed!
+			</InfoTile>
+		</div>
 	</Main>
+	<InfoSection center={true}>
+		<h2>Latest Instagram Post</h2>
+		<br />
+		<div class="row">
+			<InstagramFeed />
+		</div>
+		<!-- <BlogTile frontmatter={latestPost.data} /> -->
+	</InfoSection>
+	<InfoSection center={true}>
+		<h2>Connect with MARS</h2>
+		<div class="row">
+			<SignUpForm />
+			<ActionSection>
+				<div
+					style="display: flex; flex-direction: column; height: 100%;"
+				>
+					<h3
+						style="font-size: 2rem; margin-bottom: 0.5rem; margin-top: 1rem;"
+					>
+						Donate to MARS
+					</h3>
+					<p>
+						Your support helps us build our lunar rover and inspire
+						the next generation of engineers. Consider making a
+						tax-deductible donation to MARS today!
+					</p>
+					<a
+						href="https://www.givecampus.com/campaigns/21200/donations/new?designation=mechatronicsandroboticssociety&"
+						class="button"
+						target="_blank"
+					>
+						Donate
+					</a>
+				</div>
+			</ActionSection>
+		</div>
+		<InfoSection center={true}>
+			<h2>Our Sponsors (thanks!)</h2>
+			<div class="row responsive" style="align-items: center;">
+				<Image src={UVAEngineeringImage} alt="UVA Engineering" />
+				<Image src={UVAParentsProgramImage} alt="UVA Parents Program" />
+				<Image src={OnshapeImage} alt="Onshape" />
+			</div>
+		</InfoSection>
+		<InfoSection center={true} />
+		<!-- MAILCHIMP SIGNUP FORM COMPONENT -->
+	</InfoSection>
 </Layout>
+
 <style>
 	.row {
 		display: flex;
@@ -234,9 +247,40 @@ const latestPost = allPosts
 		height: min-content;
 	}
 
+	.meeting-times {
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		margin: 30px 0 20px;
+	}
+
+	.meeting-time {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		gap: 6px;
+		min-width: 190px;
+		padding: 18px 24px;
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+		border-radius: 20px;
+		background: #b5beea22;
+		font-size: 1.2rem;
+	}
+
 	@media (max-width: 768px) {
 		.row {
 			gap: 20px;
+		}
+
+		.meeting-times {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.meeting-time {
+			width: 100%;
+			max-width: 300px;
+			box-sizing: border-box;
 		}
 
 		.row img {
