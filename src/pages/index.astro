@@ -32,7 +32,7 @@ const latestPost = allPosts
 <Layout solidNav={false}>
 	<Hero />
 	<Main>
-		<Modal defaultOpen showX width="400px" id="join-modal">
+		<!-- <Modal defaultOpen showX width="400px" id="join-modal">
 			<div style={{ textAlign: "center" }}>
 				<Image
 					src={marsLogo}
@@ -98,7 +98,7 @@ const latestPost = allPosts
 			>
 				Everyone is welcome!
 			</p>
-		</Modal>
+		</Modal> -->
 		<InfoSection imageSrc={meatballImage.src} imagePosition="left">
 			<h2>About Us</h2>
 			<p>
@@ -165,29 +165,103 @@ const latestPost = allPosts
 		<InfoSection center={true}>
 			<h2>Get Involved</h2>
 			<p>
-				We’d love your help. Reach out in the way that works best for
-				you, and we’ll handle the rest. If you're a student interested
-				in joining, please fill out our
-				<a
-					href="https://go.marsatuva.org/interest"
-					target="_blank"
-					style={{ color: "#2a4d9b", fontWeight: "bold" }}
-					>interest form</a
-				> and attend one of our interest meetings to learn more about the
-				team and how to get involved.
+				We’d love your help. If you're a student interested in joining,
+				please reach out to us at <a
+					href="mailto:mars_contact@virginia.edu"
+					>mars_contact@virginia.edu</a
+				> or attend a meeting.
 			</p>
-			<div class="meeting-times">
-				<div class="meeting-time">
-					<strong>Interest Meeting #1</strong>
-					<span>September 1</span>
-					<span>7:30–8:30 PM</span>
-					<span>MEC 205</span>
+
+			<div class="meeting-grid">
+				<!-- General Body Meeting - Full Width Hero Card -->
+				<div class="meeting-card gbm-card">
+					<div class="card-header">
+						<h3>General Body Meetings</h3>
+					</div>
+					<div class="time-slot gbm-time">
+						<span class="day">Sundays</span>
+						<span class="hours">1:00–4:00 PM</span>
+					</div>
 				</div>
-				<div class="meeting-time">
-					<strong>Interest Meeting #2</strong>
-					<span>September 2</span>
-					<span>6:00–7:00 PM</span>
-					<span>MEC 205</span>
+
+				<!-- Mechanical -->
+				<div class="meeting-card" style="border-top-color: #9b81cf;">
+					<h3>Mechanical</h3>
+					<div class="subteam-group">
+						<span class="subteam-title">Training Team</span>
+						<div class="time-slot">
+							<span class="day">Mondays</span>
+							<span class="hours">5:30–7:30 PM</span>
+						</div>
+					</div>
+					<div class="subteam-group">
+						<span class="subteam-title">Competition Team</span>
+						<div class="time-slot">
+							<span class="day">Tuesdays</span>
+							<span class="hours">6:30–8:30 PM</span>
+						</div>
+						<div class="time-slot">
+							<span class="day">Fridays</span>
+							<span class="hours">5:00–7:00 PM</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Software -->
+				<div class="meeting-card" style="border-top-color: #ad1457;">
+					<h3>Software</h3>
+					<div class="time-slot">
+						<span class="day">Wednesdays</span>
+						<span class="hours">5:00–7:00 PM</span>
+					</div>
+					<div class="time-slot">
+						<span class="day">Fridays</span>
+						<span class="hours">4:00–6:00 PM</span>
+					</div>
+				</div>
+
+				<!-- Electrical -->
+				<div class="meeting-card" style="border-top-color: #66ca93;">
+					<h3>Electrical</h3>
+					<div class="time-slot">
+						<span class="day">Tuesdays</span>
+						<span class="hours">6:00–8:00 PM</span>
+					</div>
+					<div class="time-slot">
+						<span class="day">Fridays</span>
+						<span class="hours">4:30–6:30 PM</span>
+					</div>
+				</div>
+
+				<!-- Systems -->
+				<div class="meeting-card" style="border-top-color: #c27c0e;">
+					<h3>Systems</h3>
+					<div class="time-slot">
+						<span class="day">Mondays</span>
+						<span class="hours">7:30–9:00 PM</span>
+					</div>
+					<div class="time-slot">
+						<span class="day">Thursdays</span>
+						<span class="hours">7:00–8:30 PM</span>
+					</div>
+				</div>
+
+				<!-- Science -->
+				<div class="meeting-card" style="border-top-color: #1da1a7;">
+					<h3>Science</h3>
+					<div class="time-slot">
+						<span class="day">Fridays</span>
+						<span class="hours">5:00–7:00 PM</span>
+					</div>
+				</div>
+
+				<!-- Operations -->
+				<div class="meeting-card" style="border-top-color: #628df8;">
+					<h3>Operations</h3>
+					<div class="time-slot">
+						<span class="day">Wednesdays</span>
+						<span class="hours">7:00–8:00 PM</span>
+					</div>
 				</div>
 			</div>
 		</InfoSection>
@@ -290,26 +364,101 @@ const latestPost = allPosts
 			height: min-content;
 		}
 
-		.meeting-times {
-			display: flex;
+		.meeting-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
 			gap: 20px;
-			justify-content: center;
-			margin: 30px 0 20px;
+			margin: 36px auto 20px;
+			text-align: left;
 		}
 
-		.meeting-time {
+		.meeting-card {
 			display: flex;
 			flex-direction: column;
-			width: 100%;
+			gap: 12px;
+			padding: 22px 24px;
+			background: #ffffff;
+			border: 1px solid #e2e8f0;
+			border-top: 4px solid #232d4b; /* UVA Navy accent */
+			border-radius: 12px;
+			box-shadow: 0 4px 16px rgba(17, 35, 65, 0.05);
+			transition:
+				transform 0.2s ease,
+				box-shadow 0.2s ease;
+		}
+
+		.meeting-card h3 {
+			margin: 0;
+			font-size: 1.25rem;
+			color: #232d4b;
+			font-weight: 700;
+		}
+
+		/* Spotlight GBM Card */
+		.gbm-card {
+			grid-column: 1 / -1;
+			border-top: 4px solid #e57200; /* UVA Orange accent */
+			background: linear-gradient(to right, #fff, #fbfcfe);
+		}
+
+		.gbm-card .card-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			gap: 8px;
+		}
+
+		.badge {
+			font-size: 0.75rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			background-color: #fff2e6;
+			color: #e57200;
+			padding: 4px 10px;
+			border-radius: 9999px;
+			border: 1px solid #ffd8b3;
+		}
+
+		.gbm-time {
+			font-size: 1.15rem;
+		}
+
+		/* Mechanical Subteam Hierarchy */
+		.subteam-group {
+			display: flex;
+			flex-direction: column;
 			gap: 6px;
-			min-width: 190px;
-			padding: 18px 24px;
-			box-shadow: 0 6px 18px rgba(17, 35, 65, 0.08);
-			border: 1px solid #dbe1e9;
-			border-left: 4px solid #e57200;
-			border-radius: 10px;
-			background: #fff;
-			font-size: 1rem;
+			padding-left: 10px;
+			border-left: 2px solid #edf2f7;
+		}
+
+		.subteam-title {
+			font-size: 0.85rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+			color: #64748b;
+		}
+
+		/* Individual Day & Hour Badges */
+		.time-slot {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 12px;
+			font-size: 0.95rem;
+		}
+
+		.time-slot .day {
+			font-weight: 600;
+			color: #334155;
+		}
+
+		.time-slot .hours {
+			color: #64748b;
+			font-variant-numeric: tabular-nums;
 		}
 
 		@media (max-width: 768px) {
@@ -317,15 +466,14 @@ const latestPost = allPosts
 				gap: 20px;
 			}
 
-			.meeting-times {
-				flex-direction: column;
-				align-items: center;
+			.meeting-grid {
+				grid-template-columns: 1fr;
 			}
 
-			.meeting-time {
-				width: 100%;
-				max-width: 300px;
-				box-sizing: border-box;
+			.time-slot {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 2px;
 			}
 
 			.row img {
