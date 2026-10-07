@@ -4,8 +4,10 @@ import Main from "../components/Main.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import InfoSection from "../components/InfoSection.astro";
+import InfoTabs from "../components/InfoTabs.astro";
 import meatballImage from "../assets/images/Meatball2026.jpg";
 import arenaImage from "../assets/images/LunaboticsArena2026.png";
+import urcImage from "../assets/images/URCPlaceholder.jpg";
 import InfoTile from "../components/InfoTile.astro";
 import BlogTile from "../components/BlogTile.astro";
 import SignUpForm from "../components/SignUpForm.astro";
@@ -111,8 +113,12 @@ const latestPost = allPosts
 				<a
 					href="https://www.nasa.gov/learning-resources/lunabotics-challenge/"
 					style="color:black">NASA Lunabotics Challenge</a
-				>. This year, our robots will mine lunar regolith (lunar soil)
-				and construct berms.
+				>. This year, we're also participating in the first <u>International Lunabotics 
+				Competition</u> and the
+				<a
+					href="https://urc.marssociety.org/home"
+					style="color:black">University Rover Challenge</a
+				>.
 			</p>
 			<ul>
 				<li>
@@ -129,39 +135,80 @@ const latestPost = allPosts
 				<li>Based out of Lacy Hall at the University of Virginia</li>
 			</ul>
 		</InfoSection>
-		<InfoSection imageSrc={arenaImage.src} imagePosition="right">
-			<h2>Lunabotics Challenge</h2>
-			<p>
-				An annual challenge for ~60 universities to design and build
-				autonomous rovers for lunar tasks supporting NASA's Artemis
-				Mission.
-			</p>
-			<ul>
-				<li>
-					<strong>Objective:</strong> Mine regolith and construct a regolith-based
-					berm to protect lunar landings.
-				</li>
-				<li>
-					<strong>Significance:</strong> Supports Artemis goals for sustained
-					Moon habitation and future Mars missions.
-				</li>
-				<li><strong>Requirements:</strong></li>
-				<ul class="sublist">
+		<InfoTabs
+			ariaLabel="Competitions"
+			tabs={[
+				{
+					id: "lunabotics",
+					label: "Lunabotics",
+					imageSrc: arenaImage.src,
+					imageAlt: "MARS Lunabotics competition arena",
+				},
+				{
+					id: "urc",
+					label: "URC",
+					imageSrc: urcImage.src,
+					imageAlt: "MARS URC team doing urc things",
+				},
+			]}
+		>
+			<div slot="lunabotics">
+				<h2>Lunabotics Challenge</h2>
+				<p>
+					An annual challenge for ~60 universities to design and build
+					autonomous rovers for lunar tasks supporting NASA's Artemis
+					Mission.
+				</p>
+				<ul>
 					<li>
-						Build a rover from scratch to compete at annual
-						competition.
+						<strong>Objective:</strong> Mine regolith and construct a regolith-based
+						berm to protect lunar landings.
 					</li>
 					<li>
-						Submit a systems engineering paper outlining design.
+						<strong>Significance:</strong> Supports Artemis goals for sustained
+						Moon habitation and future Mars missions.
 					</li>
-					<li>Submit an outreach paper detailing K-12 engagement.</li>
+					<li><strong>Requirements:</strong>
+						<ul class="sublist">
+							<li>Build a rover from scratch to compete at annual competition.</li>
+							<li>Submit a systems engineering paper outlining design.</li>
+							<li>Submit an outreach paper detailing K-12 engagement.</li>
+						</ul>
+					</li>
+					<li>
+						<strong>Innovation:</strong> Exceptional designs may inspire NASA
+						excavation devices for Moon or Mars deployment.
+					</li>
 				</ul>
-				<li>
-					<strong>Innovation:</strong> Exceptional designs may inspire NASA
-					excavation devices for Moon or Mars deployment.
-				</li>
-			</ul>
-		</InfoSection>
+			</div>
+			<div slot="urc">
+				<h2>University Rover Challenge (URC)</h2>
+				<p>
+					An annual challenge for 36 universities to design and build
+					autonomous Mars rovers to support astronauts who will
+					eventually explore the martian surface.
+				</p>
+				<ul>
+					<li>
+						<strong>Objective:</strong> Complete four science missions in 
+						astrobiology, delivery, equipment servicing, and autonomous navigation.
+					</li>
+					<li>
+						<strong>Significance:</strong> Support innovations for future Mars missions.
+					</li>
+					<li><strong>Requirements:</strong>
+						<ul class="sublist">
+							<li>Build a rover from scratch to compete at annual competition.</li>
+							<li>Submit a systems engineering paper outlining design.</li>
+							<li>Stay within a budget of $26,000.</li>
+						</ul>
+					</li>
+					<li>
+						<strong>Our Goal:</strong> Qualify and score points in all four missions.
+					</li>
+				</ul>
+			</div>
+		</InfoTabs>
 		<InfoSection center={true}>
 			<h2>Get Involved</h2>
 			<p>

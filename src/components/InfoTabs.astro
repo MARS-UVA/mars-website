@@ -1,0 +1,305 @@
+---
+interface Tab {
+	id: string;
+	label: string;
+	imageSrc: string;
+	imageAlt: string;
+	imagePosition?: "left" | "right";
+}
+
+interface Props {
+	tabs: Tab[];
+	ariaLabel?: string;
+}
+
+const { tabs, ariaLabel = "Content tabs" } = Astro.props;
+const tabContent = await Promise.all(
+	tabs.map((tab) => Astro.slots.render(tab.id)),
+);
+---
+
+<section class="info-tabs" aria-label={ariaLabel}>
+	<div class="tab-shell">
+		<div class="tab-rail" role="tablist" aria-label={ariaLabel} data-tabs>
+			{tabs.map((tab, index) => (
+				<button
+					class="tab-button"
+					id={`tab-${tab.id}`}
+					role="tab"
+					aria-selected={index === 0}
+					aria-controls={`panel-${tab.id}`}
+					tabindex={index === 0 ? 0 : -1}
+					type="button"><span>{tab.label}</span></button
+				>
+			))}
+		</div>
+		{tabs.map((tab, index) => (
+			<section
+				class:list={["tab-panel", tab.imagePosition === "left" && "image-left"]}
+				id={`panel-${tab.id}`}
+				role="tabpanel"
+				aria-labelledby={`tab-${tab.id}`}
+				tabindex="0"
+				hidden={index !== 0}
+			>
+				<div class="panel-copy" set:html={tabContent[index]}></div>
+				<div class="panel-image">
+					<img src={tab.imageSrc} alt={tab.imageAlt} />
+				</div>
+			</section>
+		))}
+	</div>
+</section>
+
+<script>
+	const tablists = document.querySelectorAll<HTMLElement>("[data-tabs]");
+
+	tablists.forEach((tablist) => {
+		const tabs = Array.from(
+			tablist.querySelectorAll<HTMLButtonElement>('[role="tab"]'),
+		);
+
+		const activateTab = (tab: HTMLButtonElement, focus = false) => {
+			tabs.forEach((candidate) => {
+				const isSelected = candidate === tab;
+				candidate.setAttribute("aria-selected", String(isSelected));
+				candidate.tabIndex = isSelected ? 0 : -1;
+				const panelId = candidate.getAttribute("aria-controls");
+				const panel = panelId && document.getElementById(panelId);
+				if (panel) panel.hidden = !isSelected;
+			});
+			if (focus) tab.focus();
+		};
+
+		tablist.addEventListener("click", (event) => {
+			if (!(event.target instanceof Element)) return;
+			const tab = event.target.closest<HTMLButtonElement>('[role="tab"]');
+			if (tab && tabs.includes(tab)) activateTab(tab);
+		});
+
+		tablist.addEventListener("keydown", (event) => {
+			const currentIndex = tabs.indexOf(document.activeElement as HTMLButtonElement);
+			let nextIndex: number;
+			switch (event.key) {
+				case "ArrowDown":
+				case "ArrowRight":
+					nextIndex = (currentIndex + 1) % tabs.length;
+					break;
+				case "ArrowUp":
+				case "ArrowLeft":
+					nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+					break;
+				case "Home":
+					nextIndex = 0;
+					break;
+				case "End":
+					nextIndex = tabs.length - 1;
+					break;
+				default:
+					return;
+			}
+			event.preventDefault();
+			activateTab(tabs[nextIndex], true);
+		});
+	});
+</script>
+
+<style>
+	.info-tabs {
+		position: relative;
+		isolation: isolate;
+		padding: clamp(30px, 3.5vw, 56px) clamp(20px, 4vw, 56px);
+	}
+
+	.info-tabs::before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		width: 100vw;
+		transform: translateX(-50%);
+		background: #f3f7fc;
+	}
+
+	.tab-shell {
+		display: grid;
+		grid-template-columns: 64px minmax(0, 1fr);
+		max-width: 1180px;
+		margin: 0 auto;
+		overflow: hidden;
+		border: 1px solid #d1dce8;
+		border-radius: 8px;
+		background: white;
+		box-shadow: 0 12px 30px rgba(16, 35, 66, 0.1);
+	}
+
+	.tab-rail {
+		display: flex;
+		flex-direction: column;
+		background: #e8eef5;
+	}
+
+	.tab-button {
+		display: flex;
+		flex: 1;
+		align-items: center;
+		justify-content: center;
+		min-width: 0;
+		min-height: 150px;
+		padding: 1rem;
+		border: 0;
+		border-right: 1px solid #d1dce8;
+		background: transparent;
+		color: #33485d;
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
+		transition: background-color 160ms ease, color 160ms ease;
+	}
+
+	.tab-button + .tab-button {
+		border-top: 1px solid #d1dce8;
+	}
+
+	.tab-button span {
+		writing-mode: vertical-rl;
+		transform: rotate(180deg);
+	}
+
+	.tab-button:hover {
+		background: #dce6f0;
+	}
+
+	.tab-button[aria-selected="true"] {
+		background: #fff;
+		color: #173d62;
+		box-shadow: inset 4px 0 #c35b36;
+	}
+
+	.tab-button:focus-visible,
+	.tab-panel:focus-visible {
+		outline: 3px solid #c35b36;
+		outline-offset: -3px;
+	}
+
+	.tab-panel {
+		display: grid;
+		grid-column: 2;
+		grid-row: 1;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		align-items: center;
+		gap: clamp(24px, 4vw, 56px);
+		min-width: 0;
+		padding: clamp(24px, 4vw, 52px);
+	}
+
+	.tab-panel[hidden] {
+		display: grid;
+		visibility: hidden;
+	}
+
+	.panel-copy :global(h2) {
+		margin: 0 0 18px;
+		font-size: clamp(2rem, 3vw, 2.5rem);
+	}
+
+	.panel-copy :global(p) {
+		font-size: 1.05rem;
+		line-height: 1.65;
+	}
+
+	.panel-copy :global(ul) {
+		margin: 1.2rem 0 0;
+		padding-left: 1.25rem;
+		list-style: disc;
+	}
+
+	.panel-copy :global(li) {
+		margin: 0.65rem 0;
+		padding-left: 0.3rem;
+		font-size: 1.02rem;
+	}
+
+	.panel-copy :global(ul ul) {
+		margin: 0.5rem 0 0 1rem;
+	}
+
+	.tab-panel.image-left .panel-copy {
+		grid-column: 2;
+		grid-row: 1;
+	}
+
+	.tab-panel.image-left .panel-image {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	.panel-image img {
+		display: block;
+		width: 100%;
+		max-height: 480px;
+		aspect-ratio: 4 / 3;
+		border-radius: 8px;
+		object-fit: cover;
+		box-shadow: 0 12px 30px rgba(16, 35, 66, 0.13);
+	}
+
+	@media (max-width: 768px) {
+		.info-tabs {
+			padding: 24px 15px;
+		}
+
+		.tab-shell {
+			grid-template-columns: minmax(0, 1fr);
+		}
+
+		.tab-rail {
+			flex-direction: row;
+		}
+
+		.tab-button {
+			min-height: 52px;
+			padding: 0.8rem 1rem;
+			border-right: 0;
+			border-bottom: 1px solid #d1dce8;
+		}
+
+		.tab-button + .tab-button {
+			border-top: 0;
+			border-left: 1px solid #d1dce8;
+		}
+
+		.tab-button span {
+			writing-mode: horizontal-tb;
+			transform: none;
+		}
+
+		.tab-button[aria-selected="true"] {
+			box-shadow: inset 0 -4px #c35b36;
+		}
+
+		.tab-panel {
+			grid-column: 1;
+			grid-row: 2;
+			grid-template-columns: minmax(0, 1fr);
+			gap: 20px;
+			padding: 24px;
+		}
+
+		.tab-panel.image-left .panel-copy,
+		.tab-panel.image-left .panel-image {
+			grid-column: auto;
+			grid-row: auto;
+		}
+
+		.tab-panel.image-left .panel-image {
+			order: 1;
+		}
+
+		.panel-copy :global(h2) {
+			font-size: 2rem;
+		}
+	}
+</style>
