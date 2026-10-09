@@ -35,6 +35,10 @@ const getYearPictureSrc = (
         // Find pictureSrc for the given year
         const pictureForYear = pictures.find((pic) => pic.year === year);
         if (pictureForYear) return getPicture(pictureForYear.src);
+
+        if (type === "cat" && pictures.length > 0) {
+            return getPicture(pictures[0].src);
+        }
     }
 
     // Default to defaultProfilePicture
