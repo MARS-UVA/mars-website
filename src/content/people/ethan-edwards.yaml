@@ -17,9 +17,12 @@ subteams:
 profilePictures:
 - year: 2026
   src: /images/people/2026/Ethan Edwards.jpg
+professionalPictures:
+  - src: /images/people/2027/formal/Ethan Edwards.jpg
+    year: 2027
 defaultProfessionalPicture:
-  year: 2026
-  type: profile
+  year: 2027
+  type: professional
 defaultProfilePicture:
   year: 2026
   type: profile

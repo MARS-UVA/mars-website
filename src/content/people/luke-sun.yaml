@@ -21,6 +21,9 @@ catPictures:
 defaultProfilePicture:
   year: 2026
   type: profile
+professionalPictures:
+  - src: /images/people/2027/formal/Luke Sun.jpg
+    year: 2027
 defaultProfessionalPicture:
-  year: 2026
-  type: profile
+  year: 2027
+  type: professional

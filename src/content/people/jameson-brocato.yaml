@@ -1,7 +1,10 @@
+name: Jameson Brocato
 defaultProfilePicture:
   type: profile
   year: 2025
-name: Jameson Brocato
+defaultProfessionalPicture:
+  type: professional
+  year: 2026
 professionalPictures:
   - src: /images/people/2026/formal/Jameson Brocato.jpg
     year: 2026
@@ -18,11 +21,17 @@ roles:
     subteam: mechanical
     years:
       - 2026
+  - name: Senior Manufacturing Chair
+    subteam: mechanical
+    years:
+      - 2027
 subteams:
   - id: mechanical
     years:
       - 2025
       - 2026
+      - 2027
   - id: exec
     years:
       - 2026
+      - 2027

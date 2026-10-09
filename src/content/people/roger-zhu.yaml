@@ -11,3 +11,9 @@ subteams:
   - id: systems
     years:
       - 2027
+defaultProfessionalPicture:
+  type: professional
+  year: 2027
+professionalPictures:
+  - src: /images/people/2027/formal/Roger Zhu.jpg
+    year: 2027

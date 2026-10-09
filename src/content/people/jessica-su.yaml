@@ -1,10 +1,13 @@
+name: Jessica Su
 defaultProfilePicture:
   type: profile
   year: 2025
 defaultProfessionalPicture:
-  type: profile
-  year: 2025
-name: Jessica Su
+  type: professional
+  year: 2027
+professionalPictures:
+  - src: /images/people/2027/formal/Jessica Su.png
+    year: 2027
 profilePictures:
   - src: /images/people/2025/Jessica Su.jpg
     year: 2025

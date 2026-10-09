@@ -1,9 +1,26 @@
 name: Daniel Vtipil
-roles: []
+roles:
+  - name: Manufacturing Chair
+    subteam: mechanical
+    years:
+      - 2027
 subteams:
   - id: mechanical
     years:
       - 2026
+      - 2027
+  - id: exec
+    years:
+      - 2027
 profilePictures:
 - year: 2026
   src: /images/people/2026/Daniel Vtipil.jpg
+professionalPictures:
+  - src: /images/people/2027/formal/Daniel Vtipil.jpg
+    year: 2027
+defaultProfessionalPicture:
+  year: 2027
+  type: professional
+defaultProfilePicture:
+  type: profile
+  year: 2026

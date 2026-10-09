@@ -25,9 +25,11 @@ profilePictures:
 professionalPictures:
   - src: /images/people/2026/formal/Chris Lim.jpg
     year: 2026
+  - src: /images/people/2027/formal/Cameron Spears.jpg
+    year: 2027
 defaultProfilePicture:
   year: 2026
   type: profile
 defaultProfessionalPicture:
-  year: 2026
-  type: profile
+  year: 2027
+  type: professional

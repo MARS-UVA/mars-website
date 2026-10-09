@@ -1,10 +1,13 @@
 name: Diana Lin
 defaultProfessionalPicture:
-  type: profile
-  year: 2025
+  type: professional
+  year: 2027
 defaultProfilePicture:
   type: profile
   year: 2026
+professionalPictures:
+  - src: /images/people/2027/formal/Diana Lin.jpg
+    year: 2027
 profilePictures:
   - src: /images/people/2025/Diana Lin.jpg
     year: 2025
