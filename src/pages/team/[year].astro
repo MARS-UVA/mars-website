@@ -76,6 +76,7 @@ subteams.forEach((subteam) => {
 
 <script>
     const catMode = Math.random() < 1 / 50; // 2% chance to enable cat mode
+    const superintelligenceMode = Math.random() < 1 / 50; // 2% chance to enable superintelligence team
 
     if (catMode) {
         console.log("Cat mode enabled! 🐱");
@@ -92,6 +93,27 @@ subteams.forEach((subteam) => {
                 }
             });
         });
+    }
+
+    if (superintelligenceMode) {
+        console.log("SuperIntelligence team mode enabled! 🤖");
+        console.log("Renaming Software team to SuperIntelligence!");
+        const softwareButton = document.querySelector(
+            '.subteam-buttons a[href="#software"]',
+        );
+        const softwareHeading = document.querySelector("#software h2");
+
+        if (softwareButton) softwareButton.textContent = "SuperIntelligence";
+        if (softwareHeading) softwareHeading.textContent = "SuperIntelligence";
+
+        document
+            .querySelectorAll('.role[data-subteam="software"]')
+            .forEach((roleTag) => {
+                roleTag.textContent = roleTag.textContent?.replace(
+                    "Software",
+                    "SuperIntelligence",
+                ) ?? "";
+            });
     }
 </script>
 
@@ -229,6 +251,10 @@ subteams.forEach((subteam) => {
                                                 role.years?.includes(year) && (
                                                     <span
                                                         class="role"
+                                                        data-subteam={
+                                                            role.subteam ??
+                                                            subteam.id
+                                                        }
                                                         style={{
                                                             backgroundColor:
                                                                 colors[

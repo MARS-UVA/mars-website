@@ -256,7 +256,7 @@ const latestPost = allPosts
 
 				<!-- Software -->
 				<div class="meeting-card" style="border-top-color: #ad1457;">
-					<h3>Software</h3>
+					<h3 id="software">Software</h3>
 					<div class="time-slot">
 						<span class="day">Wednesdays</span>
 						<span class="hours">5:00–7:00 PM</span>
@@ -266,6 +266,15 @@ const latestPost = allPosts
 						<span class="hours">4:00–6:00 PM</span>
 					</div>
 				</div>
+				
+				<script>
+					const superintelligencemode = Math.random() < 1 / 50; // 2% chance for superintelligenceteam
+					const superintelligenceteam = document.getElementById("software");
+
+					if (superintelligencemode && superintelligenceteam) {
+						superintelligenceteam.textContent = "SuperIntelligence";
+					};
+				</script>
 
 				<!-- Electrical -->
 				<div class="meeting-card" style="border-top-color: #66ca93;">
