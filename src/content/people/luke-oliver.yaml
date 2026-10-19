@@ -17,6 +17,9 @@ profilePictures:
     year: 2026
   - src: /images/people/2027/Luke Oliver.jpg
     year: 2027
+catPictures:
+  - year: 2027
+    src: /images/people/2027/cats/LukeOliver.png
 professionalPictures:
   - src: /images/people/2027/formal/Luke Oliver.jpg
     year: 2027

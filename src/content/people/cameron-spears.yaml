@@ -22,6 +22,9 @@ roles:
 profilePictures:
   - year: 2026
     src: /images/people/2026/Cameron Spears.jpg
+catPictures:
+  - year: 2027
+    src: /images/people/2027/cats/CameronSpears.png
 professionalPictures:
   - src: /images/people/2026/formal/Chris Lim.jpg
     year: 2026

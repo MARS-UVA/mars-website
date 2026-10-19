@@ -16,6 +16,9 @@ subteams:
 profilePictures:
   - year: 2026
     src: /images/people/2026/Anthony Vu.jpg
+catPictures:
+  - year: 2027
+    src: /images/people/2027/cats/AnthonyVu.png
 defaultProfessionalPicture:
   type: profile
   year: 2026

@@ -15,6 +15,9 @@ subteams:
 profilePictures:
   - src: /images/people/2026/Ethan Lapier.jpg
     year: 2026
+catPictures:
+  - year: 2027
+    src: /images/people/2027/cats/EthanLapier.png
 defaultProfessionalPicture:
   type: profile
   year: 2026

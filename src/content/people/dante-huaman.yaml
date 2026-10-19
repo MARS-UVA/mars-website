@@ -13,6 +13,8 @@ profilePictures:
 catPictures:
   - year: 2026
     src: /images/people/2026/cats/DanteHuaman.png
+  - year: 2027
+    src: /images/people/2027/cats/DanteHuaman.png
 roles:
   - name: Lunabotics Mechanical Lead
     subteam: mechanical

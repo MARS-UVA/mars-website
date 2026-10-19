@@ -11,6 +11,9 @@ subteams:
   - id: systems
     years:
       - 2027
+catPictures:
+  - year: 2027
+    src: /images/people/2027/cats/RogerZhu.png
 defaultProfessionalPicture:
   type: professional
   year: 2027

@@ -18,6 +18,9 @@ subteams:
 profilePictures:
 - year: 2026
   src: /images/people/2026/Richard Corp.jpg
+catPictures:
+  - year: 2027
+    src: /images/people/2027/cats/RichardCorp.png
 professionalPictures:
 - year: 2026
   src: /images/people/2026/formal/Richard Corp.jpg

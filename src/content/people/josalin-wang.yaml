@@ -15,6 +15,9 @@ subteams:
 profilePictures:
 - year: 2026
   src: /images/people/2026/Josalin Wang.jpg
+catPictures:
+  - year: 2027
+    src: /images/people/2027/cats/JosalinWang.png
 defaultProfessionalPicture:
   type: profile
   year: 2026

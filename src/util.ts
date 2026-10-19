@@ -37,7 +37,10 @@ const getYearPictureSrc = (
         if (pictureForYear) return getPicture(pictureForYear.src);
 
         if (type === "cat" && pictures.length > 0) {
-            return getPicture(pictures[0].src);
+            const newestPicture = pictures.reduce((newest, picture) =>
+                picture.year > newest.year ? picture : newest,
+            );
+            return getPicture(newestPicture.src);
         }
     }
 
