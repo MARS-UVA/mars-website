@@ -21,6 +21,7 @@ import { getCollection } from "astro:content";
 import Modal from "../components/Modal.astro";
 import marsLogo from "../assets/images/MARSLogo.png";
 import ActionSection from "../components/ActionSection.astro";
+import PhotoGallery from "../components/PhotoGallery.astro";
 
 const allPosts = await getCollection("blog");
 const latestPost = allPosts
@@ -349,12 +350,13 @@ const latestPost = allPosts
 				</InfoTile>
 			</div>
 		</InfoSection>
-		<InfoSection id="instagram" center={true}>
-			<h2>Pinned Instagram Post</h2>
-			<div class="row">
-				<InstagramFeed />
-			</div>
-			<!-- <BlogTile frontmatter={latestPost.data} /> -->
+		<InfoSection center={true}>
+			<h2>Team Gallery</h2>
+			<PhotoGallery folder="gallery" width="800px" height="560px">
+				<div class="instagram-frame">
+					<InstagramFeed />
+				</div>
+			</PhotoGallery>
 		</InfoSection>
 		<InfoSection center={true}>
 			<h2>Connect with MARS</h2>
@@ -407,6 +409,21 @@ const latestPost = allPosts
 	</Main>
 
 	<style>
+		.instagram-frame {
+			flex: 0 1 380px;
+			width: 420px;
+			height: 560px;
+			max-width: 100%;
+			min-width: 0;
+			overflow-y: auto;
+			text-align: left;
+		}
+
+		.instagram-frame h3 {
+			margin: 0 0 12px;
+			text-align: center;
+		}
+
 		.row {
 			display: flex;
 			flex-direction: row;
@@ -592,18 +609,6 @@ const latestPost = allPosts
 
 		.button:hover {
 			background-color: #e57200;
-		}
-
-		#instagram {
-			padding-left: 0;
-			padding-right: 0;
-		}
-
-		@media (max-width: 768px) {
-			#instagram {
-				padding-left: 20px;
-				padding-right: 20px;
-			}
 		}
 	</style>
 </Layout>
