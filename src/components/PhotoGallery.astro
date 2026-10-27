@@ -103,7 +103,7 @@ const photos = await Promise.all(
 		const updateTimer = () => {
 			window.clearInterval(timer);
 			timer = !document.hidden && !reducedMotion.matches
-				? window.setInterval(() => showSlide(current + 1), 5000)
+				? window.setInterval(() => showSlide(current + 1), 8000)
 				: undefined;
 		};
 

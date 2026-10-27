@@ -16,6 +16,7 @@ import InstagramFeed from "../components/InstagramFeed.astro";
 import OnshapeImage from "../assets/images/sponsors/Onshape.svg";
 import UVAEngineeringImage from "../assets/images/sponsors/UVAEngineering.png";
 import UVAParentsProgramImage from "../assets/images/sponsors/UVAParentsProgram.png";
+import TTMImage from "../assets/images/sponsors/TTM.png";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Modal from "../components/Modal.astro";
@@ -396,15 +397,21 @@ const latestPost = allPosts
 				contact us at <a href="mailto:mars_contact@virginia.edu"
 					>mars_contact@virginia.edu</a
 				>.
-				<div class="row responsive" style="align-items: center;">
+			</p>
+			<div class="sponsor-logos">
+				<div class="sponsor-logo">
 					<Image src={UVAEngineeringImage} alt="UVA Engineering" />
-					<Image
-						src={UVAParentsProgramImage}
-						alt="UVA Parents Program"
-					/>
+				</div>
+				<div class="sponsor-logo">
+					<Image src={UVAParentsProgramImage} alt="UVA Parents Program" />
+				</div>
+				<div class="sponsor-logo">
 					<Image src={OnshapeImage} alt="Onshape" />
 				</div>
-			</p>
+				<a class="sponsor-logo" href="https://www.ttm.com/">
+					<Image src={TTMImage} alt="TTM Technologies" />
+				</a>
+			</div>
 		</InfoSection>
 	</Main>
 
@@ -435,6 +442,31 @@ const latestPost = allPosts
 			width: 30%;
 			object-fit: contain;
 			height: min-content;
+		}
+
+		.sponsor-logos {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			gap: 24px 40px;
+		}
+
+		.sponsor-logo {
+			display: flex;
+			flex: 0 1 auto;
+			max-width: 100%;
+			height: 100px;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.sponsor-logo img {
+			display: block;
+			width: auto;
+			max-width: min(100%, 240px);
+			height: 64px;
+			object-fit: contain;
 		}
 
 		.meeting-grid {
