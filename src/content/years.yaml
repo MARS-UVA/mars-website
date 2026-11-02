@@ -47,7 +47,7 @@
       show: false
 
 - year: 2027
-  defaultProfilePicture: /images/people/2026/default-profile.webp
+  defaultProfilePicture: /images/people/2027/default-profile.png
   subteams:
     - id: exec
       name: Executives
@@ -67,5 +67,13 @@
       color: "#66ca93"
     - id: systems
       name: Systems
+      photoSrc: /images/subteams/2027/Systems.jpg
       color: "#c27c0e"
+    - id: science
+      name: Science
+      color: "#29CDDC"
+      show: false
+    - id: operations
+      name: Operations
+      color: "#4a89ff"
       show: false

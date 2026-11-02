@@ -1,0 +1,14 @@
+name: Eve Nguyen
+roles: 
+  - name: Outreach Chair
+    subteam: operations
+    years:
+      - 2027
+subteams:
+  - id: systems
+    years:
+      - 2027
+
+profilePictures:
+  - src: /images/people/2027/Eve Nguyen.jpg
+    year: 2027

@@ -1,9 +1,17 @@
 name: Jingyi Li
-roles: []
+roles: 
+  - name: Website Chair
+    subteam: operations
+    years:
+      - 2027
 subteams:
   - id: electrical
     years:
       - 2026
+      - 2027
+  - id: operations
+    years:
+      - 2027
 
 profilePictures:
   - src: /images/people/2026/Jingyi Li.jpg
@@ -11,3 +19,7 @@ profilePictures:
 catPictures:
   - year: 2026
     src: /images/people/2026/cats/JingyiLi.png
+
+defaultProfilePicture:
+  year: 2026
+  type: profile

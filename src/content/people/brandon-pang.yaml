@@ -1,0 +1,14 @@
+name: Brandon Pang
+roles: 
+  - name: Social Media Chair
+    subteam: operations
+    years:
+      - 2027
+subteams:
+  - id: electrical
+    years:
+      - 2027
+
+profilePictures:
+  - src: /images/people/2027/Brandon Pang.png
+    year: 2027
