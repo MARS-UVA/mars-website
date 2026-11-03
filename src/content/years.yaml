@@ -71,8 +71,8 @@
       color: "#c27c0e"
     - id: science
       name: Science
+      photoSrc: /images/subteams/2027/Systems.jpg
       color: "#29CDDC"
-      show: false
     - id: operations
       name: Operations
       color: "#4a89ff"

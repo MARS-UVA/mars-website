@@ -16,10 +16,12 @@ subteams:
 profilePictures:
   - src: /images/people/2026/Jingyi Li.jpg
     year: 2026
+  - src: /images/people/2027/Jingyi Li.png
+    year: 2027
 catPictures:
   - year: 2026
     src: /images/people/2026/cats/JingyiLi.png
 
 defaultProfilePicture:
-  year: 2026
+  year: 2027
   type: profile
