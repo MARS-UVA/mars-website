@@ -1,8 +1,8 @@
 ---
-const { imageSrc, imagePosition, center, id } = Astro.props;
+const { imageSrc, imagePosition, center, id, class: className } = Astro.props;
 ---
 
-<section id={id}>
+<section id={id} class={className}>
     {
         imagePosition === "left" ? (
             <div class="image">
@@ -33,6 +33,11 @@ const { imageSrc, imagePosition, center, id } = Astro.props;
         position: relative;
         isolation: isolate;
         background: transparent;
+    }
+
+    section.title {
+        padding-top: clamp(30px, 3.5vw, 56px);
+        padding-bottom: 0px;
     }
 
     section::before {
@@ -78,6 +83,10 @@ const { imageSrc, imagePosition, center, id } = Astro.props;
             gap: 20px;
         }
 
+        section.title {
+            padding-top: 20px;
+        }
+
         .image {
             flex: none;
             width: 100%;
@@ -96,6 +105,11 @@ const { imageSrc, imagePosition, center, id } = Astro.props;
 </style>
 
 <style is:global>
+
+    sectiontitle h2 {
+        margin: 0;
+    }
+    
     .content h2 {
         font-size: clamp(2.25rem, 4vw, 3.5rem);
         margin: 0 0 22px;

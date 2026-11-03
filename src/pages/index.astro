@@ -104,7 +104,7 @@ const latestPost = allPosts
 			</p>
 		</Modal> -->
 		<InfoSection imageSrc={meatballImage.src} imagePosition="left">
-			<h2>About Us</h2>
+			<h2>Who We Are</h2>
 			<p>
 				The Mechatronics and Robotics Society (MARS) at UVA is a
 				student-run, experiential learning engineering team dedicated to
@@ -136,7 +136,66 @@ const latestPost = allPosts
 				<li>Based out of Lacy Hall at the University of Virginia</li>
 			</ul>
 		</InfoSection>
-		<InfoTabs
+		<InfoSection center={true} class="title">
+			<h2>What We Do</h2>
+		</InfoSection>	
+		<InfoSection imageSrc={arenaImage.src} imagePosition="right">
+			<h2>Lunabotics Challenge</h2>
+				<p>
+					An annual challenge for ~60 universities to design and build
+					autonomous rovers for lunar tasks supporting NASA's Artemis
+					Mission.
+				</p>
+				<ul>
+					<li>
+						<strong>Objective:</strong> Mine regolith and construct a regolith-based
+						berm to protect lunar landings.
+					</li>
+					<li>
+						<strong>Significance:</strong> Supports Artemis goals for sustained
+						Moon habitation and future Mars missions.
+					</li>
+					<li><strong>Requirements:</strong>
+						<ul class="sublist">
+							<li>Build a rover from scratch to compete at annual competition.</li>
+							<li>Submit a systems engineering paper outlining design.</li>
+							<li>Submit an outreach paper detailing K-12 engagement.</li>
+						</ul>
+					</li>
+					<li>
+						<strong>Innovation:</strong> Exceptional designs may inspire NASA
+						excavation devices for Moon or Mars deployment.
+					</li>
+				</ul>
+		</InfoSection>
+		<InfoSection imageSrc={urcImage.src} imagePosition="left">
+			<h2>University Rover Challenge (URC)</h2>
+				<p>
+					An annual challenge for 36 universities to design and build
+					autonomous Mars rovers to support astronauts who will
+					eventually explore the martian surface.
+				</p>
+				<ul>
+					<li>
+						<strong>Objective:</strong> Complete four science missions in 
+						astrobiology, delivery, equipment servicing, and autonomous navigation.
+					</li>
+					<li>
+						<strong>Significance:</strong> Support innovations for future Mars missions.
+					</li>
+					<li><strong>Requirements:</strong>
+						<ul class="sublist">
+							<li>Build a rover from scratch to compete at annual competition.</li>
+							<li>Submit a systems engineering paper outlining design.</li>
+							<li>Stay within a budget of $26,000.</li>
+						</ul>
+					</li>
+					<li>
+						<strong>Our Goal:</strong> Qualify and score points in all four missions.
+					</li>
+				</ul>
+		</InfoSection>		
+		<!--<InfoTabs
 			ariaLabel="Competitions"
 			tabs={[
 				{
@@ -209,7 +268,7 @@ const latestPost = allPosts
 					</li>
 				</ul>
 			</div>
-		</InfoTabs>
+		</InfoTabs> -->
 		<InfoSection center={true}>
 			<h2>Get Involved</h2>
 			<p>
@@ -322,7 +381,7 @@ const latestPost = allPosts
 				</div>
 			</div>
 		</InfoSection>
-		<InfoSection center={true}>
+		<!-- <InfoSection center={true}>
 			<div class="row">
 				<InfoTile title="Sponsors" icon="🤝">
 					We accept any donation, no matter the size. Your donations
@@ -349,7 +408,7 @@ const latestPost = allPosts
 					committed!
 				</InfoTile>
 			</div>
-		</InfoSection>
+		</InfoSection> -->
 		<InfoSection center={true}>
 			<h2>Team Gallery</h2>
 			<PhotoGallery folder="gallery" width="800px" height="560px">
@@ -395,6 +454,10 @@ const latestPost = allPosts
 				engineers. If you are interested in sponsoring MARS, please
 				contact us at <a href="mailto:mars_contact@virginia.edu"
 					>mars_contact@virginia.edu</a
+				> and check out our 
+				<a
+					href="https://drive.google.com/file/d/16RX7DzA-HNDteyk6lRy9eKuAJwFqWOym/view"
+					>sponsorship package</a
 				>.
 			</p>
 			<div class="sponsor-logos">
