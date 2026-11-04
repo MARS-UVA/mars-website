@@ -8,11 +8,14 @@ defaultProfessionalPicture:
 professionalPictures:
   - src: /images/people/2026/formal/Amith Polineni.jpg
     year: 2026
+    baldSrc: /images/people/2026/formal/BaldAmithPolineni.png
 profilePictures:
   - src: /images/people/2025/Amith Polineni.jpg
     year: 2025
+    baldSrc: /images/people/2025/BaldAmithPolineni.png
   - src: /images/people/2026/Amith Polineni.jpg
     year: 2026
+    baldSrc: /images/people/2026/BaldAmithPolineni.png
 catPictures:
   - year: 2026
     src: /images/people/2026/cats/AmithPolineni.png

@@ -64,4 +64,37 @@ const getYearPictureSrc = (
     return null;
 };
 
-export { getPicture, getYearPictureSrc };
+const getYearPictureBaldSrc = (
+    person: (typeof peopleCollection)[number],
+    type: "professional" | "profile",
+    year: number,
+): string | null => {
+    const pictures =
+        type === "professional"
+            ? person.data.professionalPictures
+            : person.data.profilePictures;
+    let picture = pictures?.find((candidate) => candidate.year === year);
+
+    if (!picture && type === "professional") {
+        const defaultProfessionalPicture = person.data.defaultProfessionalPicture;
+        if (defaultProfessionalPicture) {
+            picture = pictures?.find(
+                (candidate) =>
+                    candidate.year === defaultProfessionalPicture.year,
+            );
+        }
+    }
+
+    if (!picture) {
+        const defaultProfilePicture = person.data.defaultProfilePicture;
+        if (defaultProfilePicture) {
+            picture = person.data.profilePictures?.find(
+                (candidate) => candidate.year === defaultProfilePicture.year,
+            );
+        }
+    }
+
+    return picture?.baldSrc ? getPicture(picture.baldSrc)?.src ?? null : null;
+};
+
+export { getPicture, getYearPictureBaldSrc, getYearPictureSrc };

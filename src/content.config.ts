@@ -17,10 +17,12 @@ const people = defineCollection({
     professionalPictures: z.array(z.object({
       year: z.number(),
       src: z.string(),
+      baldSrc: z.string().optional(),
     })).optional(),
     profilePictures: z.array(z.object({
       year: z.number(),
       src: z.string(),
+      baldSrc: z.string().optional(),
     })).optional(),
     catPictures: z.array(z.object({
       year: z.number(),
