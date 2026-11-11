@@ -1,0 +1,564 @@
+---
+import type { ImageMetadata } from "astro";
+import moonImage from "../assets/images/moon.svg";
+
+interface HistoryEvent {
+    year: string;
+    title: string;
+    blurb: string;
+    image: ImageMetadata;
+}
+
+const { events } = Astro.props as { events: HistoryEvent[] };
+const markerPosition = (index: number) => {
+    const progress = events.length === 1 ? 0.5 : index / (events.length - 1);
+    return {
+        left: `${10 + progress * 80}%`,
+        top: `${74 - Math.sin(progress * Math.PI) * 13}%`,
+    };
+};
+---
+
+<section
+    class="history-scroll"
+    data-history
+    aria-label="MARS history"
+>
+    <div class="history-stage">
+        <div class="history-backgrounds" aria-hidden="true">
+            {
+                events.map((event, index) => (
+                    <img
+                        class:list={["history-background", { active: index === events.length - 1 }]}
+                        src={event.image.src}
+                        alt=""
+                        loading={index === 0 ? "eager" : "lazy"}
+                        data-background={index}
+                    />
+                ))
+            }
+        </div>
+        <div class="history-shade" aria-hidden="true"></div>
+        <div class="starfield" aria-hidden="true"></div>
+
+        <div class="event-copy" aria-live="polite">
+            {
+                events.map((event, index) => (
+                    <article
+                        class:list={["event", { active: index === events.length - 1 }]}
+                        data-event={index}
+                        aria-hidden={index !== events.length - 1}
+                    >
+                        <p class="event-blurb">{event.blurb}</p>
+                        <h1>{event.title}</h1>
+                    </article>
+                ))
+            }
+        </div>
+        <div class="moon-position" aria-hidden="true">
+            <img class="moon" src={moonImage.src} alt="" />
+        </div>
+        <div class="orbit" aria-hidden="true"></div>
+
+        <nav class="event-markers" aria-label="Jump to a MARS history event">
+            {
+                events.map((event, index) => {
+                    const position = markerPosition(index);
+                    return (
+                        <button
+                            class:list={["event-marker", { active: index === events.length - 1 }]}
+                            type="button"
+                            style={`left: ${position.left}; top: ${position.top};`}
+                            data-marker={index}
+                            aria-label={`Jump to ${event.year}: ${event.title}`}
+                            aria-current={index === events.length - 1 ? "step" : undefined}
+                        >
+                            <span class="marker-dot"></span>
+                        </button>
+                    );
+                })
+            }
+            {
+                events.map((event, index) => (
+                    <span class="marker-label" data-year-label={index} aria-hidden="true">
+                        {event.year}
+                    </span>
+                ))
+            }
+        </nav>
+    </div>
+</section>
+
+<script>
+    const historySections = document.querySelectorAll<HTMLElement>("[data-history]");
+
+    historySections.forEach((section) => {
+        const stage = section.querySelector<HTMLElement>(".history-stage");
+        const events = Array.from(section.querySelectorAll<HTMLElement>("[data-event]"));
+        const backgrounds = Array.from(
+            section.querySelectorAll<HTMLElement>("[data-background]"),
+        );
+        const markers = Array.from(
+            section.querySelectorAll<HTMLButtonElement>("[data-marker]"),
+        );
+        const markerLabels = Array.from(
+            section.querySelectorAll<HTMLElement>("[data-year-label]"),
+        );
+        const eventCopy = section.querySelector<HTMLElement>(".event-copy");
+        const moon = section.querySelector<HTMLElement>(".moon");
+        const orbit = section.querySelector<HTMLElement>(".orbit");
+        const markerTrack = section.querySelector<HTMLElement>(".event-markers");
+
+        if (
+            !stage ||
+            !eventCopy ||
+            !moon ||
+            !orbit ||
+            !markerTrack ||
+            events.length === 0
+        ) return;
+
+        let currentIndex = events.length - 1;
+        let progress = 1;
+        let frame = 0;
+        let markerAngles: number[] = [];
+
+        const positionEventCopy = () => {
+            const activeEvent = events[currentIndex];
+            if (!activeEvent) return;
+
+            const stageRect = stage.getBoundingClientRect();
+            const orbitRect = orbit.getBoundingClientRect();
+            const orbitGap = Number.parseFloat(
+                getComputedStyle(eventCopy).getPropertyValue("--event-orbit-gap"),
+            );
+            const eventCopyTop =
+                orbitRect.top - stageRect.top - activeEvent.offsetHeight - orbitGap;
+
+            eventCopy.style.top = `${eventCopyTop}px`;
+        };
+
+        const positionMarkers = () => {
+            const stageRect = stage.getBoundingClientRect();
+            const orbitRect = orbit.getBoundingClientRect();
+            const centerX = orbitRect.left + orbitRect.width / 2 - stageRect.left;
+            const centerY = orbitRect.top + orbitRect.height / 2 - stageRect.top;
+            const orbitBorder = Number.parseFloat(getComputedStyle(orbit).borderTopWidth);
+            const orbitRadius = Math.min(orbitRect.width, orbitRect.height) / 2 - orbitBorder / 2;
+
+            markerTrack.style.transformOrigin = `${centerX}px ${centerY}px`;
+            markerAngles = [];
+            markers.forEach((marker, index) => {
+                const markerProgress =
+                    events.length === 1 ? 0.5 : index / (events.length - 1);
+                const x = stageRect.width * (0.2 + markerProgress * 0.4);
+                const horizontalDistance = x - centerX;
+                const y = centerY - Math.sqrt(orbitRadius ** 2 - horizontalDistance ** 2);
+
+                marker.style.left = `${x}px`;
+                marker.style.top = `${y}px`;
+                const angle = Math.atan2(x - centerX, centerY - y);
+                markerAngles.push(angle * (180 / Math.PI));
+
+                const label = markerLabels[index];
+                if (!label) return;
+                const labelGap = 18;
+                const labelRadius =
+                    orbitRadius -
+                    marker.offsetHeight / 2 -
+                    label.offsetHeight / 2 -
+                    labelGap;
+                label.style.left = `${centerX + Math.sin(angle) * labelRadius}px`;
+                label.style.top = `${centerY - Math.cos(angle) * labelRadius}px`;
+            });
+        };
+
+        const activateEvent = (index: number) => {
+            if (index === currentIndex) return;
+            currentIndex = index;
+
+            events.forEach((event, eventIndex) => {
+                const isActive = eventIndex === index;
+                event.classList.toggle("active", isActive);
+                event.setAttribute("aria-hidden", String(!isActive));
+            });
+            backgrounds.forEach((background, eventIndex) => {
+                background.classList.toggle("active", eventIndex === index);
+            });
+            markers.forEach((marker, eventIndex) => {
+                const isActive = eventIndex === index;
+                marker.classList.toggle("active", isActive);
+                if (isActive) marker.setAttribute("aria-current", "step");
+                else marker.removeAttribute("aria-current");
+            });
+        };
+
+        const updateTimeline = () => {
+            frame = 0;
+            const eventProgress = progress * (events.length - 1);
+            const activeIndex = Math.round(eventProgress);
+            const lowerIndex = Math.floor(eventProgress);
+            const upperIndex = Math.min(lowerIndex + 1, markerAngles.length - 1);
+            const angleProgress = eventProgress - lowerIndex;
+            let markerAngle =
+                markerAngles[lowerIndex] +
+                (markerAngles[upperIndex] - markerAngles[lowerIndex]) * angleProgress;
+            const activeMarkerOffset = markerAngles[activeIndex] - markerAngle;
+            const snapRange = 5;
+
+            if (Math.abs(activeMarkerOffset) < snapRange) {
+                const proximity = 1 - Math.abs(activeMarkerOffset) / snapRange;
+                const snapStrength = (1 - (1 - proximity) ** 4);
+                markerAngle += activeMarkerOffset * snapStrength;
+            }
+
+            section.style.setProperty("--timeline-rotation", `${-markerAngle}deg`);
+
+            moon.style.setProperty("--moon-rotation", `${-markerAngle}deg`);
+            activateEvent(activeIndex);
+            positionEventCopy();
+            markerLabels.forEach((label, index) => {
+                label.style.setProperty(
+                    "--label-rotation",
+                    `${markerAngles[index]}deg`,
+                );
+            });
+        };
+
+        const requestTimelineUpdate = () => {
+            if (!frame) frame = window.requestAnimationFrame(updateTimeline);
+        };
+
+        const advanceTimeline = (deltaY: number) => {
+            if (events.length <= 1) return false;
+
+            const previousProgress = progress;
+            const eventCount = Math.max(events.length - 1, 1);
+            progress = Math.min(
+                1,
+                Math.max(0, progress - deltaY / (window.innerHeight * eventCount)),
+            );
+
+            if (progress === previousProgress) return false;
+            requestTimelineUpdate();
+            return true;
+        };
+
+        const handleWheel = (event: WheelEvent) => {
+            const deltaY =
+                event.deltaMode === WheelEvent.DOM_DELTA_LINE
+                    ? event.deltaY * 16
+                    : event.deltaMode === WheelEvent.DOM_DELTA_PAGE
+                      ? event.deltaY * window.innerHeight
+                      : event.deltaY;
+            if (events.length > 1) {
+                event.preventDefault();
+                advanceTimeline(deltaY);
+            }
+        };
+
+        let touchY: number | null = null;
+        const handleTouchStart = (event: TouchEvent) => {
+            touchY = event.touches[0]?.clientY ?? null;
+        };
+        const handleTouchMove = (event: TouchEvent) => {
+            const nextY = event.touches[0]?.clientY;
+            if (touchY === null || nextY === undefined) return;
+
+            if (events.length > 1) {
+                event.preventDefault();
+                advanceTimeline(touchY - nextY);
+            }
+            touchY = nextY;
+        };
+
+        markers.forEach((marker) => {
+            marker.addEventListener("click", () => {
+                const index = Number(marker.dataset.marker);
+                progress = events.length <= 1 ? 0 : index / (events.length - 1);
+                requestTimelineUpdate();
+            });
+        });
+
+        stage.addEventListener("wheel", handleWheel, { passive: false });
+        stage.addEventListener("touchstart", handleTouchStart, { passive: true });
+        stage.addEventListener("touchmove", handleTouchMove, { passive: false });
+        window.addEventListener("resize", () => {
+            positionMarkers();
+            positionEventCopy();
+            requestTimelineUpdate();
+        });
+        positionMarkers();
+        updateTimeline();
+    });
+</script>
+
+<style>
+    .history-scroll {
+        --night: #080d26;
+        --moon-rotation: 0deg;
+        --timeline-rotation: 0deg;
+        --moon-diameter: max(100vw, 720px);
+        --orbit-border-width: 6px;
+        --label-orbit-gap: clamp(32px, 5vw, 56px);
+        --moon-top: 69%;
+        height: calc(100svh - 80px);
+        position: relative;
+        color: #fff;
+        background: var(--night);
+    }
+
+    .history-stage {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        isolation: isolate;
+        background: var(--night);
+    }
+
+    .history-backgrounds,
+    .history-background,
+    .history-shade,
+    .starfield {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .history-backgrounds {
+        z-index: -3;
+        background: #10182d;
+    }
+
+    .history-background {
+        object-fit: cover;
+        object-position: center 55%;
+        opacity: 0;
+        transition: opacity 700ms ease;
+    }
+
+    .history-background.active {
+        opacity: 1;
+    }
+
+    .history-shade {
+        z-index: -2;
+        background:
+            linear-gradient(180deg, rgba(7, 12, 31, 0.12) 5%, rgba(7, 12, 31, 0.5) 40%, #080d26 80%),
+            linear-gradient(90deg, rgba(5, 9, 25, 0.24), transparent 70%);
+    }
+
+    .starfield {
+        z-index: -1;
+        opacity: 0.75;
+        background-image:
+            radial-gradient(1.5px 1.5px at 9% 76%, #fff 60%, transparent 100%),
+            radial-gradient(1px 1px at 21% 68%, #fff 60%, transparent 100%),
+            radial-gradient(2px 2px at 37% 78%, #fff 60%, transparent 100%),
+            radial-gradient(1px 1px at 60% 72%, #fff 60%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 77% 80%, #fff 60%, transparent 100%),
+            radial-gradient(1px 1px at 91% 70%, #fff 60%, transparent 100%),
+            radial-gradient(1px 1px at 6% 91%, #fff 60%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 16% 86%, #fff 60%, transparent 100%),
+            radial-gradient(1px 1px at 29% 94%, #fff 60%, transparent 100%),
+            radial-gradient(2px 2px at 45% 88%, #fff 60%, transparent 100%),
+            radial-gradient(1px 1px at 56% 96%, #fff 60%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 69% 90%, #fff 60%, transparent 100%),
+            radial-gradient(1px 1px at 84% 95%, #fff 60%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 96% 87%, #fff 60%, transparent 100%);
+    }
+
+    .event-copy {
+        --event-orbit-gap: 48px;
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 50%;
+        width: min(940px, calc(100% - 40px));
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    .event {
+        position: absolute;
+        inset: 0 auto auto 0;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 800ms ease;
+        pointer-events: none;
+    }
+
+    .event.active {
+        opacity: 1;
+    }
+
+    .event-blurb {
+        width: fit-content;
+        max-width: min(540px, 100%);
+        margin: 0 auto 18px;
+        padding: 14px 28px;
+        border-radius: 12px;
+        background: rgba(245, 181, 102, 0.9);
+        color: #17192a;
+        font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+        line-height: 1.5;
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .event h1 {
+        margin: 0;
+        color: #fff;
+        font-size: clamp(2.5rem, 4vw, 4.5rem);
+        line-height: 1;
+        letter-spacing: -0.045em;
+        text-transform: uppercase;
+        text-shadow: 0 4px 26px rgba(0, 0, 0, 0.28);
+    }
+
+    .moon-position {
+        position: absolute;
+        z-index: 1;
+        top: var(--moon-top);
+        left: 50%;
+        width: var(--moon-diameter);
+        max-width: none;
+        aspect-ratio: 1;
+        transform: translateX(-50%);
+        pointer-events: none;
+    }
+
+    .moon {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: rotate(var(--moon-rotation));
+        transition: transform 80ms linear;
+    }
+
+    .orbit {
+        position: absolute;
+        z-index: 2;
+        top: var(--moon-top);
+        left: 50%;
+        width: var(--moon-diameter);
+        max-width: none;
+        aspect-ratio: 1;
+        border: var(--orbit-border-width) solid rgba(255, 255, 255, 0.95);
+        border-radius: 50%;
+        transform: translateX(-50%);
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
+        pointer-events: none;
+    }
+
+    .event-markers {
+        position: absolute;
+        z-index: 4;
+        inset: 0;
+        transform: rotate(var(--timeline-rotation));
+        transition: transform 80ms linear;
+        pointer-events: none;
+    }
+
+    .event-marker {
+        position: absolute;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #fff;
+        font: inherit;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        pointer-events: auto;
+    }
+
+    .marker-dot {
+        width: 24px;
+        height: 24px;
+        border: 4px solid #fff;
+        border-radius: 50%;
+        background: #25234c;
+        transition:
+            background-color 200ms ease,
+            transform 200ms ease;
+    }
+
+    .event-marker.active .marker-dot,
+    .event-marker:hover .marker-dot,
+    .event-marker:focus-visible .marker-dot {
+        background: #ef9f48;
+        transform: scale(1.14);
+    }
+
+    .marker-label {
+        position: absolute;
+        z-index: 5;
+        min-width: 62px;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: #25234c;
+        font-size: 1.1rem;
+        text-align: center;
+        transform: translate(-50%, -50%) rotate(var(--label-rotation, 0deg));
+        transition: transform 80ms linear;
+        pointer-events: none;
+    }
+
+    .event-marker:focus-visible {
+        outline: 2px solid #f5b566;
+        outline-offset: 7px;
+    }
+
+    @media (max-width: 700px) {
+        .history-scroll {
+            --moon-diameter: max(100vw, 600px);
+            --label-orbit-gap: 30px;
+            --moon-top: 72%;
+        }
+
+        .history-background {
+            object-position: center 55%;
+        }
+
+        .event-copy {
+            width: calc(100% - 28px);
+        }
+
+        .event-blurb {
+            margin-bottom: 14px;
+            padding: 12px 18px;
+        }
+
+        .event h1 {
+            font-size: clamp(2.4rem, 12vw, 4.5rem);
+        }
+
+        .marker-dot {
+            width: 19px;
+            height: 19px;
+            border-width: 3px;
+        }
+
+        .marker-label {
+            min-width: auto;
+            padding: 5px 9px;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .history-background,
+        .event,
+        .marker-dot,
+        .moon,
+        .orbit,
+        .event-markers,
+        .marker-label {
+            transition: none;
+        }
+    }
+</style>

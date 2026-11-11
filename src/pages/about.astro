@@ -1,0 +1,35 @@
+---
+import AboutHistory from "../components/AboutHistory.astro";
+import Layout from "../layouts/Layout.astro";
+import outreach2024 from "../assets/images/blog/jan-feb-2024/GirlScoutOutreach.png";
+import competition2025 from "../assets/images/blog/competition-recap-2025/competition-2025-thumbnail.png";
+import arena2026 from "../assets/images/LunaboticsArena2026.png";
+
+const history = [
+    {
+        year: "2024",
+        title: "Yes",
+        blurb:
+            "We cool",
+        image: outreach2024,
+    },
+    {
+        year: "2025",
+        title: "Text",
+        blurb:
+            "we got cooler",
+        image: competition2025,
+    },
+    {
+        year: "2026",
+        title: "Hm",
+        blurb:
+            "yuhhhh",
+        image: arena2026,
+    },
+];
+---
+
+<Layout solidNav={true} title="About MARS">
+    <AboutHistory events={history} />
+</Layout>
