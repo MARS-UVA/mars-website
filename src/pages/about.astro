@@ -1,31 +1,93 @@
 ---
 import AboutHistory from "../components/AboutHistory.astro";
 import Layout from "../layouts/Layout.astro";
-import outreach2024 from "../assets/images/blog/jan-feb-2024/GirlScoutOutreach.png";
-import competition2025 from "../assets/images/blog/competition-recap-2025/competition-2025-thumbnail.png";
-import arena2026 from "../assets/images/LunaboticsArena2026.png";
+import hero from "../assets/images/Hero.png";
+import p2022 from "../assets/images/Meatball2022.jpg";
+import p2023 from "../assets/images/MARSTeam2023.jpg";
+import p2024 from "../assets/images/Comp2024.jpg";
+import p2025 from "../assets/images/Meatball2025.jpeg";
+import p2026 from "../assets/images/Meatball2026.jpg";
+import urc from "../assets/images/URCPlaceholder.jpg";
+import int from "../assets/images/MeatballInt.png";
 
 const history = [
     {
-        year: "2024",
-        title: "Yes",
+        year: "2013",
+        title: "Foundation",
         blurb:
-            "We cool",
-        image: outreach2024,
+            "The team was founded in 2013 as \"Hoos Mining.\"",
+        image: hero,
+        backgroundHeight: "70%",
+    },
+    {
+        year: "...",
+        title: "In Between Years",
+        blurb:
+            "Please contact us if you know the history of these in between years!",
+        image: hero,
+        backgroundHeight: "70%",
+    },
+    {
+        year: "COVID",
+        title: "COVID Break",
+        blurb:
+            "No competitions were held from 2020-2021 due to the COVID-19 pandemic.",
+        image: hero,
+        backgroundHeight: "70%",
+    },
+    // 2019 robot is named ginny 
+    {
+        year: "2022",
+        title: "More Mining",
+        blurb:
+            "We got 18th overall.",
+        image: p2022,
+    },
+    {
+        year: "2023",
+        title: "Breakthrough in Points",
+        blurb:
+            "We scored points for the first time in a competition, and got 10th overall.",
+        image: p2023,
+        backgroundHeight: "80%",
+    },
+    {
+        year: "2024",
+        title: "Big Beautiful Berm",
+        blurb:
+            "The first competition involving regolith berm construction was held. We got 7th place overall.",
+        image: p2024,
+        backgroundHeight: "40%",
     },
     {
         year: "2025",
-        title: "Text",
+        title: "Increasing Success",
         blurb:
-            "we got cooler",
-        image: competition2025,
+            "Artie with its vertical bucket drum won us 5th place overall.",
+        image: p2025,
+        backgroundHeight: "50%",
     },
     {
         year: "2026",
-        title: "Hm",
+        title: "Becoming Champions",
         blurb:
-            "yuhhhh",
-        image: arena2026,
+            "Our robot, Bruno, with a novel bucket drum design, helped us win the grand prize!",
+        image: p2026,
+    },
+    {
+        year: "URC",
+        title: "Founding of URC",
+        blurb:
+            "A new team was created, competing in the University Rover Challenge.",
+        image: urc,
+    },
+    {
+        year: "Int.",
+        title: "International Competition",
+        blurb:
+            "We competed in the first International Lunabotics Competition and despite some rocky obstacles, won 3rd place.",
+        image: int,
+        backgroundHeight: "70%",
     },
 ];
 ---

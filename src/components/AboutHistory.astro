@@ -7,6 +7,7 @@ interface HistoryEvent {
     title: string;
     blurb: string;
     image: ImageMetadata;
+    backgroundHeight?: string;
 }
 
 const { events } = Astro.props as { events: HistoryEvent[] };
@@ -33,6 +34,7 @@ const markerPosition = (index: number) => {
                         src={event.image.src}
                         alt=""
                         loading={index === 0 ? "eager" : "lazy"}
+                        style={`object-position: center ${event.backgroundHeight ?? "55%"}`}
                         data-background={index}
                     />
                 ))
@@ -122,6 +124,7 @@ const markerPosition = (index: number) => {
         let progress = 1;
         let frame = 0;
         let markerAngles: number[] = [];
+        const markerArcSpacing = 200;
 
         const positionEventCopy = () => {
             const activeEvent = events[currentIndex];
@@ -147,18 +150,19 @@ const markerPosition = (index: number) => {
             const orbitRadius = Math.min(orbitRect.width, orbitRect.height) / 2 - orbitBorder / 2;
 
             markerTrack.style.transformOrigin = `${centerX}px ${centerY}px`;
-            markerAngles = [];
+            markerAngles = markers.map(
+                (_, index) =>
+                    (index - (markers.length - 1)) *
+                    (markerArcSpacing / orbitRadius) *
+                    (180 / Math.PI),
+            );
             markers.forEach((marker, index) => {
-                const markerProgress =
-                    events.length === 1 ? 0.5 : index / (events.length - 1);
-                const x = stageRect.width * (0.2 + markerProgress * 0.4);
-                const horizontalDistance = x - centerX;
-                const y = centerY - Math.sqrt(orbitRadius ** 2 - horizontalDistance ** 2);
+                const angle = markerAngles[index] * (Math.PI / 180);
+                const x = centerX + Math.sin(angle) * orbitRadius;
+                const y = centerY - Math.cos(angle) * orbitRadius;
 
                 marker.style.left = `${x}px`;
                 marker.style.top = `${y}px`;
-                const angle = Math.atan2(x - centerX, centerY - y);
-                markerAngles.push(angle * (180 / Math.PI));
 
                 const label = markerLabels[index];
                 if (!label) return;
@@ -345,8 +349,8 @@ const markerPosition = (index: number) => {
     .history-shade {
         z-index: -2;
         background:
-            linear-gradient(180deg, rgba(7, 12, 31, 0.12) 5%, rgba(7, 12, 31, 0.5) 40%, #080d26 80%),
-            linear-gradient(90deg, rgba(5, 9, 25, 0.24), transparent 70%);
+            linear-gradient(180deg, rgba(7, 12, 31, 0.05) 5%, rgba(7, 12, 31, 0.3) 55%, #080d26 80%),
+            linear-gradient(90deg, rgba(5, 9, 25, 0), transparent 100%);
     }
 
     .starfield {
@@ -395,13 +399,13 @@ const markerPosition = (index: number) => {
 
     .event-blurb {
         width: fit-content;
-        max-width: min(540px, 100%);
+        max-width: min(640px, 100%);
         margin: 0 auto 18px;
-        padding: 14px 28px;
+        padding: 10px 18px;
         border-radius: 12px;
         background: rgba(245, 181, 102, 0.9);
         color: #17192a;
-        font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+        font-size: clamp(0.9rem, 1.1vw, 1.2rem);
         line-height: 1.5;
         box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
     }
@@ -409,7 +413,7 @@ const markerPosition = (index: number) => {
     .event h1 {
         margin: 0;
         color: #fff;
-        font-size: clamp(2.5rem, 4vw, 4.5rem);
+        font-size: clamp(2.5rem, 3.5vw, 4.5rem);
         line-height: 1;
         letter-spacing: -0.045em;
         text-transform: uppercase;
@@ -534,7 +538,7 @@ const markerPosition = (index: number) => {
         }
 
         .event h1 {
-            font-size: clamp(2.4rem, 12vw, 4.5rem);
+            font-size: clamp(2.4rem, 10vw, 4.5rem);
         }
 
         .marker-dot {
