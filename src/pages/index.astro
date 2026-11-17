@@ -418,6 +418,39 @@ const latestPost = allPosts
 				</div>
 			</PhotoGallery>
 		</InfoSection>
+		<script>
+			const frame = document.querySelector<HTMLElement>(".instagram-frame");
+			if (frame) {
+				const initialScrollOffset = window.matchMedia(
+					"(max-width: 768px)",
+				).matches
+					? 315
+					: 335;
+				const tryInitialScroll = () => {
+					if (
+						frame.scrollHeight - frame.clientHeight <
+						initialScrollOffset
+					) {
+						return false;
+					}
+
+					frame.scrollTop = initialScrollOffset;
+					return frame.scrollTop >= initialScrollOffset;
+				};
+				if (!tryInitialScroll()) {
+					const startedAt = Date.now();
+					const retryTimer = window.setInterval(() => {
+						if (
+							tryInitialScroll() ||
+							Date.now() - startedAt >= 15000
+						) {
+							window.clearInterval(retryTimer);
+						}
+					}, 100);
+				}
+			}
+		</script>
+
 		<InfoSection center={true}>
 			<h2>Connect with MARS</h2>
 			<div class="row">
