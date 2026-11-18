@@ -24,6 +24,7 @@ const markerPosition = (index: number) => {
     class="history-scroll"
     data-history
     aria-label="MARS history"
+    aria-keyshortcuts="ArrowLeft ArrowRight"
 >
     <div class="history-stage">
         <div class="history-backgrounds" aria-hidden="true">
@@ -74,6 +75,7 @@ const markerPosition = (index: number) => {
                             data-marker={index}
                             aria-label={`Jump to ${event.year}: ${event.title}`}
                             aria-current={index === events.length - 1 ? "step" : undefined}
+                            tabindex={index === events.length - 1 ? 0 : -1}
                         >
                             <span class="marker-dot"></span>
                         </button>
@@ -123,6 +125,7 @@ const markerPosition = (index: number) => {
         let currentIndex = events.length - 1;
         let progress = 1;
         let frame = 0;
+        let markerNavigationTimer: number | undefined;
         let markerAngles: number[] = [];
         const markerArcSpacing = 200;
 
@@ -179,6 +182,9 @@ const markerPosition = (index: number) => {
 
         const activateEvent = (index: number) => {
             if (index === currentIndex) return;
+            const focusedMarker = markers.find(
+                (marker) => marker === document.activeElement,
+            );
             currentIndex = index;
 
             events.forEach((event, eventIndex) => {
@@ -192,9 +198,11 @@ const markerPosition = (index: number) => {
             markers.forEach((marker, eventIndex) => {
                 const isActive = eventIndex === index;
                 marker.classList.toggle("active", isActive);
+                marker.tabIndex = isActive ? 0 : -1;
                 if (isActive) marker.setAttribute("aria-current", "step");
                 else marker.removeAttribute("aria-current");
             });
+            if (focusedMarker) markers[index]?.focus({ preventScroll: true });
         };
 
         const updateTimeline = () => {
@@ -276,14 +284,50 @@ const markerPosition = (index: number) => {
             touchY = nextY;
         };
 
+        const navigateToEvent = (index: number) => {
+            if (index < 0 || index >= events.length) return;
+
+            section.classList.add("marker-navigation");
+            window.clearTimeout(markerNavigationTimer);
+            markerNavigationTimer = window.setTimeout(() => {
+                section.classList.remove("marker-navigation");
+            }, 800);
+            progress = events.length <= 1 ? 0 : index / (events.length - 1);
+            requestTimelineUpdate();
+        };
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+            const target = event.target;
+            if (
+                target instanceof HTMLElement &&
+                target.closest("input, textarea, select, [contenteditable='true']")
+            ) {
+                return;
+            }
+
+            const sectionRect = section.getBoundingClientRect();
+            if (sectionRect.bottom <= 0 || sectionRect.top >= window.innerHeight) {
+                return;
+            }
+
+            const activeIndex = Math.round(progress * (events.length - 1));
+            const nextIndex = activeIndex + (event.key === "ArrowRight" ? 1 : -1);
+            event.preventDefault();
+            if (nextIndex < 0 || nextIndex >= events.length) return;
+
+            navigateToEvent(nextIndex);
+        };
+
         markers.forEach((marker) => {
             marker.addEventListener("click", () => {
                 const index = Number(marker.dataset.marker);
-                progress = events.length <= 1 ? 0 : index / (events.length - 1);
-                requestTimelineUpdate();
+                navigateToEvent(index);
             });
         });
 
+        window.addEventListener("keydown", handleKeyDown);
         stage.addEventListener("wheel", handleWheel, { passive: false });
         stage.addEventListener("touchstart", handleTouchStart, { passive: true });
         stage.addEventListener("touchmove", handleTouchMove, { passive: false });
@@ -442,6 +486,13 @@ const markerPosition = (index: number) => {
         transition: transform 80ms linear;
     }
 
+    .history-scroll.marker-navigation .moon,
+    .history-scroll.marker-navigation .event-markers,
+    .history-scroll.marker-navigation .marker-label {
+        transition-duration: 700ms;
+        transition-timing-function: ease-in-out;
+    }
+
     .orbit {
         position: absolute;
         z-index: 2;
@@ -562,6 +613,12 @@ const markerPosition = (index: number) => {
         .orbit,
         .event-markers,
         .marker-label {
+            transition: none;
+        }
+
+        .history-scroll.marker-navigation .moon,
+        .history-scroll.marker-navigation .event-markers,
+        .history-scroll.marker-navigation .marker-label {
             transition: none;
         }
     }
