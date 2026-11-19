@@ -1,0 +1,138 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Main from "../../components/Main.astro";
+import { getCollection, getEntry } from "astro:content";
+import { render } from "astro:content";
+
+export function getStaticPaths(): Promise<{ params: { path: string } }[]> {
+    const aboutPosts = getCollection("about");
+
+    return aboutPosts.then((posts) =>
+        posts.map((post) => ({
+            params: { path: post.data.slug },
+            props: {
+                frontmatter: post.data,
+                entry: post,
+            },
+        })),
+    );
+}
+
+const { frontmatter, entry } = Astro.props;
+const { title, background, blurb } = frontmatter;
+
+const { Content, headings } = await render(entry);
+---
+
+<Layout solidNav={true} title={title} background={background ?? "#11234110"}>
+    <Main>
+        <article>
+            <div class="header">
+                <h1>{title}</h1>
+                <br />
+                {blurb && <div class="blurb">{blurb}</div>}
+            </div>
+            <div class="content">
+                <Content />
+            </div>
+        </article>
+    </Main>
+</Layout>
+
+<style>
+    .header {
+        text-align: center;
+        margin: 40px auto;
+        max-width: 850px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: clamp(2.75rem, 3.6vw, 4rem);
+        margin: 0 0 20px;
+        max-width: fit-content;
+    }
+
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 2.5rem;
+        }
+    }
+
+    .blurb {
+        font-size: 1.15rem;
+        line-height: 1.7;
+        margin-top: 24px;
+        text-align: center;
+    }
+</style>
+<style is:global>
+    article {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 56px clamp(20px, 5vw, 64px);
+        background: #fff;
+        border-top: 4px solid #e57200;
+        box-shadow: 0 8px 24px rgba(17, 35, 65, 0.08);
+    }
+
+    @media (max-width: 768px) {
+        article {
+            padding: 20px;
+        }
+    }
+
+    .content {
+        flex: 2;
+        color: #172033;
+    }
+
+    .content h2 {
+        font-size: clamp(2rem, 4vw, 2.7rem);
+        margin: 2.5rem 0 1rem;
+    }
+
+    .content p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+
+    .content ul {
+        list-style: disc;
+        padding-left: 1.25rem;
+        margin: 1rem 1rem;
+    }
+
+    .content ol {
+        padding-left: 1.25rem;
+        margin: 1rem 1rem;
+    }
+
+    .content ul li {
+        margin: 0.45rem 0;
+        padding-left: 0.25rem;
+    }
+
+    .content .sublist {
+        margin-left: 1rem;
+    }
+
+    .content img {
+        max-width: 100%;
+        height: auto;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 12px 30px rgba(16, 35, 66, 0.13);
+    }
+
+    .content video {
+        max-width: 100%;
+        height: auto;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 12px 30px rgba(16, 35, 66, 0.13);
+    }
+</style>

@@ -1,0 +1,496 @@
+---
+title: Lunabotics Competition 2026
+slug: 2026/
+---
+import { Image } from 'astro:assets';
+import SplitSection from '../../components/SplitSection.astro';
+import CenterRow from '../../components/CenterRow.astro';
+import PhotoGallery from '../../components/PhotoGallery.astro';
+
+# Intro
+
+From May 12 to May 21, the Mechatronics and Robotics Society (MARS) at the 
+University of Virginia competed in the 2026 Lunabotics Challenge at the 
+University of Central Florida (UCF) and Kennedy Space Center (KSC). We are 
+beyond excited to share that MARS [won first place overall](https://www.nasa.gov/centers-and-facilities/kennedy/nasas-2026-lunabotics-winning-student-teams-engineering-lunar-future/)
+taking home the Artemis Off World Grand Prize and five additional awards.
+
+import trophy from '../../assets/images/about/2026/Trophy.jpg';
+
+<CenterRow>
+    <Image src={trophy} alt="Grand Prize Trophy" height="445px"/>
+</CenterRow>
+<CenterRow>Credit to NASA/Kim Shiflett</CenterRow><br/>
+
+The [NASA Lunabotics Challenge]("https://www.nasa.gov/learning-resources/lunabotics-challenge/")
+is an annual competition where university teams design and build robots capable 
+of excavating and transporting lunar regolith (lunar dirt). Robots have to 
+excavate lunar regolith, carry it across a crater- and boulder-laden obstacle 
+zone, and align in a construction zone to build a berm. Robots are scored by 
+how much they build normalized to their mass and energy consumed. Additional 
+points are granted for differing levels of autonomy implemented in the 
+competition run, communication bandwidth, and consideration of dust in the 
+design and operation.
+
+The Lunabotics Challenge is aligned with NASA’s [Artemis Program](https://www.nasa.gov/humans-in-space/artemis/) 
+and its recently announced [Moon Base](https://www.nasa.gov/moonbase/) 
+informing how NASA will create a sustainable human presence on the Moon. 
+Berms on the Moon, similar to the ones built in the competition, can be used 
+for protection against rocket ejecta around launch and landing pads, shielding 
+for cryogenics, and radiation protection for human habitats.
+
+The robotic construction challenge consisted of qualifiers at UCF from May 12 
+to May 17 where teams had the opportunity to complete a 10 minute practice run 
+and two 15 minute qualifying runs. The top 10 teams moved onto the finals at 
+KSC from May 19 to May 21 and competed in one 30 minute run and one 20 minute 
+run (shortened from 30 minutes due to time constraints).
+
+In addition to robotic construction, the Lunabotics Challenge has three other 
+deliverables comprising the total score: a report on how systems engineering 
+was utilized throughout the robot design process, a presentation and 
+demonstration of the robot to NASA and industry professionals, and a report 
+on engagement with local STEM companies and community leaders.
+
+Over the past nine months, our student-run team of 105 members worked hard 
+to design, fabricate, program, and test our robot for this competition. Every 
+year, we start from the drawing board analyzing NASA’s guidebook and devising 
+how we want to win the competition.
+
+This year, due to our large member size, we were able to take two completely 
+different approaches to our robot design. We developed two different robot 
+systems in parallel throughout the year, fully constructed each, and tested 
+them in competition simulations to determine which was the best to bring to 
+competition. From that process, we determined the one-robot system was the 
+robot we should bring to the competition.
+
+On May 10, we performed final tests on the robot, disassembled it for transport, 
+and packed it away for the 800 mile drive from Charlottesville to Orlando. 
+On May 11 early in the morning, we departed for competition.
+
+# UCF
+
+### First team in pits, first practice run
+
+Early in the morning on May 12, we unloaded our robot, Bruno, and all our tools 
+at the UCF pits, where teams have a space to prepare their robots for competition 
+runs. Arriving at UCF an hour before check-ins began, we were the first team 
+there giving us ample time to prepare our robot before practice runs even began. 
+In the two days prior to the start of official qualifying runs at UCF, teams are 
+given the opportunity to have a practice run. Last year, we were the first team 
+to have a practice run due to our level of preparation. Coming into UCF this 
+year, we aimed to repeat being the first team to have a practice run, and we were 
+able to do just that. We signed up for the first practice run time slot as soon as 
+we were able to, and once the time was confirmed we began a thorough inspection 
+of our robot, Bruno, ensuring that all features would work as intended in the UCF 
+Exolith Arena.
+
+When it was time for our [practice run](https://www.youtube.com/live/MpGzeJDk9-w?si=GVHJV2O8QUTl2_sk&t=1923), 
+we were fully ready and confident about Bruno’s performance. We were prepared in 
+every way for this practice run with check lists for everyone involved in the run, 
+including the mission control personnel controlling Bruno and the arena personnel 
+in charge of setting up Bruno inside the arena. During our practice run, Bruno 
+operated as expected, and we were able to test all features of our plan for the 
+official competition runs, including autonomous actions and a unique driving method 
+that we call drum drive: traversing the arena using the excavation drums rather 
+than the wheels of the robot.
+
+import exolith from '../../assets/images/about/2026/UCF Exolith.png';
+
+<CenterRow>
+    <Image src={exolith} alt="UCF Exolith" height="445px"/>
+</CenterRow>
+
+### Runs at UCF
+
+Our [first run](https://www.youtube.com/live/bnHTBy5lAvI?si=Mf2ft-2CaRCzvfks&t=18717) 
+at UCF took place on May 14 and our [second run](https://www.youtube.com/live/KpqKq_c-gao?si=PfJO0L0mx2XsGxL_&t=21168) 
+took place on May 16. Building off the lessons learned during our practice run, 
+both of our UCF runs went largely according to plan. The one notable hiccup 
+occurred halfway into both of our runs during the dumping operation, when our 
+robot accidentally tipped over. Tipping had always been a major risk going into 
+competition, given the imbalance created when dumping one side of our robot at 
+a time. To mitigate this, we had practiced tipping recovery extensively before 
+competition. That preparation paid off: when our robot tipped mid-run, our 
+driver recovered quickly, allowing us to continue building large berms without 
+significant time loss.
+
+Competing in a lunar regolith simulant at UCF also taught us a great deal about 
+our robot's capabilities. The robot’s skid steer drivetrain handled wonderfully, 
+exceeding our expectations based on testing in sand volleyball courts at UVA. We 
+had also been concerned that our drums might not fill to designed capacity in 
+regolith since the material could potentially flow out or clog prematurely. 
+Instead, the drums again exceeded expectations, and we found that regolith can 
+fill them well above our 50% designed capacity. Out of caution around tipping, 
+however, we tried to avoid overfilling the drums, so their true maximum fill 
+capacity remains to be determined.
+
+import brunoTipping from '../../assets/images/about/2026/Bruno Tipping.mp4';
+import brunoDig from '../../assets/images/about/2026/Bruno Dig.mp4';
+
+<CenterRow>
+    <video style="height: 260px" controls>
+        <source src={brunoTipping} type="video/mp4" />
+        Video of Bruno tipping and recovering. Your browser does not support HTML video.
+    </video>
+    <video style="height: 260px" controls>
+        <source src={brunoDig} type="video/mp4" />
+        Video of Bruno digging. Your browser does not support HTML video.
+    </video>
+</CenterRow>
+
+### UCF Results
+
+After two solid runs and sizable berms built, we were confident that we had a 
+slot in the top 10 locked up. On top of our berm-building abilities, we were also 
+one of the lightest robots at the competition and were able to successfully 
+execute all of our planned autonomy routines — both huge advantages in point 
+scoring. Given these metrics, we knew we would be somewhere near the top, but we 
+couldn’t be sure just how well we shaped up to the rest of the competition until 
+the awards ceremony.
+
+At the awards ceremony, the first award we received was a superlative for 
+building the largest berm of any team in a competition run. Next, we learned that 
+we scored the third most autonomy points in the qualifiers despite it being the 
+first time we had ever attempted autonomous routines in our history. With these 
+two victories already disclosed, it was a surprise to no one when we were 
+announced as the number one scoring team, and the first to book their tickets to 
+the finals at KSC.
+
+We didn’t know it at the time, but we had just put up an unprecedented 
+performance at UCF. When detailed scoring breakdowns were released later, we 
+learned just how far ahead of the competition we were. Our two runs totaled to a 
+combined score of 3703 points, with second place being a staggering 1200 points 
+behind us. For perspective, the previous year’s UCF winner scored a total of 
+around 1800 points, a metric that we topped with just our first run alone, which 
+scored over 2000 points. It was safe to say we were heavy favorites coming into 
+KSC.
+
+import UCFFirst from '../../assets/images/about/2026/UCF First Place.jpg';
+
+<CenterRow>
+    <Image src={UCFFirst} alt="UCF First Place" height="445px"/>
+</CenterRow>
+
+# KSC
+
+### Run 1: A wheel falls off
+
+We had our [first run](https://www.youtube.com/live/6TjQcgX_XBo?si=Hxl0RhiujX012F37&t=19402) 
+at KSC on May 19, and we were the second team to have a competition run at the finals. 
+In preparation for our first run at KSC, the team performed our standard inspection 
+procedure. Having completed these steps in UCF multiple times, we moved through 
+inspection smoothly and felt ready for our first run at finals. After the mission 
+control and arena personnel went into their designated locations, the rest of the 
+team stood together to watch our first run at the KSC finals.
+
+import watching from '../../assets/images/about/2026/Peanut Gallery.jpg';
+
+<CenterRow>
+    <Image src={watching} alt="Team Watches Robot" height="400px"/>
+</CenterRow>
+
+Relative to how smoothly things went at UCF, our run started out rough. On our 
+first cycle, we accidentally ran our dump autonomy script with the wrong 
+direction selected, costing us time and  half of that cycle’s material. A couple 
+cycles later, our first attempt at traversal autonomy failed, and we drove 
+directly into a rock. There were no damages to the robot, but we were struggling 
+to get into the groove that let our robot berm build at its best. The KSC arena 
+was proving incredibly hostile — a much denser obstacle field and a more 
+challenging regolith simulant made maneuvering around the arena much less 
+consistent and reliable.
+
+While the run wasn’t going as perfectly as we had hoped, we had no idea how much 
+worse it was going to get. 12 minutes into the run, as we were making a turn to 
+line up for our second attempt at traversal autonomy, one of our wheels completely 
+broke off of the robot — a run ending failure. Our hearts dropped as we watched 
+our hopes of winning, everything we worked towards for the whole year, disappear 
+in an instant.
+
+However, our members in mission control were not discouraged, and with seemingly 
+nothing left to lose, decided to continue with the rest of the run with only 
+three wheels. In order to drive while missing a wheel, we lowered our bucket 
+drums into the regolith surface, lifting the remaining three wheels from the 
+surface, and began traversing in the regolith with the drums spinning. This was a 
+method of traversal we have practiced before during testing sessions at the UVA 
+sand volleyball courts as well as in our UCF practice run. Therefore, we knew 
+beforehand that this alternative traversal method was an option for us in case it 
+was needed in a run. This drum traversal was very effective at moving in one 
+direction quickly, and garnered many cheers from the other teams watching our run. 
+In addition to drum traversal, we attempted driving and turning with only three 
+wheels. Despite never testing these maneuvers before, we found them to work well 
+enough to help us complete three more dump cycles in the remaining time of our run.
+
+As the arena crew carried Bruno back into the pits, we were met with applause and 
+cheers from the crowd as other teams came up to us and commended us on the run.
+
+import brunoDrumDrive from '../../assets/images/about/2026/Bruno Drum Drive.mp4';
+import brunoWheelyDriving from '../../assets/images/about/2026/Bruno Wheely Driving.mp4';
+
+<CenterRow>
+    <video style="height: 260px" controls>
+        <source src={brunoDrumDrive} type="video/mp4" />
+        Video of Bruno driving on its drums after its wheels fell off. Your browser does not support HTML video.
+    </video>
+    <video style="height: 260px" controls>
+        <source src={brunoWheelyDriving} type="video/mp4" />
+        Video of Bruno driving on three wheels and dumping. Your browser does not support HTML video.
+    </video>
+</CenterRow>
+
+### Run 2: Comeback
+
+On May 20, we had our [second run](https://www.youtube.com/live/wdADLct6T7c?si=GuHnFkhxOYG-Gcas&t=28973) 
+at KSC. We were incredibly nervous in anticipation of this run as we knew that it 
+had to be near perfect in order to offset the points we lost in our first KSC run. 
+This second run would determine our placement in the berm construction category and 
+therefore our overall placement in the competition. Although a wheel fell off in our 
+first KSC run, we knew that we still had a chance to place in the top three of the 
+competition, and possibly even first place. Despite operating with only three wheels 
+for the majority of our first run, we still built a sizable berm that even exceeded 
+some of the other teams.
+
+Based on the near catastrophic event of our first run, we had a plan to ensure 
+that our second KSC run would go without a major hiccup. Anticipating any issues 
+that may happen, we brought many backup wheels and drums to the competition. 
+Because of this, we decided as a team to switch out our plastic wheels with 
+backup metal wheels. We had a group of mechanical members come into the KSC pits 
+early in the morning to ensure we had enough time to switch out our plastic 
+wheels to the metal wheels along with the general inspection checks we perform 
+prior to a run.
+
+import backups from '../../assets/images/about/2026/Backup Wheels and Drums.jpg';
+import metalWheels from '../../assets/images/about/2026/Bruno Pits Metal Wheels.jpg';
+
+<CenterRow>
+    <Image src={backups} alt="Backup Wheels and Drums" height="350px"/>
+    <Image src={metalWheels} alt="Robot with Metal Wheels" height="350px"/>
+</CenterRow>
+
+### Awards Ceremony
+
+We won 6 awards at KSC, the most of any team at competition.
+
+On Wednesday, May 20th, we won [2nd place in systems engineering](https://www.youtube.com/live/wdADLct6T7c?si=ZFHKC6ROJd-EMVJX&t=17495).
+
+During the lunch break on Thursday, May 21st, we received the [Innovation Award](https://www.youtube.com/live/yyLjc4PaIlw?si=dAEAk9_qVCOvSqH_&t=15070), 
+presented by Rob Mueller. Mueller set the stage by telling the crowd that this 
+award is rooted in doing something that has never been done before, and that NASA 
+wanted to learn something from the winner. He described how this year, one team 
+took the IPEx robot — a double-bucket drum mining robot going to the Moon in 2029 
+which NASA thought it knew very well — and innovated with our novel drum design, 
+reimagining a subject that had been deeply studied by the space agency for 
+decades. Mueller went on to our perseverance after one of our wheels broke off 
+the chassis: “The second thing they did is they failed. They failed badly.” But 
+rather than stopping with three wheels, we kept going. As he put it, dozens of 
+teams would have walked away after a failure like that, but we refused. And 
+through it all, he noted, we were laughing, wearing silly hats, and having a good 
+time. Mueller called that spirit the third pillar of true innovation: staying 
+relaxed, maintaining a good attitude, and holding the team together when things 
+fall apart.
+
+During the awards ceremony on Thursday, May 21st, we won four more awards. The 
+University of Virginia was featured at every segment of the awards ceremony and 
+were constantly called to the stage.  
+
+We won [2nd place in autonomy](https://www.youtube.com/live/yyLjc4PaIlw?si=OWTsgmrXbpfiNOBJ&t=32472), 
+presented by Caterpillar, which came with a certain irony we couldn’t help but 
+appreciate. Our “autonomy” had no intelligence at all. It was simply a combination 
+of predetermined values and recorded inputs played back during our runs, with no 
+adaptive decision-making whatsoever. What we did have was a thorough reading of the 
+rulebook; we had dissected the scoring criteria well enough and chose a path that 
+maximized our points while minimizing effort and risk. The fact that this approach 
+earned us 2nd place in an autonomy category says less about our robot's intelligence 
+and more about having a reliable system.
+
+Before the grand prize was announced, we received a [Special Recognition for Mission Excellence](https://www.youtube.com/live/yyLjc4PaIlw?si=dhXS7tPSQ-np5vq-&t=32628), 
+presented by Rebecca Mazzone, who spoke about how we genuinely stood out during 
+our time in the Mission Control Center. She described a team that was positive, 
+professional, calm, and cohesive across every scenario, one that communicated 
+effectively and presented what she called “genuine unity.” She added that this 
+team seemed to enjoy being in it together, and that their resilience under 
+pressure was exactly the kind of quality NASA looks for in its young engineers.
+
+Afterwards, we placed [2nd in berm construction](https://www.youtube.com/live/yyLjc4PaIlw?si=V4BIFzg6TycoPtiY&t=33355), 
+which was shocking considering the fact that we had lost a wheel in our first run, 
+which severely hampered our ability to construct berms. 
+
+Saving the best for last, we won the [Artemis Off World Grand Prize](https://www.youtube.com/live/yyLjc4PaIlw?si=XpGNIfdECQTi_Kla&t=33470). 
+Mueller described the honor simply: it is a combination of everything, and it 
+goes not to the team with the biggest berm, but to the team with the best system.
+
+<PhotoGallery folder="about/2026/awards" width="800px" height="460px" />
+
+# Non-Robot Activities at Competition  
+
+While winning Lunabotics took a lot of hard work from everyone, we also found 
+plenty of time for some fun activities.
+
+### CAT Command
+
+One of the staples of Lunabotics is the CAT Command challenge, where participants 
+are tasked with remotely teleoperating a CAT vehicle through a designated course 
+as fast as possible. While most teams take this as a light challenge for fun, for 
+us, it’s just as important as the main competition. To maximize our chances of 
+success, we had as many people as we could attempt the challenge, as well as 
+watching each other’s runs to get familiar with the course and glean optimal 
+strategies. At UCF, we had a total of 20 members complete the challenge, which 
+was the most out of any school at the competition. We also partook in CAT’s social 
+media challenge, where our Instagram reel highlighting our experience with the 
+challenge garnered the second most likes out of any school, and was the most 
+appreciated by the CAT judges. Despite our best efforts and chalance, none of our 
+members were able to score a time within the top three, with our best member being 
+only 8 seconds away from a podium finish.
+
+At KSC, a new CAT Command challenge appeared, giving us a chance to redeem our 
+lackluster performance at UCF. While our quantity of participants took a slight 
+dip, our quality skyrocketed. We had 14 members attempt the challenge, still the 
+most out of any school, and completely [swept the fastest times leaderboard](https://www.youtube.com/live/yyLjc4PaIlw?si=jgWcAX_70FW7FwuG&t=31669). 
+Our members occupied first, second, third, fourth, and sixth place at competition, 
+with times that rivaled even the trained CAT operators themselves.
+
+import catCommand from '../../assets/images/about/2026/Gabriel CAT Command.jpg';
+
+<CenterRow>
+    <Image src={catCommand} alt="Gabe does CAT Command" height="400px"/>
+</CenterRow>
+
+Our winning didn’t end there, however. At the UCF awards ceremony, CAT showed off 
+the music video of their rap song “Dozer Pride”, which was met with overwhelmingly 
+positive reception from the crowd. In response, CAT put out a challenge to teams 
+to learn the dozer rap and perform it for them live at KSC. With a new challenge 
+to conquer, we sprang into action, and listened to nothing but dozer rap on repeat 
+for the next few days. We hosted rehearsals until every single one of our members 
+knew the rap by heart. Once we were ready, we gave a live performance to the 
+harbinger of the challenge, Eric Reiner, on his birthday nonetheless. Needless to 
+say it was a smashing success, and as the only team that took the challenge 
+seriously, we were named the undisputed champions of [dozer rap](https://www.youtube.com/live/yyLjc4PaIlw?si=lgGK2-Nae3-M0DCB&t=31830).
+
+For our efforts in both CAT command and dozer rap, we were awarded the entire 
+spoils of CAT merchandise, and left KSC dripped out in CAT branded safety glasses, 
+caps, and backpacks.
+
+### UCF Mixer
+
+Another big portion of our team’s time, particularly at UCF, was spent talking to 
+and scouting other teams and their robots. Members gained insights into how other 
+teams approached the challenge and learned about the different designs that each 
+team had. While we learned a lot of valuable information that will help inform 
+and motivate our design decisions in the future, we also began to form more 
+personal connections with other teams. 
+
+Following the UCF awards ceremony, we hosted a dinner at a nearby plaza with 8 
+different teams and more than 80 students in attendance.
+
+### More Photos!
+
+<PhotoGallery folder="about/2026/misc" width="800px" height="500px" />
+
+# List of Awards
+
+1. Finals at Kennedy Space Center:
+   - Artemis Off World Grand Prize
+   - Innovation Award
+   - 2nd place Construction
+   - 2nd place Autonomy
+   - 2nd place Systems Engineering Paper
+   - Special Recognition for Mission Excellence
+2. Qualifiers at University of Central Florida:
+   - 1st place construction
+   - Biggest berm
+
+Out of
+- 73 teams that applied to Lunabotics
+- teams that competed at UCF
+- 10 teams that competed at KSC
+
+# Competition Team Members
+1. [Nayeon Son](https://www.linkedin.com/in/nayeon-son-2775a3310/) 
+    - 2026 Grad
+    - Mechanical Engineering
+    - President
+2. [Craig Kalkwarf](https://www.linkedin.com/in/craigkalkwarf/)
+    - 2026 Grad
+    - Aerospace Engineering & Astronomy
+    - Senior Mechanical Lead
+3. [Carlos Giron](https://www.linkedin.com/in/carlosgiron256/)
+    - 2026 Grad
+    - Biomedical Engineering
+    - Electrical Lead
+4. [Gabriel Estrella](https://www.linkedin.com/in/gabrielestrella0/)
+    - 2026 Grad
+    - Civil Engineering
+    - Mechanical member
+5. [Rishi Kandimalla](https://www.linkedin.com/in/rishikandimalla/)
+    - 2026 Grad
+    - Computer Science
+    - Computer member
+6. [Zachary Parsia](https://www.linkedin.com/in/zachary-parsia-906279276/)
+    - 4th year
+    - Mechanical Engineering
+    - Mechanical Lead
+7. [Eric Paschke](https://www.linkedin.com/in/eric-paschke-9b441229b/)
+    - 4th year
+    - Computer Science
+    - Treasurer
+8. [Richard Corp](https://www.linkedin.com/in/richard-corp-397832204/)
+    - 4th year
+    - Electrical Engineering
+    - Mechanical Member
+9. [Amith Polineni](https://www.linkedin.com/in/amithpolineni/)
+    - 3rd year
+    - Mechanical Engineering
+    - Vice President
+10. [Ivan Post](https://www.linkedin.com/in/ivanp46971/)
+    - 3rd year
+    - Computer Science
+    - Systems Engineering Lead
+11. [Taylor Levitas](https://www.linkedin.com/in/taylorlevitas/)
+    - 3rd year
+    - Mechanical & Aerospace Engineering
+    - Mechanical Lead
+12. [Jayrady Sok](https://www.linkedin.com/in/jayrady/)
+    - 3rd year
+    - Computer & Electrical Engineering
+    - Electrical Lead
+13. [Eric Zeng](https://www.linkedin.com/in/ericzeng2/)
+    - 3rd year
+    - Computer Science
+    - Computer Lead
+14. [Jameson Brocato](https://www.linkedin.com/in/jameson-brocato-492097336/)
+    - 3rd year
+    - Mechanical Engineering
+    - Manufacturing Lead
+15. [Diana Lin](https://www.linkedin.com/in/dianalin2/)
+    - 3rd year
+    - Computer & Electrical Engineering
+    - Electrical and Computer member
+16. [Luke Oliver](https://www.linkedin.com/in/luke-oliver-762aa2286/) 
+    - 2nd year
+    - Electrical Engineering
+    - Electrical member
+17. [Ethan Edwards](https://www.linkedin.com/in/ethan-edwards-14b537367/)
+    - 2nd year
+    - Computer Science
+    - Computer member
+18. [Patrick Duggan](https://www.linkedin.com/in/patrick-duggan-324034380/)
+    - 2nd year
+    - Aerospace Engineering
+    - Mechanical member
+19. [Luke Sun](https://www.linkedin.com/in/lukewsun/)
+    - 2nd year
+    - Mechanical Engineering
+    - Mechanical member
+20. [Jingyi Li](https://www.linkedin.com/in/jingyi-li-9a98aa37a/)
+    - 2nd year
+    - Electrical & Computer Engineering
+    - Electrical member
+21. [Cole Luba](https://www.linkedin.com/in/cole-luba/)
+    - 2nd year
+    - Electrical Engineering
+    - Electrical member
+22. [Cameron Spears](https://www.linkedin.com/in/c-spears/)
+    - 2nd year
+    - Chemical Engineering
+    - Computer Lead
+
+Faculty Advisor: [Natasha Smith](https://www.linkedin.com/in/smith-natasha-b0772763/) (Professor Mechanical and Aerospace Engineering)

@@ -58,6 +58,19 @@ const blog = defineCollection({
   })
 });
 
+const about = defineCollection({
+  loader: glob({
+    pattern: './src/content/about/*.mdx'
+  }),
+  schema: z.object({
+    title: z.string(),
+    slug: z.string(),
+    content: z.string().optional(),
+    background: z.string().optional(),
+    blurb: z.string().optional(),
+  })
+});
+
 const years = defineCollection({
   loader: file("./src/content/years.yaml", {
     parser: (data) => parse(data).map((item: { year: number }) => ({
@@ -81,5 +94,6 @@ const years = defineCollection({
 export const collections = {
   people,
   blog,
+  about,
   years,
 };

@@ -9,6 +9,7 @@ interface HistoryEvent {
     image: ImageMetadata;
     robot?: ImageMetadata;
     backgroundHeight?: string;
+    link?: { label: string; href: string };
 }
 
 const { events } = Astro.props as { events: HistoryEvent[] };
@@ -70,7 +71,15 @@ const markerPosition = (index: number) => {
                     >
                         <h1>{event.title}</h1>
                         <div class="event-divider" aria-hidden="true"></div>
-                        <p class="event-blurb">{event.blurb}</p>
+                        <p class="event-blurb">
+                            {event.blurb}
+                            {event.link && (
+                                <>
+                                    {" "}
+                                    <a href={event.link.href}>{event.link.label}</a>
+                                </>
+                            )}
+                        </p>
                     </article>
                 ))
             }
@@ -514,6 +523,15 @@ const markerPosition = (index: number) => {
         font-size: clamp(0.9rem, 1.05vw, 1.2rem);
         line-height: 1.5;
         box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .event-blurb a {
+        position: relative;
+        z-index: 1;
+        color: inherit;
+        text-decoration: underline;
+        pointer-events: auto;
+        cursor: pointer;
     }
 
     .event-divider {
