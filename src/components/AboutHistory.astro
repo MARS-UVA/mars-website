@@ -7,6 +7,7 @@ interface HistoryEvent {
     title: string;
     blurb: string;
     image: ImageMetadata;
+    robot?: ImageMetadata;
     backgroundHeight?: string;
 }
 
@@ -44,6 +45,21 @@ const markerPosition = (index: number) => {
         <div class="history-shade" aria-hidden="true"></div>
         <div class="starfield" aria-hidden="true"></div>
 
+        {
+            events.map(
+                (event, index) =>
+                    event.robot && (
+                        <div
+                            class:list={["robot-frame", { active: index === events.length - 1 }]}
+                            data-robot-frame={index}
+                            aria-hidden="true"
+                        >
+                            <img class="robot-image" src={event.robot.src} alt="" />
+                        </div>
+                    ),
+            )
+        }
+
         <div class="event-copy" aria-live="polite">
             {
                 events.map((event, index) => (
@@ -52,8 +68,9 @@ const markerPosition = (index: number) => {
                         data-event={index}
                         aria-hidden={index !== events.length - 1}
                     >
-                        <p class="event-blurb">{event.blurb}</p>
                         <h1>{event.title}</h1>
+                        <div class="event-divider" aria-hidden="true"></div>
+                        <p class="event-blurb">{event.blurb}</p>
                     </article>
                 ))
             }
@@ -101,6 +118,9 @@ const markerPosition = (index: number) => {
         const events = Array.from(section.querySelectorAll<HTMLElement>("[data-event]"));
         const backgrounds = Array.from(
             section.querySelectorAll<HTMLElement>("[data-background]"),
+        );
+        const robotFrames = Array.from(
+            section.querySelectorAll<HTMLElement>("[data-robot-frame]"),
         );
         const markers = Array.from(
             section.querySelectorAll<HTMLButtonElement>("[data-marker]"),
@@ -194,6 +214,12 @@ const markerPosition = (index: number) => {
             });
             backgrounds.forEach((background, eventIndex) => {
                 background.classList.toggle("active", eventIndex === index);
+            });
+            robotFrames.forEach((robotFrame) => {
+                robotFrame.classList.toggle(
+                    "active",
+                    Number(robotFrame.dataset.robotFrame) === index,
+                );
             });
             markers.forEach((marker, eventIndex) => {
                 const isActive = eventIndex === index;
@@ -417,8 +443,44 @@ const markerPosition = (index: number) => {
             radial-gradient(1.5px 1.5px at 96% 87%, #fff 60%, transparent 100%);
     }
 
+    .robot-frame {
+        position: absolute;
+        z-index: 3;
+        top: clamp(20px, 4vw, 48px);
+        left: clamp(20px, 3vw, 36px);
+        width: clamp(128px, 26vw, 280px);
+        aspect-ratio: 1;
+        overflow: hidden;
+        border: 5px solid #fff;
+        border-radius: 50%;
+        background: var(--night);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 700ms ease,
+            visibility 0s linear 700ms;
+    }
+
+    .robot-frame.active {
+        opacity: 1;
+        visibility: visible;
+        transition:
+            opacity 700ms ease,
+            visibility 0s;
+    }
+
+    .robot-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 55%;
+    }
+
     .event-copy {
-        --event-orbit-gap: 48px;
+        --event-orbit-gap: 16px;
         position: absolute;
         z-index: 3;
         top: 0;
@@ -444,14 +506,22 @@ const markerPosition = (index: number) => {
     .event-blurb {
         width: fit-content;
         max-width: min(640px, 100%);
-        margin: 0 auto 18px;
-        padding: 10px 18px;
+        margin: 16px auto 18px;
+        padding: 8px 18px;
         border-radius: 12px;
-        background: rgba(245, 181, 102, 0.9);
+        background: rgba(245, 181, 102, 1);
         color: #17192a;
-        font-size: clamp(0.9rem, 1.1vw, 1.2rem);
+        font-size: clamp(0.9rem, 1.05vw, 1.2rem);
         line-height: 1.5;
         box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .event-divider {
+        width: min(360px, 55%);
+        height: 3px;
+        margin: 10px auto 0;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
     }
 
     .event h1 {
@@ -579,13 +649,20 @@ const markerPosition = (index: number) => {
             object-position: center 55%;
         }
 
+        .robot-frame {
+            top: 16px;
+            left: 16px;
+            width: clamp(84px, 23vw, 128px);
+            border-width: 3px;
+        }
+
         .event-copy {
             width: calc(100% - 28px);
         }
 
         .event-blurb {
-            margin-bottom: 14px;
-            padding: 12px 18px;
+            margin-top: 10px;
+            padding: 0 8px;
         }
 
         .event h1 {
@@ -607,6 +684,7 @@ const markerPosition = (index: number) => {
 
     @media (prefers-reduced-motion: reduce) {
         .history-background,
+        .robot-frame,
         .event,
         .marker-dot,
         .moon,

@@ -1,14 +1,18 @@
 ---
 import AboutHistory from "../components/AboutHistory.astro";
 import Layout from "../layouts/Layout.astro";
-import hero from "../assets/images/Hero.png";
-import p2022 from "../assets/images/Meatball2022.jpg";
-import p2023 from "../assets/images/MARSTeam2023.jpg";
-import p2024 from "../assets/images/Comp2024.jpg";
-import p2025 from "../assets/images/Meatball2025.jpeg";
+
+import hero from "../assets/images/HeroRotated.png";
+import p2022 from "../assets/images/group_pics/Meatball2022.jpg";
+import p2023 from "../assets/images/group_pics/MARSTeam2023.jpg";
+import p2024 from "../assets/images/group_pics/Comp2024.jpg";
+import p2025 from "../assets/images/group_pics/Meatball2025.jpeg";
 import p2026 from "../assets/images/Meatball2026.jpg";
 import urc from "../assets/images/URCPlaceholder.jpg";
-import int from "../assets/images/MeatballInt.png";
+import int from "../assets/images/group_pics/MeatballInt.png";
+
+import artie from "../assets/images/robots/Artie.png";
+import bruno from "../assets/images/robots/Bruno.jpg";
 
 const history = [
     {
@@ -65,6 +69,7 @@ const history = [
         blurb:
             "Artie with its vertical bucket drum won us 5th place overall.",
         image: p2025,
+        robot: artie,
         backgroundHeight: "50%",
     },
     {
@@ -73,6 +78,7 @@ const history = [
         blurb:
             "Our robot, Bruno, with a novel bucket drum design, helped us win the grand prize!",
         image: p2026,
+        robot: bruno,
     },
     {
         year: "URC",
@@ -87,7 +93,8 @@ const history = [
         blurb:
             "We competed in the first International Lunabotics Competition and despite some rocky obstacles, won 3rd place.",
         image: int,
-        backgroundHeight: "70%",
+        robot: bruno,
+        backgroundHeight: "60%",
     },
 ];
 ---
